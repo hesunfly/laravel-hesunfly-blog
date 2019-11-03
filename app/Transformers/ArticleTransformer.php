@@ -1,0 +1,27 @@
+<?php
+
+namespace App\Transformers;
+
+use App\Models\Article;
+use League\Fractal\TransformerAbstract;
+
+class ArticleTransformer extends TransformerAbstract
+{
+    public function transform(Article $model)
+    {
+        return [
+            'id' => $model->id,
+            'title' => $model->title,
+            'description' => $model->description,
+            'slug' => $model->slug,
+            'cover_img' => $model->cover_img,
+            'view_count' => $model->view_count,
+            'content' => $model->content,
+            'html_content' => $model->html_content,
+            'status' => $model->status,
+            'is_comment' => $model->is_comment,
+            'publish_at' => $model->publish_at->toDateTimeString(),
+            'updated_at' => $model->updated_at->toDateTimeString(),
+        ];
+    }
+}
