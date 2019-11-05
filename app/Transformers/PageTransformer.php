@@ -12,7 +12,7 @@ class PageTransformer extends TransformerAbstract
         return [
             'id' => $model->id,
             'title' => $model->title,
-            'uri' => $model->uri,
+            'slug' => $model->slug,
             'sort' => $model->sort,
             'content' => $model->content,
             'html_content' => $model->html_content,

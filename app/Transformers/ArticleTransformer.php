@@ -19,7 +19,7 @@ class ArticleTransformer extends TransformerAbstract
             'content' => $model->content,
             'html_content' => $model->html_content,
             'status' => $model->status,
-            'is_comment' => $model->is_comment,
+            'comment_status' => $model->comment_status,
             'publish_at' => $model->publish_at->toDateTimeString(),
             'updated_at' => $model->updated_at->toDateTimeString(),
         ];

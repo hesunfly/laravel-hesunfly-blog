@@ -24,6 +24,8 @@ class CreateUsersTable extends Migration
             $table->string('login_ip')->default('');
             $table->timestamps();
             $table->softDeletes();
+            $table->index('name');
+            $table->index('email');
         });
     }
 

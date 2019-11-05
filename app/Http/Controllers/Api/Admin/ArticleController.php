@@ -15,7 +15,7 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        $articles = Article::select(['id', 'title', 'description', 'status', 'sort', 'view_count', 'is_comment', 'updated_at', 'publish_at'])->orderByRaw('sort desc, publish_at desc')->paginate(10);
+        $articles = Article::select(['id', 'title', 'description', 'status', 'sort', 'view_count', 'comment_status', 'updated_at', 'publish_at'])->orderByRaw('sort desc, publish_at desc')->paginate(10);
 
         return $this->response->paginator($articles, new ArticlesTransformer());
     }
@@ -30,7 +30,7 @@ class ArticleController extends Controller
             'cover_img',
             'sort',
             'status',
-            'is_comment',
+            'comment_status',
             'content',
         ]);
         $requestPage['html_content'] = MarkdownService::toHtml($request->input('content'));
@@ -80,7 +80,7 @@ class ArticleController extends Controller
             'cover_img',
             'sort',
             'status',
-            'is_comment',
+            'comment_status',
             'content',
         ]);
         $requestPage['html_content'] = MarkdownService::toHtml($request->input('content'));

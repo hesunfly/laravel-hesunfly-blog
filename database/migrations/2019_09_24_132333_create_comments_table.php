@@ -21,8 +21,11 @@ class CreateCommentsTable extends Migration
             $table->text('comment_html_content');
             $table->tinyInteger('status')->default(-1)->comment('状态 @-1 未审核, @1 已审核');
             $table->string('ip_address');
-            $table->unsignedInteger('replay_id');
+            $table->unsignedInteger('replay_id')->default(0);
             $table->timestamps();
+            $table->index('article_id');
+            $table->index('comment_user_id');
+            $table->index('replay_id');
         });
     }
 

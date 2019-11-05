@@ -22,7 +22,7 @@ class PageController extends Controller
     {
         $requestPage = $request->only([
             'title',
-            'uri',
+            'slug',
             'sort',
             'status',
             'comment_status',
@@ -55,7 +55,7 @@ class PageController extends Controller
 
         $requestPage = $request->only([
             'title',
-            'uri',
+            'slug',
             'sort',
             'status',
             'comment_status',

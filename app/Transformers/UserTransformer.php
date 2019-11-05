@@ -3,7 +3,6 @@
 namespace App\Transformers;
 
 use App\Models\User;
-use App\Models\Userinfo;
 use League\Fractal\TransformerAbstract;
 
 class UserTransformer extends TransformerAbstract
@@ -27,7 +26,7 @@ class UserTransformer extends TransformerAbstract
 
     public function includeProfile(User $model)
     {
-        return $this->item($model->profile, new UserInfoTransformer());
+        return $this->item($model->profile, new ProfileTransformer());
     }
 
 }

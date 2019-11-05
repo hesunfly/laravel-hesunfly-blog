@@ -13,14 +13,14 @@ class CreateUserinfoTable extends Migration
      */
     public function up()
     {
-        Schema::create('userinfo', function (Blueprint $table) {
+        Schema::create('profiles', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->tinyInteger('gender')->default(0)->comment('性别 @0：未知，@1：男，@2：女');
             $table->string('avatar')->default('');
             $table->string('description')->default('');
             $table->string('homepage')->default('');
-            $table->string('realname')->default('');
+            $table->string('real_name')->default('');
             $table->string('qq')->default('');
             $table->string('wechat')->default('');
             $table->string('weibo')->default('');

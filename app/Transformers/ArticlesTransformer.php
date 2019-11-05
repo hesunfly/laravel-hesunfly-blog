@@ -16,7 +16,7 @@ class ArticlesTransformer extends TransformerAbstract
             'view_count' => $model->view_count,
             'sort' => $model->sort,
             'status' => $model->status,
-            'is_comment' => $model->is_comment,
+            'comment_status' => $model->comment_status,
             'publish_at' => $model->publish_at->toDateTimeString(),
             'updated_at' => $model->updated_at->toDateTimeString(),
         ];

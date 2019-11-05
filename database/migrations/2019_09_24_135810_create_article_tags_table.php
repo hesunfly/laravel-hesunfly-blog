@@ -19,6 +19,8 @@ class CreateArticleTagsTable extends Migration
             $table->unsignedInteger('article_id');
             $table->timestamps();
             $table->softDeletes();
+            $table->index('tag_id');
+            $table->index('article_id');
         });
     }
 

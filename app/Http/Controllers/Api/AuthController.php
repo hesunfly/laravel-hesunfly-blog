@@ -6,12 +6,11 @@ use App\Events\LoginLogEvent;
 use App\Events\UpdateLoginIpEvent;
 use App\Http\Requests\AuthRequest;
 use App\Models\User;
-use App\Models\Userinfo;
+use App\Models\Profile;
 use App\Services\VerifyCode;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Laravel\Socialite\Facades\Socialite;
-use Torann\GeoIP\Facades\GeoIP;
 
 class AuthController extends Controller
 {
@@ -40,7 +39,8 @@ class AuthController extends Controller
             'password' => $request->password,
         ]);
 
-        Userinfo::create(['user_id' => $user->id]);
+        Profile::create(['user_id' => $user->id]);
+
         DB::commit();
 
         return $this->response->created();
@@ -80,7 +80,7 @@ class AuthController extends Controller
                 'github' => $github->user['html_url'],
             ]);
 
-            Userinfo::create(['user_id' => $user->id]);
+            Profile::create(['user_id' => $user->id]);
 
             return $this->response->created();
         }

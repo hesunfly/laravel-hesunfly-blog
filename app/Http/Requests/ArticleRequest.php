@@ -21,7 +21,7 @@ class ArticleRequest extends Request
                     'slug' => ['bail', 'required', 'string', 'unique:articles'],
                     'sort' => ['bail', 'required', 'numeric'],
                     'status' => ['bail', 'required', Rule::in([-1, 1])],
-                    'is_comment' => ['bail', 'required', Rule::in([-1, 1])],
+                    'comment_status' => ['bail', 'required', Rule::in([-1, 1])],
                     'content' => ['bail', 'required', 'string'],
                     'tags' => ['required', 'string', new CheckTag()]
                 ];
@@ -34,7 +34,7 @@ class ArticleRequest extends Request
                     'slug' => ['bail', 'required', 'string', Rule::unique('articles')->ignore($this->id)],
                     'sort' => ['bail', 'required', 'numeric'],
                     'status' => ['bail', 'required', Rule::in([-1, 1])],
-                    'is_comment' => ['bail', 'required', Rule::in([-1, 1])],
+                    'comment_status' => ['bail', 'required', Rule::in([-1, 1])],
                     'content' => ['bail', 'required', 'string'],
                     'tags' => ['required', 'string', new CheckTag()]
                 ];

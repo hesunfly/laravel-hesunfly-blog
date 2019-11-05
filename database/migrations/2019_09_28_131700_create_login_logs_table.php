@@ -20,6 +20,7 @@ class CreateLoginLogsTable extends Migration
             $table->string('address');
             $table->timestamps();
             $table->softDeletes();
+            $table->index('user_id');
         });
     }
 
