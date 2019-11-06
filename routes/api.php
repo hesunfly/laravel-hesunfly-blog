@@ -109,7 +109,6 @@ $api->version('v1', [
                     $api->put('save/{id}', 'ArticleController@save')->name('articles.save');
                     $api->delete('destroy/{id}', 'ArticleController@destroy');
                 });
-
             });
         });
     });
