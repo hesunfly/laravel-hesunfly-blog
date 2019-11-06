@@ -13,7 +13,8 @@ class ImageTransformer extends TransformerAbstract
             'id' => $model->id,
             'name' => $model->name,
             'path' => $model->disk === 'qiniu' ? $model->path : env('APP_URL') . $model->path,
-            'size' => $model->size,
+            'size' => round($model->size / 1024, 2) . 'kb',
+            'create_at' => $model->created_at->toDateTimeString(),
         ];
     }
 }

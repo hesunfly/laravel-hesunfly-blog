@@ -19,7 +19,7 @@ class ProfileTransformer extends TransformerAbstract
             'qq' => $model->qq,
             'weibo' => $model->weibo,
             'wechat' => $model->wechat,
-            'updated_at' => $model->created_at->toDateTimeString(),
+            'updated_at' => $model->updated_at->toDateTimeString(),
         ];
     }
 }
