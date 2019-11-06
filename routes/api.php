@@ -109,6 +109,22 @@ $api->version('v1', [
                     $api->put('save/{id}', 'ArticleController@save')->name('articles.save');
                     $api->delete('destroy/{id}', 'ArticleController@destroy');
                 });
+
+                $api->group([
+                    'prefix' => 'images',
+                ], function ($api) {
+                    $api->get('', 'ImageController@index');
+                    $api->post('store', 'ImageController@store');
+                    $api->delete('destroy/{id}', 'ImageController@destroy');
+                });
+
+                $api->group([
+                    'prefix' => 'files',
+                ], function ($api) {
+                    $api->get('', 'FileController@index');
+                    $api->post('store', 'FileController@store');
+                    $api->delete('destroy/{id}', 'FileController@destroy');
+                });
             });
         });
     });
