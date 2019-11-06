@@ -13,7 +13,7 @@ class CategoryTransformer extends TransformerAbstract
             'id' => $model->id,
             'title' => $model->category_title,
             'articles_count' => $model->articles_count,
-            'status' => $model->status == 1 ? '正常' : '禁用',
+            'status' => $model->status,
         ];
     }
 }

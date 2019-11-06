@@ -13,7 +13,7 @@ class TagTransformer extends TransformerAbstract
             'id' => $model->id,
             'title' => $model->tag_title,
             'articles_count' => $model->articles_count,
-            'status' => $model->status == 1 ? '正常' : '禁用',
+            'status' => $model->status,
         ];
     }
 }

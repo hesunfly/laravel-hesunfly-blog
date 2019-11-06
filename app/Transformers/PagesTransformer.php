@@ -14,8 +14,8 @@ class PagesTransformer extends TransformerAbstract
             'title' => $model->title,
             'uri' => $model->uri,
             'sort' => $model->sort,
-            'status' => $model->status == 1 ? '显示' : '不显示',
-            'comment_status' => $model->commnet_status == 1 ? '显示' : '不显示',
+            'status' => $model->status,
+            'comment_status' => $model->commnet_status,
             'updated_at' => $model->updated_at->toDateTimeString(),
         ];
     }

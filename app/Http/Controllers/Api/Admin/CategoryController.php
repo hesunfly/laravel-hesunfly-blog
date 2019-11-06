@@ -18,11 +18,7 @@ class CategoryController extends Controller
 
     public function show($id)
     {
-        $category = Category::find($id);
-
-        if (empty($category)) {
-            $this->response->errorNotFound();
-        }
+        $category = $this->findOrFail($id, Category::class);
 
         return $this->response->item($category, new CategoryTransformer());
     }
@@ -41,12 +37,7 @@ class CategoryController extends Controller
 
     public function save($id, CategoryRequest $request)
     {
-        $category = Category::find($id);
-
-        if (empty($category)) {
-            $this->response->errorNotFound();
-        }
-
+        $category = $this->findOrFail($id, Category::class);
         $category->update([
             'category_title' => $request->title,
             'sort' => $request->sort,
@@ -58,8 +49,8 @@ class CategoryController extends Controller
 
     public function destroy($id)
     {
-        Category::destroy($id);
-
+        $category = $this->findOrFail($id, Category::class);
+        $category->delete();
         return $this->response->noContent();
     }
 }

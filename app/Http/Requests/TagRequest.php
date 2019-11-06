@@ -13,7 +13,7 @@ class TagRequest extends Request
         switch ($route) {
             case 'tag.store':
                 return [
-                    'title' => ['bail', 'required', 'string', 'unique:tags,tag_name'],
+                    'title' => ['bail', 'required', 'string', 'unique:tags,tag_title'],
                     'sort' => ['bail', 'required', 'numeric'],
                 ];
 

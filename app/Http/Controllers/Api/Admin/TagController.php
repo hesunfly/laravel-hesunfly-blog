@@ -18,11 +18,7 @@ class TagController extends Controller
 
     public function show($id)
     {
-        $tag = Tag::find($id);
-
-        if (empty($tag)) {
-            $this->response->errorNotFound();
-        }
+        $tag = $this->findOrFail($id, Tag::class);
 
         return $this->response->item($tag, new TagTransformer());
     }
@@ -41,12 +37,7 @@ class TagController extends Controller
 
     public function save($id, TagRequest $request)
     {
-        $tag = Tag::find($id);
-
-        if (empty($tag)) {
-            $this->response->errorNotFound();
-        }
-
+        $tag = $this->findOrFail($id, Tag::class);
         $tag->update([
             'tag_title' => $request->title,
             'sort' => $request->sort,
@@ -58,7 +49,8 @@ class TagController extends Controller
 
     public function destroy($id)
     {
-        Tag::destroy($id);
+        $tag = $this->findOrFail($id, Tag::class);
+        $tag->delete();
 
         return $this->response->noContent();
     }

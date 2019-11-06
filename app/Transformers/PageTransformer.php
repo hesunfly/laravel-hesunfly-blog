@@ -16,8 +16,8 @@ class PageTransformer extends TransformerAbstract
             'sort' => $model->sort,
             'content' => $model->content,
             'html_content' => $model->html_content,
-            'status' => $model->status == 1 ? '显示' : '不显示',
-            'comment_status' => $model->commnet_status == 1 ? '显示' : '不显示',
+            'status' => $model->status,
+            'comment_status' => $model->commnet_status,
             'updated_at' => $model->updated_at->toDateTimeString(),
             'publish_at' => $model->publish_at->toDateTimeString(),
         ];

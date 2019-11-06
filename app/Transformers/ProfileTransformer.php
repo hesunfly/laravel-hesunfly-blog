@@ -11,7 +11,7 @@ class ProfileTransformer extends TransformerAbstract
     {
         return [
             'user_id' => $model->user_id,
-            'gender' => $this->gender($model->gender),
+            'gender' => $model->gender,
             'avatar' => $model->avatar,
             'description' => $model->description,
             'homepage' => $model->homepage,
@@ -22,20 +22,4 @@ class ProfileTransformer extends TransformerAbstract
             'updated_at' => $model->created_at->toDateTimeString(),
         ];
     }
-
-    private function gender($value)
-    {
-        $gender = [
-            0 => '未知',
-            1 => '男',
-            2 => '女'
-        ];
-
-        if (!in_array($value, array_keys($gender))) {
-            return 'error';
-        }
-
-        return $gender[$value];
-    }
-
 }

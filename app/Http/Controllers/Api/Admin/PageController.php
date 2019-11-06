@@ -36,23 +36,14 @@ class PageController extends Controller
 
     public function show($id)
     {
-        $page = Page::find($id);
-
-        if (empty($page)) {
-            $this->response->errorNotFound();
-        }
+        $page = $this->findOrFail($id, Page::class);
 
         return $this->response->item($page, new PageTransformer());
     }
 
     public function save($id, PageRequest $request)
     {
-        $page = Page::find($id);
-
-        if (empty($page)) {
-            $this->response->noContent();
-        }
-
+        $page = $this->findOrFail($id, Page::class);
         $requestPage = $request->only([
             'title',
             'slug',
@@ -70,7 +61,8 @@ class PageController extends Controller
 
     public function destroy($id)
     {
-        Page::destroy($id);
+        $page = $this->findOrFail($id, Page::class);
+        $page->delete();
 
         return $this->response->noContent();
     }

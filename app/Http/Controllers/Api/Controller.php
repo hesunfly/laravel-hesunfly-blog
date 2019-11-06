@@ -19,5 +19,12 @@ class Controller extends BaseController
         return $user->id;
     }
 
-
+    protected function findOrFail($id, $class)
+    {
+        try {
+            return $class::findOrFail($id);
+        } catch (\Exception $exception) {
+            $this->response->errorNotFound();
+        }
+    }
 }

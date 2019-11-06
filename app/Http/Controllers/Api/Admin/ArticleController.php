@@ -15,7 +15,10 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        $articles = Article::select(['id', 'title', 'description', 'status', 'sort', 'view_count', 'comment_status', 'updated_at', 'publish_at'])->orderByRaw('sort desc, publish_at desc')->paginate(10);
+        $articles = Article::select([
+            'id', 'title', 'description', 'status', 'sort', 'view_count',
+            'comment_status', 'updated_at', 'publish_at'
+        ])->orderByRaw('sort desc, publish_at desc')->paginate(10);
 
         return $this->response->paginator($articles, new ArticlesTransformer());
     }
@@ -48,30 +51,19 @@ class ArticleController extends Controller
         }
 
         DB::commit();
-
         $article->publish_at = $article->created_at;
         return $this->response->item($article, new ArticleTransformer());
     }
 
     public function show($id)
     {
-        $article = Article::find($id);
-
-        if (empty($article)) {
-            $this->response->errorNotFound();
-        }
-
+        $article = $this->findOrFail($id, Article::class);
         return $this->response->item($article, new ArticleTransformer());
     }
 
     public function save($id, ArticleRequest $request)
     {
-        $article = Article::find($id);
-
-        if (empty($article)) {
-            $this->response->errorNotFound();
-        }
-
+        $article = $this->findOrFail($id, Article::class);
         $requestPage = $request->only([
             'title',
             'category_id',
@@ -105,8 +97,9 @@ class ArticleController extends Controller
 
     public function destroy($id)
     {
+        $article = $this->findOrFail($id, Article::class);
         DB::beginTransaction();
-        Article::destroy($id);
+        $article->delete();
         ArticleTag::where(['article_id' => $id])->delete();
         DB::commit();
         return $this->response->noContent();

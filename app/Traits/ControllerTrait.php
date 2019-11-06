@@ -5,5 +5,4 @@ namespace App\Traits;
 trait ControllerTrait
 {
 
-
 }
