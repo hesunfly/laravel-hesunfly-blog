@@ -7,6 +7,7 @@ use App\Models\Image;
 use App\Services\UploadService;
 use App\Http\Controllers\Api\Controller;
 use App\Transformers\ImageTransformer;
+use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller
 {
@@ -29,6 +30,16 @@ class ImageController extends Controller
     public function destroy($id)
     {
         $image = $this->findOrFail($id, Image::class);
+        switch ($image->disk) {
+            case 'local':
+                unlink(public_path($image->path));
+                break;
+            case 'qiniu':
+                Storage::disk('qiniu')->delete($image->name);
+                break;
+        }
 
+        $image->delete();
+        return $this->response->noContent();
     }
 }
