@@ -53,7 +53,6 @@ $api->version('v1', [
 //            'middleware' => 'api.auth',
         ], function ($api) {
             $api->get('me', 'UserController@me');
-
             //管理员可访问
             $api->group([
                 /*'middleware' => 'admin.pass',*/
@@ -87,7 +86,7 @@ $api->version('v1', [
                     $api->get('', 'MemberController@index');
                     $api->get('{id}', 'MemberController@show');
                     $api->post('', 'MemberController@store');
-//                    $api->put('save/{id}', 'MemberController@save')->name('member.save');
+                    $api->put('{id}', 'MemberController@update');
                 });
 
                 $api->group([

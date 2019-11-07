@@ -35,4 +35,13 @@ class MemberController extends Controller
         DB::commit();
         return $this->response->item($user, new UserTransformer());
     }
+
+    public function update($id, MemberRequest $request)
+    {
+        $this->findOrFail($id, User::class);
+        User::where('id', $id)->update(['status' => (int) $request->status]);
+        $user = $this->findOrFail($id, User::class);
+
+        return $this->response->item($user, new UserTransformer());
+    }
 }

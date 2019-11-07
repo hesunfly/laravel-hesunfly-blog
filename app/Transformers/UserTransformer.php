@@ -19,6 +19,7 @@ class UserTransformer extends TransformerAbstract
             'email' => $model->email,
             'phone' => $model->phone,
             'github' => $model->github,
+            'status' => $model->status,
             'login_ip' => $model->login_ip,
             'created_at' => $model->created_at->toDateTimeString(),
         ];
