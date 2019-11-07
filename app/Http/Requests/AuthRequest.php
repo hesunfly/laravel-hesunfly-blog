@@ -57,23 +57,6 @@ class AuthRequest extends Request
                         'string',
                     ],
                 ];
-            case 'member.store':
-                return [
-                    'name' => [
-                        'bail',
-                        'required',
-                        'min:5',
-                        'max:30',
-                        'unique:users',
-                    ],
-                    'email' => [
-                        'bail',
-                        'required',
-                        'email',
-                        'unique:users',
-                    ],
-                    'password' => $password,
-                ];
             default:
                 return [];
         }

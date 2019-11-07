@@ -60,7 +60,12 @@ $api->version('v1', [
                 'namespace' => 'Admin',
                 'prefix' => 'admin',
             ], function ($api) {
-
+//
+                /**
+                 * @todo
+                 * 修改路由符合restful api，对于创建操作去除store，修改去除save，删除去除destory
+                 * 修改request数据娇艳
+                 */
                 $api->group([
                     'prefix' => 'tags',
                 ], function ($api) {
@@ -85,8 +90,8 @@ $api->version('v1', [
                     'prefix' => 'members',
                 ], function ($api) {
                     $api->get('', 'MemberController@index');
-                    $api->get('/{id}', 'MemberController@show');
-                    $api->post('store', 'MemberController@store')->name('member.store');
+                    $api->get('{id}', 'MemberController@show');
+                    $api->post('', 'MemberController@store');
 //                    $api->put('save/{id}', 'MemberController@save')->name('member.save');
                 });
 
@@ -111,19 +116,28 @@ $api->version('v1', [
                 });
 
                 $api->group([
+                    'prefix' => 'comments',
+                ], function ($api) {
+                    $api->get('', 'CommentController@index');
+                    $api->get('{id}', 'CommentController@show');
+                    $api->put('{id}', 'CommentController@update');
+                    $api->delete('{id}', 'CommentController@destroy');
+                });
+
+                $api->group([
                     'prefix' => 'images',
                 ], function ($api) {
                     $api->get('', 'ImageController@index');
-                    $api->post('store', 'ImageController@store');
-                    $api->delete('destroy/{id}', 'ImageController@destroy');
+                    $api->post('', 'ImageController@store');
+                    $api->delete('{id}', 'ImageController@destroy');
                 });
 
                 $api->group([
                     'prefix' => 'files',
                 ], function ($api) {
                     $api->get('', 'FileController@index');
-                    $api->post('store', 'FileController@store');
-                    $api->delete('destroy/{id}', 'FileController@destroy');
+                    $api->post('', 'FileController@store');
+                    $api->delete('{id}', 'FileController@destroy');
                 });
             });
         });

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Admin;
 
 use App\Http\Requests\AuthRequest;
+use App\Http\Requests\MemberRequest;
 use App\Models\User;
 use App\Models\Profile;
 use App\Transformers\UserTransformer;
@@ -25,7 +26,7 @@ class MemberController extends Controller
         return $this->response->item($user, new UserTransformer());
     }
 
-    public function store(AuthRequest $request)
+    public function store(MemberRequest $request)
     {
         DB::beginTransaction();
         $user  = User::create($request->only(['name', 'password', 'email']));

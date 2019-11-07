@@ -16,13 +16,17 @@ class CreateCommentsTable extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('article_id');
+            $table->string('article_title');
             $table->unsignedInteger('comment_user_id');
+            $table->string('comment_user_name');
+            $table->string('comment_user_email');
             $table->text('comment_content');
             $table->text('comment_html_content');
             $table->tinyInteger('status')->default(-1)->comment('状态 @-1 未审核, @1 已审核');
             $table->string('ip_address');
             $table->unsignedInteger('replay_id')->default(0);
             $table->timestamps();
+            $table->softDeletes();
             $table->index('article_id');
             $table->index('comment_user_id');
             $table->index('replay_id');
