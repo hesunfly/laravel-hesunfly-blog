@@ -8,7 +8,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Torann\GeoIP\Facades\GeoIP;
 
-class LoginLogListener implements ShouldQueue
+class LoginLogListener
 {
 
     public function __construct()
@@ -31,5 +31,4 @@ class LoginLogListener implements ShouldQueue
 
         return $address->country . ' ' . $address->state_name . ' ' . $address->city;
     }
-
 }

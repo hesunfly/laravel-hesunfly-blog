@@ -14,7 +14,6 @@ class PageController extends Controller
     public function index()
     {
         $pages = Page::select(['id', 'title', 'status', 'sort', 'comment_status', 'updated_at'])->get();
-
         return $this->response->collection($pages, new PagesTransformer());
     }
 

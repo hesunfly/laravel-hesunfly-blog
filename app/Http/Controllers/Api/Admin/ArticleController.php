@@ -9,6 +9,7 @@ use App\Models\ArticleTag;
 use App\Services\MarkdownService;
 use App\Transformers\ArticlesTransformer;
 use App\Transformers\ArticleTransformer;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
@@ -17,7 +18,7 @@ class ArticleController extends Controller
     {
         $articles = Article::select([
             'id', 'title', 'description', 'status', 'sort', 'view_count',
-            'comment_status', 'updated_at', 'publish_at'
+            'comment_status', 'updated_at', 'publish_at',
         ])->orderByRaw('sort desc, publish_at desc')->paginate(10);
 
         return $this->response->paginator($articles, new ArticlesTransformer());
@@ -32,7 +33,6 @@ class ArticleController extends Controller
             'slug',
             'cover_img',
             'sort',
-            'status',
             'comment_status',
             'content',
         ]);
@@ -50,8 +50,11 @@ class ArticleController extends Controller
             ]);
         }
 
+        if ($request->status == 1) {
+            $article->update(['status' => 1, 'publish_at' => Carbon::now()->toDateTimeString()]);
+        }
+
         DB::commit();
-        $article->publish_at = $article->created_at;
         return $this->response->item($article, new ArticleTransformer());
     }
 
@@ -71,7 +74,6 @@ class ArticleController extends Controller
             'slug',
             'cover_img',
             'sort',
-            'status',
             'comment_status',
             'content',
         ]);
@@ -90,8 +92,31 @@ class ArticleController extends Controller
                 'article_id' => $id,
             ]);
         }
-
+        switch ((int) $request->status) {
+            case 1:
+                $article->update(['status' => 1, 'publish_at' => Carbon::now()->toDateTimeString()]);
+                break;
+            case -1:
+                $article->update(['status' => -1]);
+                break;
+        }
         DB::commit();
+        return $this->response->item($article, new ArticleTransformer());
+    }
+
+    public function updatePublishStatus($id, ArticleRequest $request)
+    {
+        $article = $this->findOrFail($id, Article::class);
+
+        switch ((int) $request->status) {
+            case 1:
+                $article->update(['status' => 1, 'publish_at' => Carbon::now()->toDateTimeString()]);
+                break;
+            case -1:
+                $article->update(['status' => -1]);
+                break;
+        }
+
         return $this->response->item($article, new ArticleTransformer());
     }
 

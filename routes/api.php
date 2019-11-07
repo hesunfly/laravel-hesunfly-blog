@@ -107,6 +107,7 @@ $api->version('v1', [
                     $api->post('', 'ArticleController@store');
                     $api->put('{id}', 'ArticleController@save');
                     $api->delete('{id}', 'ArticleController@destroy');
+                    $api->patch('{id}', 'ArticleController@updatePublishStatus');
                 });
 
                 $api->group([

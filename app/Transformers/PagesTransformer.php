@@ -15,7 +15,7 @@ class PagesTransformer extends TransformerAbstract
             'uri' => $model->uri,
             'sort' => $model->sort,
             'status' => $model->status,
-            'comment_status' => $model->commnet_status,
+            'comment_status' => $model->comment_status,
             'updated_at' => $model->updated_at->toDateTimeString(),
         ];
     }

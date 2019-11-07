@@ -17,9 +17,9 @@ class PageTransformer extends TransformerAbstract
             'content' => $model->content,
             'html_content' => $model->html_content,
             'status' => $model->status,
-            'comment_status' => $model->commnet_status,
+            'comment_status' => $model->comment_status,
             'updated_at' => $model->updated_at->toDateTimeString(),
-            'publish_at' => $model->publish_at->toDateTimeString(),
+            'created_at' => $model->created_at->toDateTimeString(),
         ];
     }
 }

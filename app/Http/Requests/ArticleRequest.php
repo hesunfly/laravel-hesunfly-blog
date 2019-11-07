@@ -37,6 +37,10 @@ class ArticleRequest extends Request
                     'content' => ['bail', 'required', 'string'],
                     'tags' => ['required', 'string', new CheckTag()]
                 ];
+            case 'PATCH':
+                return [
+                    'status' => ['bail', 'required', Rule::in([-1, 1])],
+                ];
         }
     }
 }
