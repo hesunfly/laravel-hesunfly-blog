@@ -9,15 +9,14 @@ class TagRequest extends Request
 
     public function rules()
     {
-        $route = $this->routeName();
-        switch ($route) {
-            case 'tag.store':
+        switch ($this->method()) {
+            case 'POST':
                 return [
                     'title' => ['bail', 'required', 'string', 'unique:tags,tag_title'],
                     'sort' => ['bail', 'required', 'numeric'],
                 ];
 
-            case 'tag.save':
+            case 'PUT':
                 return [
                     'title' => ['bail', 'required', 'string'],
                     'sort' => ['bail', 'required', 'numeric'],

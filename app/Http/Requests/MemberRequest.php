@@ -2,9 +2,7 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
-
-class MemberRequest extends FormRequest
+class MemberRequest extends Request
 {
 
     public function rules()

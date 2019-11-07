@@ -16,10 +16,10 @@ $api->version('v1', [
     ], function ($api) {
         $api->post('login', 'AuthController@login')->name('auth.login');
         $api->post('register', 'AuthController@register')->name('auth.register');
-        $api->get('refresh', 'AuthController@refresh')->name('auth.refresh');
+        $api->get('refresh', 'AuthController@refresh');
 
         $api->group(['middleware' => 'api.auth'], function ($api) {
-            $api->delete('logout', 'AuthController@logout')->name('auth.logout');
+            $api->delete('logout', 'AuthController@logout');
         });
 
         $api->get('socialite/github', 'AuthController@github');
@@ -61,29 +61,24 @@ $api->version('v1', [
                 'prefix' => 'admin',
             ], function ($api) {
 //
-                /**
-                 * @todo
-                 * 修改路由符合restful api，对于创建操作去除store，修改去除save，删除去除destory
-                 * 修改request数据娇艳
-                 */
                 $api->group([
                     'prefix' => 'tags',
                 ], function ($api) {
                     $api->get('', 'TagController@index');
-                    $api->get('/{id}', 'TagController@show');
-                    $api->post('store', 'TagController@store')->name('tag.store');
-                    $api->put('save/{id}', 'TagController@save')->name('tag.save');
-                    $api->delete('destroy/{id}', 'TagController@destroy');
+                    $api->get('{id}', 'TagController@show');
+                    $api->post('', 'TagController@store');
+                    $api->put('{id}', 'TagController@save');
+                    $api->delete('{id}', 'TagController@destroy');
                 });
 
                 $api->group([
                     'prefix' => 'categories',
                 ], function ($api) {
                     $api->get('', 'CategoryController@index');
-                    $api->get('/{id}', 'CategoryController@show');
-                    $api->post('store', 'CategoryController@store')->name('category.store');
-                    $api->put('save/{id}', 'CategoryController@save')->name('category.save');
-                    $api->delete('destroy/{id}', 'CategoryController@destroy');
+                    $api->get('{id}', 'CategoryController@show');
+                    $api->post('', 'CategoryController@store');
+                    $api->put('{id}', 'CategoryController@save');
+                    $api->delete('{id}', 'CategoryController@destroy');
                 });
 
                 $api->group([
@@ -99,20 +94,20 @@ $api->version('v1', [
                     'prefix' => 'pages',
                 ], function ($api) {
                     $api->get('', 'PageController@index');
-                    $api->get('/{id}', 'PageController@show');
-                    $api->post('store', 'PageController@store')->name('pages.store');
-                    $api->put('save/{id}', 'PageController@save')->name('pages.save');
-                    $api->delete('destroy/{id}', 'PageController@destroy');
+                    $api->get('{id}', 'PageController@show');
+                    $api->post('', 'PageController@store');
+                    $api->put('{id}', 'PageController@save');
+                    $api->delete('{id}', 'PageController@destroy');
                 });
 
                 $api->group([
                     'prefix' => 'articles',
                 ], function ($api) {
                     $api->get('', 'ArticleController@index');
-                    $api->get('/{id}', 'ArticleController@show');
-                    $api->post('store', 'ArticleController@store')->name('articles.store');
-                    $api->put('save/{id}', 'ArticleController@save')->name('articles.save');
-                    $api->delete('destroy/{id}', 'ArticleController@destroy');
+                    $api->get('{id}', 'ArticleController@show');
+                    $api->post('', 'ArticleController@store');
+                    $api->put('{id}', 'ArticleController@save');
+                    $api->delete('{id}', 'ArticleController@destroy');
                 });
 
                 $api->group([

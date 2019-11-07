@@ -11,9 +11,8 @@ class ArticleRequest extends Request
 
     public function rules()
     {
-        $route = $this->routeName();
-        switch ($route) {
-            case 'articles.store':
+        switch ($this->method()) {
+            case 'POST':
                 return [
                     'title' => ['bail', 'required', 'string', 'unique:articles'],
                     'category_id' => ['bail', 'required', new CheckCategory()],
@@ -26,7 +25,7 @@ class ArticleRequest extends Request
                     'tags' => ['required', 'string', new CheckTag()]
                 ];
 
-            case 'articles.save':
+            case 'PUT':
                 return [
                     'title' => ['bail', 'required', 'string', Rule::unique('articles')->ignore($this->id)],
                     'category_id' => ['bail', 'required', new CheckCategory()],
@@ -38,9 +37,6 @@ class ArticleRequest extends Request
                     'content' => ['bail', 'required', 'string'],
                     'tags' => ['required', 'string', new CheckTag()]
                 ];
-
-            default:
-                return [];
         }
     }
 }

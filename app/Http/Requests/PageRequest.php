@@ -8,9 +8,8 @@ class PageRequest extends Request
 {
     public function rules()
     {
-        $route = $this->routeName();
-        switch ($route) {
-            case 'pages.store':
+        switch ($this->method()) {
+            case 'POST':
                 return [
                     'title' => ['bail', 'required', 'string', 'unique:pages'],
                     'slug' => ['bail', 'required', 'string', 'unique:pages'],
@@ -20,7 +19,7 @@ class PageRequest extends Request
                     'content' => ['bail', 'required', 'string'],
                 ];
 
-            case 'pages.save':
+            case 'PUT':
                 return [
                     'title' => ['bail', 'required', 'string', Rule::unique('pages')->ignore($this->id)],
                     'slug' => ['bail', 'required', 'string', Rule::unique('pages')->ignore($this->id)],
@@ -29,8 +28,6 @@ class PageRequest extends Request
                     'comment_status' => ['bail', 'required', Rule::in([-1, 1])],
                     'content' => ['bail', 'required', 'string'],
                 ];
-            default:
-                return [];
         }
     }
 
