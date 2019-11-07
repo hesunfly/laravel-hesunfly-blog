@@ -133,6 +133,8 @@ $api->version('v1', [
                     $api->post('', 'FileController@store');
                     $api->delete('{id}', 'FileController@destroy');
                 });
+
+                $api->get('dashboard', 'AppController@dashboard');
             });
         });
     });
