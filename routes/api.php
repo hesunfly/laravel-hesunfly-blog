@@ -42,9 +42,19 @@ $api->version('v1', [
         'expires' => 1,
     ], function ($api) {
         //一般请求
-        $api->get('articles', 'ArticleController@index');
+        $api->group(['prefix' => 'artciles'], function ($api) {
+            $api->get('', 'ArticleController@index');
+            $api->get('{slug}', 'ArticleController@show');
+        });
 
-        $api->get('user/{id}', 'UserController@profile');
+        $api->group(['prefix' => 'users'], function ($api) {
+            $api->get('{id}', 'UserController@profile');
+
+        });
+
+        $api->get('comments/{id}', 'CommentController@show');
+
+
 
         $api->get('bind/github', 'UserController@githubBind');
         $api->get('callback/github', 'UserController@githubCallback');

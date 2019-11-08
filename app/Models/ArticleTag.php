@@ -7,5 +7,5 @@ class ArticleTag extends Model
     //
     protected $guarded = [];
 
-    protected $table = 'article_tags';
+    protected $table = 'article_tag';
 }

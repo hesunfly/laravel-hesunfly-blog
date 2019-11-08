@@ -7,6 +7,11 @@ use League\Fractal\TransformerAbstract;
 
 class ArticleTransformer extends TransformerAbstract
 {
+    protected $availableIncludes = [
+        'tags',
+        'category',
+    ];
+
     public function transform(Article $model)
     {
         return [
@@ -23,5 +28,19 @@ class ArticleTransformer extends TransformerAbstract
             'publish_at' => empty($model->publish_at) ? '' : $model->publish_at->toDateTimeString(),
             'updated_at' => $model->updated_at->toDateTimeString(),
         ];
+    }
+
+    public function includeTags(Article $model)
+    {
+        $tags = $model->tags;
+
+        return $this->collection($tags, new ArticleTagTransformer());
+    }
+
+    public function includeCategory(Article $model)
+    {
+        $category = $model->category;
+
+        return $this->item($category, new ArticleCategoryTransformer());
     }
 }
