@@ -22,6 +22,11 @@ class CommentController extends Controller
         return $this->response->array(['data' => $comments]);
     }
 
+    public function create()
+    {
+
+    }
+
     private function generateTree($data)
     {
         $temp = [];
