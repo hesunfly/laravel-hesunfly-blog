@@ -6,8 +6,8 @@ use Illuminate\Support\Facades\Route;
 Route::group([
     'namespace' => 'Web',
 ], function () {
-    Route::get('', 'IndexController@index');
-    Route::get('{slug}', 'ArticleController@index');
+    Route::get('/', 'IndexController@index');
+    Route::get('/article/{slug}', 'ArticleController@index');
     Route::get('/achieve', 'IndexController@achieve');
 
     Route::get('/login', 'AuthController@showLogin');
@@ -17,7 +17,7 @@ Route::group([
     'namespace' => 'Web\Admin',
     'prefix' => 'admin',
 ], function () {
-    Route::get('', 'IndexController@index');
+    Route::get('/', 'IndexController@index');
 
 
 

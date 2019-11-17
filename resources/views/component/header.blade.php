@@ -1,17 +1,17 @@
 <header class="py-5 mb-10">
     <div class="container mx-auto px-5 lg:max-w-screen">
         <div class="flex items-center flex-col lg:flex-row">
-            <a href="https://blog.laravel.com/" class="flex items-center no-underline text-brand">
+            <a href="{{ url('/') }}" class="flex items-center no-underline text-brand">
                 <img src="/assets/images/Hesunfly.svg" class="w-32">
             </a>
             <div class="lg:ml-auto mt-10 lg:mt-0 flex items-center" style="font-size: 1.3rem">
                 <div>
-                    <a href="{{ url('') }}" class="no-underline hover:underline uppercase">文章</a>
+                    <a href="{{ url('/') }}" class="no-underline hover:underline uppercase">文章</a>
                     <a href="{{ url('achieve') }}"
                        class="ml-5 no-underline hover:underline uppercase">足迹</a>
-                    <a href="https://blog.laravel.com/forge" class="ml-5 no-underline hover:underline uppercase">工具</a>
+                    {{--<a href="https://blog.laravel.com/forge" class="ml-5 no-underline hover:underline uppercase">工具</a>
                     <a href="https://blog.laravel.com/envoyer"
-                       class="ml-5 no-underline hover:underline uppercase">介绍</a>
+                       class="ml-5 no-underline hover:underline uppercase">介绍</a>--}}
                 </div>
                 {{--<div>
                     <div class="search_box">

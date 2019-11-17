@@ -7,7 +7,7 @@
 <div class="container mx-auto px-5 lg:max-w-screen-sm">
     @foreach( $articles as $item)
         <a class="no-underline transition block border border-lighter w-full mb-10 p-5 rounded post-card"
-           href="{{ env('APP_URL') }}{{ $item['slug'] }}">
+           href="{{ url('article/' . $item['slug'])}}">
             @if (!empty($item['cover_img']))
                 <div class="block h-post-card-image bg-cover bg-center bg-no-repeat w-full h-48 mb-5"
                      style="background-image: url({{ $item['cover_img'] }})">
