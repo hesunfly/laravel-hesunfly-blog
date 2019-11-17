@@ -3,13 +3,14 @@
 use Laravel\Horizon\Horizon;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 Route::group([
     'namespace' => 'Web',
 ], function () {
+    Route::get('', 'IndexController@index');
+    Route::get('{slug}', 'ArticleController@index');
+    Route::get('/achieve', 'IndexController@achieve');
 
+    Route::get('/login', 'AuthController@showLogin');
 });
 
 Route::group([
@@ -18,7 +19,7 @@ Route::group([
 ], function () {
     Route::get('', 'IndexController@index');
 
-    Route::get('/login', 'AuthController@showLogin');
+
 
 });
 
