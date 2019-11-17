@@ -84,7 +84,7 @@ class ArticleController extends Controller
         $tags = $request->input('tags');
         $tag = explode(',', $tags);
         //删除已存在的tag
-        ArticleTag::where(['article_id' => $id])->delete();
+        ArticleTag::where(['article_id' => $id])->forceDelete();
         $articleTag = null;
         foreach ($tag as $item) {
             ArticleTag::create([
