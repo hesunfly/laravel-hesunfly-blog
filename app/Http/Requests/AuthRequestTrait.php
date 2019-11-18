@@ -5,9 +5,8 @@ namespace App\Http\Requests;
 use App\Rules\UserIsRegister;
 use App\Rules\UserStatus;
 
-class AuthRequest extends Request
+Trait AuthRequestTrait
 {
-
     public function rules()
     {
         $route = $this->routeName();
@@ -25,8 +24,8 @@ class AuthRequest extends Request
                         'bail',
                         'required',
                         'email',
-                        new UserIsRegister(),
-                        new UserStatus(),
+//                        new UserIsRegister(),
+//                        new UserStatus(),
                     ],
                     'password' => $password,
                 ];

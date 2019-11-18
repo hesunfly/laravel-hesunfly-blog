@@ -2,7 +2,7 @@
 @endcomponent
 
 <body data-type="index">
-    <script src="/assets/admin/admin/js/theme.js"></script>
+    <script src="/assets/admin/js/theme.js"></script>
     <div class="am-g tpl-g">
         <!-- 头部 -->
         @component('admin/component/header')
@@ -149,7 +149,7 @@
                             <div class="achievement-subheading">
                                 月度最佳员工
                             </div>
-                            <img class="achievement-image" src="/assets/admin/admin/img/user07.png" alt="">
+                            <img class="achievement-image" src="/assets/admin/img/user07.png" alt="">
                             <div class="achievement-description">
                                 禁言小张在
                                 <strong>30天内</strong> 禁言了

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api\Admin;
 
-use App\Http\Requests\AuthRequest;
+use App\Http\Requests\AuthRequestTrait;
 use App\Http\Requests\MemberRequest;
 use App\Models\User;
 use App\Models\Profile;

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Events\LoginLogEvent;
 use App\Events\UpdateLoginIpEvent;
-use App\Http\Requests\AuthRequest;
+use App\Http\Requests\AuthRequestTrait;
 use App\Models\User;
 use App\Models\Profile;
 use App\Services\VerifyCode;
@@ -15,7 +15,7 @@ use Laravel\Socialite\Facades\Socialite;
 class AuthController extends Controller
 {
 
-    public function login(AuthRequest $request)
+    public function login(AuthRequestTrait $request)
     {
         if (!$token = Auth::guard('api')->attempt($request->only(['email', 'password']))) {
             $this->response->errorUnauthorized('密码错误!');
@@ -27,7 +27,7 @@ class AuthController extends Controller
         return $this->respondWithToken($token);
     }
 
-    public function register(AuthRequest $request)
+    public function register(AuthRequestTrait $request)
     {
         if (!VerifyCode::checkEmailVerifyCode($request->key, $request->email, $request->verify_code)) {
             $this->response->error('验证码错误', 401);

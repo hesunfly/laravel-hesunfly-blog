@@ -10,15 +10,21 @@ Route::group([
     Route::get('/article/{slug}', 'ArticleController@index');
     Route::get('/achieve', 'IndexController@achieve');
 
-    Route::get('/login', 'AuthController@showLogin');
 });
 
 Route::group([
     'namespace' => 'Web\Admin',
     'prefix' => 'admin',
 ], function () {
-    Route::get('/', 'IndexController@index');
+    Route::get('/login', 'AuthController@showLogin');
+    Route::post('/login', 'AuthController@login')->name('auth.login');
 
+    Route::group([
+        'middleware' => 'admin.pass',
+    ], function () {
+        Route::get('/', 'IndexController@index');
+
+    });
 
 
 });
@@ -27,18 +33,3 @@ Route::group([
 Horizon::auth(function ($request) {
     return true;
 });
-
-
-Route::get('restore', function () {
-    \App\Models\Image::withTrashed()
-        ->where('id', 3)
-        ->restore();
-    \App\Models\Image::withTrashed()
-        ->where('id', 4)
-        ->restore();
-    \App\Models\Image::withTrashed()
-        ->where('id', 1)
-        ->restore();
-});
-
-//Route::get('/github', '');
