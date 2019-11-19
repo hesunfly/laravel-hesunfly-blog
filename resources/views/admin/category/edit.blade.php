@@ -25,7 +25,7 @@
                         <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
                             <div class="widget am-cf">
                                 <div class="widget-head am-cf">
-                                    <div class="widget-title am-fl">创建分类</div>
+                                    <div class="widget-title am-fl">编辑分类</div>
                                 </div>
                                 <div class="widget-body am-fr">
 
@@ -33,7 +33,7 @@
                                         <div class="am-form-group">
                                             <label for="user-name" class="am-u-sm-3 am-form-label">分类名称 <span class="tpl-form-line-small-title">Category Title</span></label>
                                             <div class="am-u-sm-9">
-                                                <input type="text" class="tpl-form-input" id="category_title" placeholder="请输入分类名称">
+                                                <input type="text" class="tpl-form-input" id="category_title" placeholder="请输入分类名称" value="{{ $category_title }}">
                                                 <small><span style="color: red;">*</span></small>
                                             </div>
                                         </div>
@@ -70,13 +70,13 @@
                     return;
                 }
 
-                axios.post(
-                    "{{ url('/admin/categories/store') }}",
+                axios.put(
+                    "{{ url('/admin/categories/save/') . '/' . $id }}",
                     {
                         'title': category_title
                     }
                 ).then(function (response) {
-                    layer.msg('创建成功！', {
+                    layer.msg('编辑成功！', {
                             icon: 1,
                             time: 1000 //2秒关闭（如果不配置，默认是3秒）
                         }, function () {

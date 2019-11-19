@@ -56,33 +56,17 @@
                                             <td>{{ $item->updated_at }}</td>
                                             <td>
                                                 <div class="tpl-table-black-operation">
-                                                    <a href="javascript:;">
+                                                    <a href="{{ url('/admin/categories/edit') . '/' . $item->id }}">
                                                         <i class="am-icon-pencil"></i> 编辑
                                                     </a>
-                                                    <a href="javascript:;" class="tpl-table-black-operation-del">
+                                                    <a href="javascript:;" onclick="destroy({{ $item->id }})"
+                                                       class="tpl-table-black-operation-del">
                                                         <i class="am-icon-trash"></i> 删除
                                                     </a>
                                                 </div>
                                             </td>
                                         </tr>
                                     @endforeach
-                                    {{--                                            <tr class="even gradeC">--}}
-                                    {{--                                                <td>有适配微信小程序的计划吗</td>--}}
-                                    {{--                                                <td>天纵之人</td>--}}
-                                    {{--                                                <td>2016-09-26</td>--}}
-                                    {{--                                                <td>--}}
-                                    {{--                                                    <div class="tpl-table-black-operation">--}}
-                                    {{--                                                        <a href="javascript:;">--}}
-                                    {{--                                                            <i class="am-icon-pencil"></i> 编辑--}}
-                                    {{--                                                        </a>--}}
-                                    {{--                                                        <a href="javascript:;" class="tpl-table-black-operation-del">--}}
-                                    {{--                                                            <i class="am-icon-trash"></i> 删除--}}
-                                    {{--                                                        </a>--}}
-                                    {{--                                                    </div>--}}
-                                    {{--                                                </td>--}}
-                                    {{--                                            </tr>--}}
-
-                                    <!-- more data -->
                                     </tbody>
                                 </table>
                             </div>
@@ -97,10 +81,38 @@
 @endcomponent
 
 <script>
+    function destroy(id) {
+        if (!id) {
+            return false;
+        }
+
+        layer.confirm('确定删除吗？', {
+            btn: ['删除', '取消'] //按钮
+        }, function () {
+            axios.delete("{{ url('/admin/categories/destroy') }}" + '/' + id)
+                .then(function (response) {
+                    layer.msg('删除成功！', {
+                            icon: 1,
+                            time: 1000 //2秒关闭（如果不配置，默认是3秒）
+                        }, function () {
+                            window.location = "{{ url('/admin/categories/') }}";
+                        }
+                    );
+                })
+                .catch(function (error) {
+                    layer.msg('error！', {
+                            icon: 2,
+                            time: 1000 //2秒关闭（如果不配置，默认是3秒）
+                        }, function () {
+                            return false;
+                        }
+                    );
+                });
+        });
+    }
+
     $(function () {
-        // $('#create_button').click(function () {
-        //     $('#create-category-modal').modal('open');
-        // });
+
 
     });
 </script>

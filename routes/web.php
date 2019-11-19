@@ -39,7 +39,9 @@ Route::group([
             Route::get('/', 'CategoryController@index');
             Route::get('/create', 'CategoryController@create');
             Route::post('/store', 'CategoryController@store');
-
+            Route::get('/edit/{id}', 'CategoryController@edit');
+            Route::put('/save/{id}', 'CategoryController@save');
+            Route::delete('/destroy/{id}', 'CategoryController@destroy');
         });
 
         Route::group([
