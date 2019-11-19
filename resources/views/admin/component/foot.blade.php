@@ -4,3 +4,4 @@
 <script src="/assets/admin/js/app.js"></script>
 <script src="/assets/axios.min.js"></script>
 <script src="/assets/localforage.min.js"></script>
+<script src="/assets/layer/layer.js"></script>

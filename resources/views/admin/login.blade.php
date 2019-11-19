@@ -37,7 +37,6 @@
 
 @component('admin.component.foot')
 @endcomponent
-<script src="/assets/layer/layer.js"></script>
 
 <script>
     $(function () {
