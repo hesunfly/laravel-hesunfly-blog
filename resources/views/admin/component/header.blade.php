@@ -129,7 +129,7 @@
 
                 <!-- 退出 -->
                 <li class="am-text-sm">
-                    <a href="javascript:;">
+                    <a href="javascript:;" onclick="logout()">
                         <span class="am-icon-sign-out"></span> 退出
                     </a>
                 </li>
@@ -138,3 +138,23 @@
     </div>
 
 </header>
+
+<script>
+    function logout() {
+        axios.delete("{{ url('/admin/logout') }}").then(function (response) {
+            layer.msg('注销成功', {
+                    icon: 1,
+                    time: 1000 //2秒关闭（如果不配置，默认是3秒）
+                }, function () {
+                    window.location = "{{ url('/admin/login') }}";
+                }
+            );
+        }).catch(function (error) {
+            layer.msg('error！', {
+                    icon: 2,
+                    time: 1000 //2秒关闭（如果不配置，默认是3秒）
+                }
+            );
+        });
+    }
+</script>

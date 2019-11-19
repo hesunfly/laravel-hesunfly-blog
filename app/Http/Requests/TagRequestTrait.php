@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Validation\Rule;
 
-class TagRequest extends Request
+trait TagRequestTrait
 {
 
     public function rules()
@@ -13,19 +13,17 @@ class TagRequest extends Request
             case 'POST':
                 return [
                     'title' => ['bail', 'required', 'string', 'unique:tags,tag_title'],
-                    'sort' => ['bail', 'required', 'numeric'],
+                    'sort' => ['bail', 'sometimes', 'required', 'numeric'],
                 ];
 
             case 'PUT':
                 return [
                     'title' => ['bail', 'required', 'string'],
-                    'sort' => ['bail', 'required', 'numeric'],
-                    'status' => ['bail', 'required', Rule::in([-1, 1])],
+                    'sort' => ['bail', 'sometimes', 'required', 'numeric'],
+                    'status' => ['bail', 'sometimes', 'required', Rule::in([-1, 1])],
                 ];
-            default:
-                return [];
         }
+
+        return false;
     }
-
-
 }

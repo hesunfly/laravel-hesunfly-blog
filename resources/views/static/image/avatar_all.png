@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="csrf-param" content="_frontendCSRF">
+    <meta name="csrf-token" content="6PmPGGRcU600cKE1yoYxQmJhKxxc9z9kI0PEAvVLlfrbwN0qPRkiwHscmHuOzV47I1hvL2-ebCx8FawzlC_BzQ==">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon2.ico">    <title>Not Found (#404)</title>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MZZ6T2H');</script>    
+
+
+
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{};
+var Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+    s1.src='https://embed.tawk.to/5c4c1f6e51410568a1086545/1ddh7l79q';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>    
+
+
+
+ 
+    <link href="/css/icons/swapsy/styles.css" rel="stylesheet">
+<link href="/css/credit/sc/iconfont.css" rel="stylesheet">
+<link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="/css/home.min.css?v=181125" rel="stylesheet">
+<link href="/css/signup.css" rel="stylesheet">
+<link href="/lib/toastr/toastr.min.css" rel="stylesheet">
+<link href="/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+<style>    #toast-container.toast-top-full-width > div {
+        width: 100% !important;
+    }
+
+    .toast-top-full-width {
+        margin-top: -1px !important;
+    }
+
+    #toast-container>.toast-success,
+    .toast-success,
+    .toast-error,
+    .toast-info,
+    .toast-warning {
+        background-color: #68737d !important;
+        opacity: 1 !important;
+    }</style>
+<style>.navbar-right .dropdown-menu {
+    right: auto;
+}
+.student-dropdown ul li a {
+    line-height : 30px;
+}
+.badge {
+    background-color: crimson;
+    margin-top: -2px;
+    margin-left: 5px;
+}
+
+.dropdown-toggle span:nth-child(3) {
+    display: none !important;
+}</style>
+<script>var isGuest = true;
+var isDev = false;</script></head>
+<body id="home-page">
+<script src="//cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script><header id="header" class="nav-stacked" data-offset-top="1">
+    <nav id="navigation_bar" class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <div class="navbar-brand">
+                    <a href="/">
+                        <img src="/img/logo_swapsy.png?v=20190409" alt="Swapsy Logo" id="main-logo" style="max-height:50px;">
+                    </a>
+                </div>
+                <button id="menu_slide" data-target="#navigation" aria-expanded="false" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navigation">
+                <ul class="nav navbar-nav navbar-right">
+                                        <li><a href="/about" class="js-target-scroll">关于我们</a></li>
+                    <li><a href="/blog" class="js-target-scroll">博客</a></li>
+                                            <li><a href="/signup" class="js-target-scroll">注册</a></li>
+                        <li><a href="/login" class="js-target-scroll">登录</a></li>
+                    
+                    <li><ul id="w0" class="student-dropdown nav"><li class="dropdown"><a class="dropdown-toggle" href="/site/#" data-toggle="dropdown">中文 <span class="caret"></span></a><ul id="w1" class="dropdown-menu"><li><a href="/img/landing/avatar_all.png" data-method="post" data-params='{"locale":"en-US"}' tabindex="-1">English</a></li></ul></li></ul></li>                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="container text-center">
+    </div>
+
+<div class="site-error">
+    <h1>Not Found (#404)</h1>
+    <div class="alert alert-danger">
+        Page not found.    </div>
+</div>
+
+
+<footer>
+    <section class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-4 footer-about">
+                    <img src="/img/logo_swapsy.png?v=20190409" alt="Swapsy Logo" style="max-width: 200px;">
+                    <p class="hidden-xs hidden-sm">
+                        Swapsy 帮你找到和你的换汇需求匹配的用户，并借助电子钱包完成资金交易。目前支持美元、人民币、英镑和加币之间的互换。                                            </p>
+                    <ul class="list-unstyled list-inline hidden-xs hidden-sm">
+                        <li><a class="footer-icon footer-icon-twitter" href="https://twitter.com/SWAPSYinc" target="_blank"></a></li>
+                        <li><a class="footer-icon footer-icon-facebook" href="https://www.facebook.com/Swapsy.Inc" target="_blank"></a></li>
+                        <li><a class="footer-icon footer-icon-linkedin" href="https://cn.linkedin.com/company/usyno" target="_blank"></a></li>
+                        <li><a class="footer-icon footer-icon-wechat" id="swapsy-wechat-qr-btn"></a></li>
+                    </ul>
+                </div>
+
+                
+
+
+                <div class="col-sm-6 col-md-4 footer-nav">
+                    <div class="liner"></div>
+                    <ul class="list-unstyled">
+                        <li><a href="/about">关于我们</a></li>
+                        <li><a href="/terms">用户协议</a></li>
+                        <li><a href="/privacy-policy">隐私政策</a></li>
+                        <li><a href="/return-refund">退款政策</a></li>
+                        <li><a href="/faq">常见问题</a></li>
+                        <li><a href="/contact">联系我们</a></li>
+                    </ul>
+
+                    <img src="https://ae01.alicdn.com/kf/HTB1k41Ea5zxK1RjSspj763S.pXaj.png" alt="Secured Website" width="120" class="m-t-sm hidden-xs hidden-sm">
+                </div>
+
+                <div class="col-sm-6 col-md-4 footer-news hidden-xs hidden-sm">
+                    <div class="liner"></div>
+                    <div class="footer-news-content">
+                        <h5>SWAPSY博客</h5>
+                                                <p><a href="https://theswapsy.com/blog/Swapsy%E8%AE%A9%E7%BE%8E%E5%85%83%E5%92%8C%E4%BA%BA%E6%B0%91%E5%B8%81%E7%A1%AE%E8%AE%A4%E7%9C%BC%E7%A5%9E">Swapsy, 让美元和人民币确认眼神</a></p>
+                        <p class="footer-news-date">2018年7月7日</p>
+                    </div>
+
+                    <div class="footer-news-content hidden-xs hidden-sm">
+                        <h5>IN THE NEWS</h5>
+                        <p><a target="_blank" href="https://evonexus.org/evonexus-companies/usyno/">著名创业孵化器 EvoNexus 将 Swapsy 评为最具创新性的在线换汇交易平台</a></p>
+                        <p class="footer-news-date">2018年6月5日</p>
+
+                        
+                        <p><a target="_blank" href="http://lapost.us/?p=6558">2018年度全美华裔30岁以下优秀创业者揭晓</a></p>
+                        <p class="footer-news-date">《洛杉矶邮报》, 2018年3月20日</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 copy-right-text">
+                    &copy; Swapsy. 保留所有权利。<br>
+                    所有其他品牌的名称或标志均是其各自所有者的商标， 在此仅用于辨认。                </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript" id="uts_lp" src="//www.linkconnector.com/uts_lp.php?cgid=901349"></script></footer>
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/assets/6f8dab1/yii.js"></script>
+<script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/lib/toastr/toastr.min.js"></script>
+<script>jQuery(function ($) {
+toastr.options = {
+  "closeButton": true,
+  "debug": false,
+  "progressBar": false,
+  "preventDuplicates": false,
+  "positionClass": "toast-top-right",
+  "onclick": null,
+  "showDuration": "400",
+  "hideDuration": "1000",
+  "timeOut": "7000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+};
+
+
+new Vue({
+    created: function () {
+        if (isDev) {
+            return false;
+        }
+        this.checkTimeout();
+    },
+    methods: {
+        checkTimeout: function () {
+            // calculated in seconds
+            this.session_timeout = 60 * 60; // 60 min session timeout, need to match configs in frontend/config/main.php [user->authTimeout, session->timeout]
+            this.warning_duration = 60;   // 60 seconds
+
+            setInterval(function(){
+                var now = (new Date()).getTime();
+                var old = sessionStorage.getItem("ZD-currentTime");
+                var time_passed = ((now - old)/1000).toFixed(0); // in seconds
+
+                var msg = 'Due to inactivity, your SWAPSY session will expire in ' + this.warning_duration + ' seconds and we will redirect you to the login page, click this message to continue.';
+                var config = {
+                    'progressBar': true,
+                    'closeButton': false,
+                    'onclick': null,
+                    'tapToDismiss': false,
+                    // 'timeOut': 0,
+                    // 'extendedTimeOut': 0,
+                    'timeOut': this.warning_duration * 1000,
+                    'extendedTimeOut': (this.warning_duration - time_passed) * 1000,
+                    'positionClass': 'toast-top-full-width timeout-toast',
+                };
+
+                if(!isGuest && time_passed == (this.session_timeout - this.warning_duration)) {
+                    toastr.success(msg, '', config).click(function () {
+                        window.location.reload();
+                    });
+                }
+
+                if(!isGuest && time_passed == this.session_timeout) {
+                    sessionStorage.setItem("timeout", true);
+                    window.location.href = '/account/logout?timeout=1';
+                }
+            }.bind(this), 1000); // check for session time out every second
+        }
+    }
+});
+
+$("#swapsy-wechat-qr-btn").popover({
+  html: true,
+  trigger: "hover click",
+  container: 'body',
+  placement: "top",
+  content: '<img src="/img/home/swapsy_wechat_qr.jpg" width="200" height="200">'
+});
+});</script><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZZ6T2H" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript></body>
+</html>

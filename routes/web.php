@@ -18,6 +18,8 @@ Route::group([
 ], function () {
     Route::get('/login', 'AuthController@showLogin');
     Route::post('/login', 'AuthController@login')->name('auth.login');
+    Route::delete('/logout', 'AuthController@logout');
+
 
     Route::group([
         'middleware' => 'admin.pass',
@@ -48,6 +50,11 @@ Route::group([
             'prefix' => 'tags',
         ], function () {
             Route::get('/', 'TagController@index');
+            Route::get('/create', 'TagController@create');
+            Route::post('/store', 'TagController@store');
+            Route::get('/edit/{id}', 'TagController@edit');
+            Route::put('/save/{id}', 'TagController@save');
+            Route::delete('/destroy/{id}', 'TagController@destroy');
         });
 
         Route::group([

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api\Admin;
 
-use App\Http\Requests\CategoryRequest;
+use App\Http\Requests\Web\CategoryRequest;
 use App\Models\Category;
 use App\Transformers\CategoryTransformer;
 use App\Http\Controllers\Api\Controller;

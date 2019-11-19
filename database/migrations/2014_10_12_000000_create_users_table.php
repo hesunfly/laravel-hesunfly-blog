@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('github')->default('');
             $table->tinyInteger('status')->default(1)->comment('用户状态 @-1 禁用, @1 正常 ');
             $table->string('login_ip')->default('');
+            $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
             $table->index('name');

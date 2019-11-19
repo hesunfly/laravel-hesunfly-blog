@@ -25,4 +25,11 @@ class AuthController extends Controller
         return response('success', 200);
     }
 
+    public function logout()
+    {
+        Auth::guard('web')->logout();
+
+        return response('success', 204);
+    }
+
 }
