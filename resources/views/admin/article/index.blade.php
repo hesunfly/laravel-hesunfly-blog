@@ -21,7 +21,7 @@
                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
                     <div class="widget am-cf">
                         <div class="widget-head am-cf">
-                            <div class="widget-title  am-cf">标签列表</div>
+                            <div class="widget-title  am-cf">文章列表</div>
                         </div>
                         <div class="widget-body  am-fr">
 
@@ -30,7 +30,7 @@
                                     <div class="am-btn-toolbar">
                                         <div class="am-btn-group am-btn-group-xs">
                                             <button type="button" class="am-btn am-btn-success am-round"
-                                                    onclick="location.href='{{ url('/admin/tags/create') }}'">
+                                                    onclick="location.href='{{ url('/admin/articles/write') }}'">
                                                 <span class="am-icon-plus"></span> 新增
                                             </button>
                                         </div>
@@ -42,21 +42,19 @@
                                        id="example-r">
                                     <thead>
                                     <tr>
-                                        <th>名称</th>
-                                        <th>文章数</th>
-                                        <th>时间</th>
+                                        <th>标题</th>
+                                        <th>状态</th>
                                         <th>操作</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach ($tags as $item)
+                                    @foreach ($articles as $item)
                                         <tr class="gradeX">
-                                            <td>{{ $item->tag_title }}</td>
-                                            <td>{{ $item->articles_count }}</td>
-                                            <td>{{ $item->updated_at }}</td>
+                                            <td>{{ $item->title }}</td>
+                                            <td>{{ $item->status }}</td>
                                             <td>
                                                 <div class="tpl-table-black-operation">
-                                                    <a href="{{ url('/admin/tags/edit') . '/' . $item->id }}">
+                                                    <a href="{{ url('/admin/articles/edit') . '/' . $item->id }}">
                                                         <i class="am-icon-pencil"></i> 编辑
                                                     </a>
                                                     <a href="javascript:;" onclick="destroy({{ $item->id }})"
@@ -89,13 +87,13 @@
         layer.confirm('确定删除吗？', {
             btn: ['删除', '取消'] //按钮
         }, function () {
-            axios.delete("{{ url('/admin/tags/destroy') }}" + '/' + id)
+            axios.delete("{{ url('/admin/categories/destroy') }}" + '/' + id)
                 .then(function (response) {
                     layer.msg('删除成功！', {
                             icon: 1,
                             time: 1000 //2秒关闭（如果不配置，默认是3秒）
                         }, function () {
-                            window.location = "{{ url('/admin/tags/') }}";
+                            window.location = "{{ url('/admin/categories/') }}";
                         }
                     );
                 })

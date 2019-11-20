@@ -12,6 +12,10 @@ Route::group([
 
 });
 
+Route::get('/path', function () {
+//    var_dump(route('http://hesunfly.test/admin/tags'));
+});
+
 Route::group([
     'namespace' => 'Web\Admin',
     'prefix' => 'admin',
@@ -31,8 +35,10 @@ Route::group([
         ], function () {
             Route::get('/', 'ArticleController@index');
             Route::get('/write', 'ArticleController@create');
-            Route::get('/store', 'ArticleController@store');
-
+            Route::post('/store', 'ArticleController@store');
+            Route::get('/edit/{id}', 'ArticleController@edit');
+            Route::put('/save/{id}', 'ArticleController@save');
+            Route::delete('/destroy/{id}', 'ArticleController@destroy');
         });
 
         Route::group([
@@ -44,17 +50,6 @@ Route::group([
             Route::get('/edit/{id}', 'CategoryController@edit');
             Route::put('/save/{id}', 'CategoryController@save');
             Route::delete('/destroy/{id}', 'CategoryController@destroy');
-        });
-
-        Route::group([
-            'prefix' => 'tags',
-        ], function () {
-            Route::get('/', 'TagController@index');
-            Route::get('/create', 'TagController@create');
-            Route::post('/store', 'TagController@store');
-            Route::get('/edit/{id}', 'TagController@edit');
-            Route::put('/save/{id}', 'TagController@save');
-            Route::delete('/destroy/{id}', 'TagController@destroy');
         });
 
         Route::group([

@@ -21,7 +21,7 @@
         <div class="am-fr tpl-header-navbar">
             <ul>
                 <!-- 新邮件 -->
-                <li class="am-dropdown tpl-dropdown" data-am-dropdown>
+                {{--<li class="am-dropdown tpl-dropdown" data-am-dropdown>
                     <a href="javascript:;" class="am-dropdown-toggle tpl-dropdown-toggle" data-am-dropdown-toggle>
                         <i class="am-icon-envelope"></i>
                         <span class="am-badge am-badge-success am-round item-feed-badge">4</span>
@@ -73,10 +73,10 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li>--}}
 
                 <!-- 新提示 -->
-                <li class="am-dropdown" data-am-dropdown>
+                {{--<li class="am-dropdown" data-am-dropdown>
                     <a href="javascript:;" class="am-dropdown-toggle" data-am-dropdown-toggle>
                         <i class="am-icon-bell"></i>
                         <span class="am-badge am-badge-warning am-round item-feed-badge">5</span>
@@ -125,8 +125,17 @@
                             </a>
                         </li>
                     </ul>
+                </li>--}}
+                <li class="am-text-sm">
+                    <div class="tpl-user-panel-profile-picture">
+                        <img src="/assets/images/avatar.jpg" alt="" class="am-img-bdrs" >
+                    </div>
                 </li>
-
+                <li class="am-text-sm">
+                    <a href="javascript:;" onclick="" style="padding: 0 5px;">
+                        <span style="color: #0C0C0C">{{ \Illuminate\Support\Facades\Auth::guard('web')->user()->name }}</span>
+                    </a>
+                </li>
                 <!-- 退出 -->
                 <li class="am-text-sm">
                     <a href="javascript:;" onclick="logout()">
