@@ -7,6 +7,7 @@ use App\Models\Article;
 use App\Models\Category;
 use App\Services\MarkdownService;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
@@ -36,12 +37,13 @@ class ArticleController extends Controller
             'content',
         ]);
         $requestData['html_content'] = MarkdownService::toHtml($request->input('content'));
-
+        DB::beginTransaction();
         $article = Article::create($requestData);
 
         if ($request->status == 1) {
             $article->update(['status' => 1, 'publish_at' => Carbon::now()->toDateTimeString()]);
         }
+        DB::commit();
 
         return response('success', 201);
     }
@@ -55,5 +57,40 @@ class ArticleController extends Controller
             'categories' => $categories,
             'id' => $id
         ]);
+    }
+
+    public function save($id, ArticleRequest $request)
+    {
+        $article = $this->findOrFail($id, Article::class);
+        $requestData = $request->only([
+            'title',
+            'category_id',
+            'description',
+            'slug',
+            'content',
+        ]);
+        $requestData['html_content'] = MarkdownService::toHtml($request->input('content'));
+        DB::beginTransaction();
+        $article->update($requestData);
+
+        switch ((int) $request->status) {
+            case 1:
+                $article->update(['status' => 1, 'publish_at' => Carbon::now()->toDateTimeString()]);
+                break;
+            case -1:
+                $article->update(['status' => -1]);
+                break;
+        }
+        DB::commit();
+
+        return response('success', 200);
+    }
+
+    public function destroy($id)
+    {
+        $article = $this->findOrFail($id, Article::class);
+        $article->delete();
+
+        return response('success', 204);
     }
 }

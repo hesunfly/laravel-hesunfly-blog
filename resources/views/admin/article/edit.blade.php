@@ -83,8 +83,7 @@
                                         <label for="content" class="am-u-sm-3 am-form-label">文章内容 <span
                                                     class="tpl-form-line-small-title">Content</span></label>
                                         <div class="am-u-sm-9">
-                                            <textarea class="" id="content" name="content"
-                                            ></textarea>
+                                            <textarea class="" id="content" name="content">{{ $article->content }}</textarea>
                                             <small><span style="color: red;">*</span></small>
                                         </div>
                                     </div>
@@ -134,8 +133,6 @@
     $(function () {
 
         var simplemde = new SimpleMDE({element: $("#content")[0]});
-
-        simplemde.value("{!! $article->content !!}");
 
         $('.editor-toolbar').click(function () {
             if (simplemde.isFullscreenActive()) {
@@ -206,7 +203,7 @@
 
             let status = $("input[name='status']:checked").val();
 
-            axios.post(
+            axios.put(
                 "{{ url('/admin/articles/save') . '/' . $id }}",
                 {
                     'title': title,
@@ -214,7 +211,7 @@
                     'slug': slug,
                     'category_id': category,
                     'content': content,
-                    'status': status
+                    'status': status,
                 }
             ).then(function (response) {
                 layer.msg('修改成功！', {

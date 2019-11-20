@@ -1,7 +1,7 @@
 <header>
     <!-- logo -->
     <div class="am-fl tpl-header-logo">
-        <a href="javascript:;"><img src="/assets/images/Hesunfly.svg" alt=""></a>
+        <a href="{{ url('admin/') }}"><img src="/assets/images/Hesunfly.svg" alt=""></a>
     </div>
     <!-- 右侧内容 -->
     <div class="tpl-header-fluid">

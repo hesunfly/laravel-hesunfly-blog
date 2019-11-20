@@ -1,6 +1,5 @@
 @component('component.head', ['title' => $article->title])
 @endcomponent
-
 @component('component.header')
 @endcomponent
 
@@ -12,10 +11,7 @@
     </div>
 
     <div class="mt-5 leading-loose flex flex-col justify-center items-center post-body font-serif">
-        {{--        <p>{{ $article->description }}</p>--}}
-
         {!! $article->html_content !!}
-
     </div>
 </div>
 

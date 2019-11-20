@@ -87,13 +87,13 @@
         layer.confirm('确定删除吗？', {
             btn: ['删除', '取消'] //按钮
         }, function () {
-            axios.delete("{{ url('/admin/categories/destroy') }}" + '/' + id)
+            axios.delete("{{ url('/admin/articles/destroy') }}" + '/' + id)
                 .then(function (response) {
                     layer.msg('删除成功！', {
                             icon: 1,
                             time: 1000 //2秒关闭（如果不配置，默认是3秒）
                         }, function () {
-                            window.location = "{{ url('/admin/categories/') }}";
+                            window.location = "{{ url('/admin/articles/') }}";
                         }
                     );
                 })
