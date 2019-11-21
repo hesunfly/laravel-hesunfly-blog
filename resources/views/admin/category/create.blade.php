@@ -33,7 +33,7 @@
                                         <div class="am-form-group">
                                             <label for="category_title" class="am-u-sm-3 am-form-label">分类名称 <span class="tpl-form-line-small-title">Category Title</span></label>
                                             <div class="am-u-sm-9">
-                                                <input type="text" class="tpl-form-input" id="category_title" name="category_title" placeholder="请输入分类名称">
+                                                <input type="text" class="tpl-form-input" id="category_title" name="category_title" autofocus placeholder="请输入分类名称">
                                                 <small><span style="color: red;">*</span></small>
                                             </div>
                                         </div>
