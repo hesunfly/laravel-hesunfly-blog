@@ -43,6 +43,7 @@
                                     <thead>
                                     <tr>
                                         <th>标题</th>
+                                        <th>分类</th>
                                         <th>状态</th>
                                         <th>操作</th>
                                     </tr>
@@ -51,6 +52,7 @@
                                     @foreach ($articles as $item)
                                         <tr class="gradeX">
                                             <td>{{ $item->title }}</td>
+                                            <td>{{ $item->category->category_title }}</td>
                                             <td>{{ $item->status }}</td>
                                             <td>
                                                 <div class="tpl-table-black-operation">
