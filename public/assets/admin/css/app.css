@@ -475,7 +475,7 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
   width: 100%;
 }
 .row-content {
-  padding: 2px;
+  padding: 5px;
 }
 .widget-fluctuation-description-text {
   margin-top: 4px;
@@ -1885,8 +1885,8 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
 }
 @media screen and (min-width: 641px) {
   [class*=am-u-] {
-    padding-left: 10px;
-    padding-right: 10px;
+    /*padding-left: 10px;*/
+    /*padding-right: 10px;*/
   }
 }
 @media screen and (max-width: 641px) {
