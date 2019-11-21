@@ -12,8 +12,6 @@
             <a href="javascript:;" class="tpl-user-panel-action-link"> <span class="am-icon-pencil"></span> 账号设置</a>
         </div>
     </div>--}}
-    <div style="padding-top: 70px;"></div>
-
     <!-- 菜单 -->
     <ul class="sidebar-nav">
         <li class="sidebar-nav-heading">文章</li>
