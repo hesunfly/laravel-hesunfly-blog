@@ -8,7 +8,7 @@ class IndexController extends Controller
 {
     public function index()
     {
-        $articles = Article::where(['status' => 1])->orderBy('publish_at', 'desc')->paginate(2);
+        $articles = Article::with('category')->where(['status' => 1])->orderBy('publish_at', 'desc')->paginate(2);
         return view('index')->with(['articles' => $articles]);
     }
 }

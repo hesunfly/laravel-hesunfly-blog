@@ -31,22 +31,20 @@
 
                                 <form class="am-form tpl-form-line-form">
                                     <div class="am-form-group">
-                                        <label for="title" class="am-u-sm-3 am-form-label">文章标题 <span
+                                        <label for="title" class="am-u-sm-3 am-form-label">文章标题 <span style="color: red;">*</span> <span
                                                     class="tpl-form-line-small-title">Title</span></label>
                                         <div class="am-u-sm-9">
                                             <input type="text" class="tpl-form-input" name="title" id="title"
                                                    placeholder="请输入文章标题">
-                                            <small><span style="color: red;">*</span></small>
                                         </div>
                                     </div>
 
                                     <div class="am-form-group">
-                                        <label for="description" class="am-u-sm-3 am-form-label">文章描述 <span
+                                        <label for="description" class="am-u-sm-3 am-form-label">文章描述 <span style="color: red;">*</span> <span
                                                     class="tpl-form-line-small-title">Description</span></label>
                                         <div class="am-u-sm-9">
                                             <textarea class="" rows="3" id="description" name="description"
                                                       placeholder="请输入文章描述"></textarea>
-                                            <small><span style="color: red;">*</span></small>
                                         </div>
                                     </div>
 
@@ -56,12 +54,11 @@
                                         <div class="am-u-sm-9">
                                             <input type="text" class="tpl-form-input" id="slug" name="slug"
                                                    placeholder="请输入文章路由">
-                                            <small><span style="color: red;">*</span></small>
                                         </div>
                                     </div>
 
                                     <div class="am-form-group">
-                                        <label for="category" class="am-u-sm-3 am-form-label">文章分类 <span
+                                        <label for="category" class="am-u-sm-3 am-form-label">文章分类 <span style="color: red;">*</span> <span
                                                     class="tpl-form-line-small-title">Category</span></label>
                                         <div class="am-u-sm-9">
                                             <select class="am-form" name="category" id="category">
@@ -70,17 +67,15 @@
                                                     <option value="{{ $item['id'] }}">{{ $item['category_title'] }}</option>
                                                 @endforeach
                                             </select>
-                                            <small><span style="color: red;">*</span></small>
                                         </div>
                                     </div>
 
                                     <div class="am-form-group">
-                                        <label for="content" class="am-u-sm-3 am-form-label">文章内容 <span
+                                        <label for="content" class="am-u-sm-3 am-form-label">文章内容 <span style="color: red;">*</span> <span
                                                     class="tpl-form-line-small-title">Content</span></label>
                                         <div class="am-u-sm-9">
                                             <textarea class="" id="content" name="content"
                                             ></textarea>
-                                            <small><span style="color: red;">*</span></small>
                                         </div>
                                     </div>
 
@@ -153,15 +148,7 @@
             }
 
             let slug = $('#slug').val();
-            if (slug.length === 0) {
-                layer.msg('Slug 为必填项！', {
-                        icon: 2,
-                        time: 2000 //2秒关闭（如果不配置，默认是3秒）
-                    }, function () {
-                    }
-                );
-                return;
-            }
+
 
             let category = $('#category').val();
             if (category.length === 0) {

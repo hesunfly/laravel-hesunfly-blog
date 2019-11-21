@@ -10,5 +10,7 @@
     <link rel="stylesheet" href="/assets/css/sunburst.min.css">
     <link href="/assets/css/theme.css" rel="stylesheet">
     <link href="/assets/css/search.css" rel="stylesheet">
+    <link href="/assets/fontawesome-free-5.11.2/css/all.css" rel="stylesheet">
+    <script defer src="/assets/fontawesome-free-5.11.2/js/all.js"></script>
 </head>
 <body>

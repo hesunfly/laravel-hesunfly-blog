@@ -17,7 +17,7 @@ trait ArticleRequestTrait
                     'title' => ['bail', 'required', 'string', 'unique:articles'],
                     'category_id' => ['bail', 'required', new CheckCategory()],
                     'description' => ['bail', 'required', 'string'],
-                    'slug' => ['bail', 'required', 'string', 'unique:articles'],
+                    'slug' => ['unique:articles'],
                     'status' => ['bail', 'required', Rule::in([-1, 1])],
                     'content' => ['bail', 'required', 'string'],
                 ];
@@ -27,7 +27,7 @@ trait ArticleRequestTrait
                     'title' => ['bail', 'required', 'string', Rule::unique('articles')->ignore($this->id)],
                     'category_id' => ['bail', 'required', new CheckCategory()],
                     'description' => ['bail', 'required', 'string'],
-                    'slug' => ['bail', 'required', 'string', Rule::unique('articles')->ignore($this->id)],
+                    'slug' => [Rule::unique('articles')->ignore($this->id)],
                     'status' => ['bail', 'required', Rule::in([-1, 1])],
                     'content' => ['bail', 'required', 'string'],
                 ];
