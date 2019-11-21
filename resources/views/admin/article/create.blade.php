@@ -34,7 +34,7 @@
                                         <label for="title" class="am-u-sm-3 am-form-label">文章标题 <span style="color: red;">*</span> <span
                                                     class="tpl-form-line-small-title">Title</span></label>
                                         <div class="am-u-sm-9">
-                                            <input type="text" class="tpl-form-input" name="title" id="title"
+                                            <input type="text" class="tpl-form-input" name="title" id="title" autofocus
                                                    placeholder="请输入文章标题">
                                         </div>
                                     </div>
