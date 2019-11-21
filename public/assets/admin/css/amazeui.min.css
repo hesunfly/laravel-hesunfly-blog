@@ -458,8 +458,8 @@ button, input:not([type=radio]):not([type=checkbox]), select {
 
 @media only screen and (min-width: 641px) {
     [class*=am-u-] {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem
+        /*padding-left: 1.5rem;gaa
+        padding-right: 1.5rem*/
     }
 }
 
