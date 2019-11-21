@@ -20,7 +20,6 @@ class CreateArticlesTable extends Migration
             $table->string('description')->default('');
             $table->string('slug')->default('');
             $table->longText('html_content');
-            $table->mediumInteger('sort')->default(0);
             $table->longText('content');
             $table->string('cover_img')->default('');
             $table->tinyInteger('status')->default(-1)->comment('是否发布 @-1:未发布，@1：已发布');
