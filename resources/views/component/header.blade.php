@@ -7,8 +7,9 @@
             <div class="lg:ml-auto mt-10 lg:mt-0 flex items-center" style="font-size: 1.3rem">
                 <div>
                     <a href="{{ url('/') }}" class="no-underline hover:underline uppercase">文章</a>
-                    <a href="{{ url('achieve') }}"
-                       class="ml-5 no-underline hover:underline uppercase">足迹</a>
+                    <a href="{{ url('/achieve') }}" class="ml-5 no-underline hover:underline uppercase">足迹</a>
+                    <a href="{{ url('/login') }}" class="ml-5 no-underline hover:underline uppercase">登录</a>
+{{--                    <a href="{{ url('achieve') }}" class="ml-5 no-underline hover:underline uppercase">足迹</a>--}}
                     {{--<a href="https://blog.laravel.com/forge" class="ml-5 no-underline hover:underline uppercase">工具</a>
                     <a href="https://blog.laravel.com/envoyer"
                        class="ml-5 no-underline hover:underline uppercase">介绍</a>--}}

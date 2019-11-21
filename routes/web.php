@@ -9,6 +9,7 @@ Route::group([
     Route::get('/', 'IndexController@index');
     Route::get('/article/{slug}', 'ArticleController@index');
     Route::get('/achieve', 'IndexController@achieve');
+    Route::get('/login', 'AuthController@showLogin');
 
 });
 
