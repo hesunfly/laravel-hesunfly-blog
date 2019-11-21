@@ -2,7 +2,7 @@
     <div class="container mx-auto px-5 lg:max-w-screen">
         <div class="flex items-center flex-col lg:flex-row">
             <a href="{{ url('/') }}" class="flex items-center no-underline text-brand">
-                <img src="/assets/images/Hesunfly.svg" class="w-32">
+                <img src="/assets/images/Hesunfly-Blog-Logo.png" class="w-16">
             </a>
             <div class="lg:ml-auto mt-10 lg:mt-0 flex items-center" style="font-size: 1.3rem">
                 <div>
