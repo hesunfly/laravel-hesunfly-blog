@@ -30,11 +30,21 @@
     @endforeach
 
     <div class="uppercase flex items-center justify-center flex-1 py-5 font-sans">
-        <a href="{{ $articles->previousPageUrl() }}" rel="next"
-           class="block no-underline text-light hover:text-black px-5">上一页</a>
+        @if ($articles->currentPage() != 1)
+            <a href="{{ $articles->previousPageUrl() }}" rel="next"
+               class="block no-underline text-light hover:text-black px-5">上一页</a>
+        @else
+            <a href="javascript:;" rel="next"
+               class="block no-underline text-light hover:text-black px-5"></a>
+        @endif
         <span class="px-5">{{ $articles->currentPage() }}</span>
-        <a href="{{ $articles->nextPageUrl() }}" rel="next"
-           class="block no-underline text-light hover:text-black px-5">下一页</a>
+        @if ($articles->lastPage() != $articles->currentPage())
+            <a href="{{ $articles->nextPageUrl() }}" rel="next"
+               class="block no-underline text-light hover:text-black px-5">下一页</a>
+        @else
+            <a href="javascript:;" rel="next"
+               class="block no-underline text-light hover:text-black px-5"></a>
+        @endif
     </div>
 
 </div>

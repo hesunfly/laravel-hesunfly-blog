@@ -72,9 +72,13 @@
 
                                 <div class="am-cf">
                                     <ul class="am-pagination am-pagination-centered">
-                                        <li class=""><a href="{{ $articles->previousPageUrl() }}">«</a></li>
+                                        @if ($articles->currentPage() != 1)
+                                            <li class=""><a href="{{ $articles->previousPageUrl() }}">«</a></li>
+                                        @endif
                                         <li class="am-active"><a href="javascript:;">{{ $articles->currentPage() }}</a>  </li>
-                                        <li><a href="{{ $articles->nextPageUrl() }}" style="margin-left: 5px;">»</a></li>
+                                        @if ($articles->lastPage() != $articles->currentPage())
+                                            <li><a href="{{ $articles->nextPageUrl() }}" style="margin-left: 5px;">»</a></li>
+                                        @endif
                                         <li> 共 {{ $articles->lastPage() }} 页</li>
                                     </ul>
                                 </div>
