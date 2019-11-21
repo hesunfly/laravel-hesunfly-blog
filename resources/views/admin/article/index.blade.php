@@ -68,6 +68,17 @@
                                     </tbody>
                                 </table>
                             </div>
+                            <div class="am-u-lg-12 am-cf">
+
+                                <div class="am-cf">
+                                    <ul class="am-pagination am-pagination-centered">
+                                        <li class=""><a href="{{ $articles->previousPageUrl() }}">«</a></li>
+                                        <li class="am-active"><a href="javascript:;">{{ $articles->currentPage() }}</a>  </li>
+                                        <li><a href="{{ $articles->nextPageUrl() }}" style="margin-left: 5px;">»</a></li>
+                                        <li> 共 {{ $articles->lastPage() }} 页</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
