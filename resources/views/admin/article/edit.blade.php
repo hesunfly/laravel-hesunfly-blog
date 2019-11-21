@@ -19,101 +19,102 @@
     <div class="tpl-content-wrapper">
         <div class="row-content am-cf">
             <div class="row">
+                <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                    <div class="widget am-cf">
+                        <div class="widget-head am-cf">
+                            <div class="widget-title am-fl">编辑文章</div>
+                        </div>
+                        <div class="widget-body am-fr">
 
-                <div class="row">
-
-                    <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
-                        <div class="widget am-cf">
-                            <div class="widget-head am-cf">
-                                <div class="widget-title am-fl">编辑文章</div>
-                            </div>
-                            <div class="widget-body am-fr">
-
-                                <form class="am-form tpl-form-line-form">
-                                    <div class="am-form-group">
-                                        <label for="title" class="am-u-sm-3 am-form-label">文章标题 <span style="color: red;">*</span> <span
-                                                    class="tpl-form-line-small-title">Title</span></label>
-                                        <div class="am-u-sm-9">
-                                            <input type="text" class="tpl-form-input" name="title" id="title"
-                                                   placeholder="请输入文章标题" value="{{ $article->title }}">
-                                        </div>
+                            <form class="am-form tpl-form-line-form">
+                                <div class="am-form-group">
+                                    <label for="title" class="am-u-sm-3 am-form-label">文章标题 <span
+                                                style="color: red;">*</span> <span
+                                                class="tpl-form-line-small-title">Title</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input" name="title" id="title"
+                                               placeholder="请输入文章标题" value="{{ $article->title }}">
                                     </div>
+                                </div>
 
-                                    <div class="am-form-group">
-                                        <label for="description" class="am-u-sm-3 am-form-label">文章描述 <span style="color: red;">*</span> <span
-                                                    class="tpl-form-line-small-title">Description</span></label>
-                                        <div class="am-u-sm-9">
+                                <div class="am-form-group">
+                                    <label for="description" class="am-u-sm-3 am-form-label">文章描述 <span
+                                                style="color: red;">*</span> <span
+                                                class="tpl-form-line-small-title">Description</span></label>
+                                    <div class="am-u-sm-9">
                                             <textarea class="" rows="3" id="description" name="description"
                                                       placeholder="请输入文章描述">{{ $article->title }}</textarea>
-                                        </div>
                                     </div>
+                                </div>
 
-                                    <div class="am-form-group">
-                                        <label for="slug" class="am-u-sm-3 am-form-label">文章路由 <span
-                                                    class="tpl-form-line-small-title">Slug</span></label>
-                                        <div class="am-u-sm-9">
-                                            <input type="text" class="tpl-form-input" id="slug" name="slug"
-                                                   placeholder="请输入文章路由" value="{{ $article->slug }}">
-                                        </div>
+                                <div class="am-form-group">
+                                    <label for="slug" class="am-u-sm-3 am-form-label">文章路由 <span
+                                                class="tpl-form-line-small-title">Slug</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input" id="slug" name="slug"
+                                               placeholder="请输入文章路由" value="{{ $article->slug }}">
                                     </div>
+                                </div>
 
-                                    <div class="am-form-group">
-                                        <label for="category" class="am-u-sm-3 am-form-label">文章分类 <span style="color: red;">*</span> <span
-                                                    class="tpl-form-line-small-title">Category</span></label>
-                                        <div class="am-u-sm-9">
-                                            <select class="am-form" name="category" id="category">
-                                                <option value="">选择分类</option>
-                                                @foreach ($categories as $item)
-                                                    @if ($item['id'] == $article->category_id)
-                                                        <option value="{{ $item['id'] }}"
-                                                                selected>{{ $item['category_title'] }}</option>
-                                                    @else
-                                                        <option value="{{ $item['id'] }}">{{ $item['category_title'] }}</option>
-                                                    @endif
-                                                @endforeach
-                                            </select>
-                                        </div>
+                                <div class="am-form-group">
+                                    <label for="category" class="am-u-sm-3 am-form-label">文章分类 <span
+                                                style="color: red;">*</span> <span
+                                                class="tpl-form-line-small-title">Category</span></label>
+                                    <div class="am-u-sm-9">
+                                        <select class="am-form" name="category" id="category">
+                                            <option value="">选择分类</option>
+                                            @foreach ($categories as $item)
+                                                @if ($item['id'] == $article->category_id)
+                                                    <option value="{{ $item['id'] }}"
+                                                            selected>{{ $item['category_title'] }}</option>
+                                                @else
+                                                    <option value="{{ $item['id'] }}">{{ $item['category_title'] }}</option>
+                                                @endif
+                                            @endforeach
+                                        </select>
                                     </div>
+                                </div>
 
-                                    <div class="am-form-group">
-                                        <label for="content" class="am-u-sm-3 am-form-label">文章内容 <span style="color: red;">*</span> <span
-                                                    class="tpl-form-line-small-title">Content</span></label>
-                                        <div class="am-u-sm-9">
-                                            <textarea class="" id="content" name="content">{{ $article->content }}</textarea>
-                                        </div>
+                                <div class="am-form-group">
+                                    <label for="content" class="am-u-sm-3 am-form-label">文章内容 <span style="color: red;">*</span>
+                                        <span
+                                                class="tpl-form-line-small-title">Content</span></label>
+                                    <div class="am-u-sm-9">
+                                        <textarea class="" id="content"
+                                                  name="content">{{ $article->content }}</textarea>
                                     </div>
+                                </div>
 
-                                    <div class="am-form-group">
-                                        <label for="status" class="am-u-sm-3 am-form-label">发布文章 <span
-                                                    class="tpl-form-line-small-title">Status</span></label>
-                                        <div class="am-u-sm-9">
-                                            @if ($article->status == 1)
-                                                <input type="radio" name="status" id="status-yes" value="1"
-                                                       class="am-radio-inline" checked> 发布
+                                <div class="am-form-group">
+                                    <label for="status" class="am-u-sm-3 am-form-label">发布文章 <span
+                                                class="tpl-form-line-small-title">Status</span></label>
+                                    <div class="am-u-sm-9">
+                                        @if ($article->status == 1)
+                                            <input type="radio" name="status" id="status-yes" value="1"
+                                                   class="am-radio-inline" checked> 发布
 
-                                                <input type="radio" name="status" id="status-no" value="-1"
-                                                       class="am-radio-inline"> 草稿
-                                            @else
-                                                <input type="radio" name="status" id="status-yes" value="1"
-                                                       class="am-radio-inline"> 发布
+                                            <input type="radio" name="status" id="status-no" value="-1"
+                                                   class="am-radio-inline"> 草稿
+                                        @else
+                                            <input type="radio" name="status" id="status-yes" value="1"
+                                                   class="am-radio-inline"> 发布
 
-                                                <input type="radio" name="status" id="status-no" value="-1" checked
-                                                       class="am-radio-inline"> 草稿
-                                            @endif
-                                        </div>
+                                            <input type="radio" name="status" id="status-no" value="-1" checked
+                                                   class="am-radio-inline"> 草稿
+                                        @endif
                                     </div>
+                                </div>
 
 
-                                    <div class="am-form-group">
-                                        <div class="am-u-sm-9 am-u-sm-push-3">
-                                            <button type="button"
-                                                    class="am-btn am-btn-primary tpl-btn-bg-color-success " id="submit">
-                                                提交
-                                            </button>
-                                        </div>
+                                <div class="am-form-group">
+                                    <div class="am-u-sm-9 am-u-sm-push-3">
+                                        <button type="button"
+                                                class="am-btn am-btn-primary tpl-btn-bg-color-success " id="submit">
+                                            提交
+                                        </button>
                                     </div>
-                                </form>
-                            </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
