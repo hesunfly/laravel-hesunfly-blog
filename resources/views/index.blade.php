@@ -28,7 +28,6 @@
     @endforeach
 
     <div class="uppercase flex items-center justify-center flex-1 py-5 font-sans">
-
         <a href="{{ $articles->previousPageUrl() }}" rel="next"
            class="block no-underline text-light hover:text-black px-5">上一页</a>
         <span class="px-5">{{ $articles->currentPage() }}</span>
