@@ -15,7 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::share('uri', $_SERVER['REQUEST_URI']);
+        if (!empty($_SERVER['REQUEST_URI'])) {
+            View::share('uri', $_SERVER['REQUEST_URI']);
+        }
     }
 
     /**
