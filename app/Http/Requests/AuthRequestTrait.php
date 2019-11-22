@@ -20,10 +20,9 @@ Trait AuthRequestTrait
         switch ($route) {
             case 'auth.login':
                 return [
-                    'email' => [
+                    'name' => [
                         'bail',
                         'required',
-                        'email',
 //                        new UserIsRegister(),
 //                        new UserStatus(),
                     ],

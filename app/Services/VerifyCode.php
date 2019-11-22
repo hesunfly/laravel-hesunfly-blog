@@ -22,7 +22,7 @@ class VerifyCode
 
         return [
             'key' => $key,
-            'expired_at' => $expiredAt->toDateTimeString()
+            'expired_at' => $expiredAt->toDateTimeString(),
         ];
     }
 

@@ -9,23 +9,22 @@ Route::group([
     Route::get('/', 'IndexController@index');
     Route::get('/article/{slug}', 'ArticleController@index');
     Route::get('/achieve', 'IndexController@achieve');
+
+
     Route::get('/login', 'AuthController@showLogin');
+    Route::post('/login', 'AuthController@login')->name('auth.login');
 
-});
+    Route::get('/email_verify_code/{email}', 'AuthController@emailVerifyCode');
+    Route::get('/register', 'AuthController@showRegister');
+    Route::post('/register', 'AuthController@register')->name('auth.register');
 
-Route::get('/path', function () {
-//    var_dump(route('http://hesunfly.test/admin/tags'));
+    Route::delete('/logout', 'AuthController@logout');
 });
 
 Route::group([
     'namespace' => 'Web\Admin',
     'prefix' => 'admin',
 ], function () {
-    Route::get('/login', 'AuthController@showLogin');
-    Route::post('/login', 'AuthController@login')->name('auth.login');
-    Route::delete('/logout', 'AuthController@logout');
-
-
     Route::group([
         'middleware' => 'admin.pass',
     ], function () {

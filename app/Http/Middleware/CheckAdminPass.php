@@ -14,7 +14,7 @@ class CheckAdminPass
     public function handle($request, Closure $next)
     {
         if (Auth::guard('web')->id() != 1) {
-            return redirect('/admin/login');
+            return redirect('/');
         }
 
         return $next($request);
