@@ -8,11 +8,4 @@ Trait RequestTrait
     {
         return true;
     }
-
-    protected function routeName()
-    {
-        $routeAction = $this->route()->action;
-        return $routeAction['as'];
-    }
-
 }
