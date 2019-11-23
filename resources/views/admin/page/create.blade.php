@@ -1,4 +1,4 @@
-@component('admin.component.head', ['title' => '文章编辑'])
+@component('admin.component.head', ['title' => '页面添加'])
 @endcomponent
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
 <body data-type="widgets">
@@ -19,10 +19,11 @@
     <div class="tpl-content-wrapper">
         <div class="row-content am-cf">
             <div class="row">
+
                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
                     <div class="widget am-cf">
                         <div class="widget-head am-cf">
-                            <div class="widget-title am-fl">编辑文章</div>
+                            <div class="widget-title am-fl">创建文章</div>
                         </div>
                         <div class="widget-body am-fr">
 
@@ -32,8 +33,8 @@
                                                 style="color: red;">*</span> <span
                                                 class="tpl-form-line-small-title">Title</span></label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" class="tpl-form-input" name="title" id="title"
-                                               placeholder="请输入文章标题" value="{{ $article->title }}">
+                                        <input type="text" class="tpl-form-input" name="title" id="title" autofocus
+                                               placeholder="请输入文章标题">
                                     </div>
                                 </div>
 
@@ -43,7 +44,7 @@
                                                 class="tpl-form-line-small-title">Description</span></label>
                                     <div class="am-u-sm-9">
                                             <textarea class="" rows="3" id="description" name="description"
-                                                      placeholder="请输入文章描述">{{ $article->title }}</textarea>
+                                                      placeholder="请输入文章描述"></textarea>
                                     </div>
                                 </div>
 
@@ -52,7 +53,7 @@
                                                 class="tpl-form-line-small-title">Slug</span></label>
                                     <div class="am-u-sm-9">
                                         <input type="text" class="tpl-form-input" id="slug" name="slug"
-                                               placeholder="请输入文章路由" value="{{ $article->slug }}">
+                                               placeholder="请输入文章路由">
                                     </div>
                                 </div>
 
@@ -64,12 +65,7 @@
                                         <select class="am-form" name="category" id="category">
                                             <option value="">选择分类</option>
                                             @foreach ($categories as $item)
-                                                @if ($item['id'] == $article->category_id)
-                                                    <option value="{{ $item['id'] }}"
-                                                            selected>{{ $item['category_title'] }}</option>
-                                                @else
-                                                    <option value="{{ $item['id'] }}">{{ $item['category_title'] }}</option>
-                                                @endif
+                                                <option value="{{ $item['id'] }}">{{ $item['category_title'] }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -80,8 +76,8 @@
                                         <span
                                                 class="tpl-form-line-small-title">Content</span></label>
                                     <div class="am-u-sm-9">
-                                        <textarea class="" id="content"
-                                                  name="content">{{ $article->content }}</textarea>
+                                            <textarea class="" id="content" name="content"
+                                            ></textarea>
                                     </div>
                                 </div>
 
@@ -89,19 +85,10 @@
                                     <label for="status" class="am-u-sm-3 am-form-label">发布文章 <span
                                                 class="tpl-form-line-small-title">Status</span></label>
                                     <div class="am-u-sm-9">
-                                        @if ($article->status == 1)
-                                            <input type="radio" name="status" id="status-yes" value="1"
-                                                   class="am-radio-inline" checked> 发布
-
-                                            <input type="radio" name="status" id="status-no" value="-1"
-                                                   class="am-radio-inline"> 草稿
-                                        @else
-                                            <input type="radio" name="status" id="status-yes" value="1"
-                                                   class="am-radio-inline"> 发布
-
-                                            <input type="radio" name="status" id="status-no" value="-1" checked
-                                                   class="am-radio-inline"> 草稿
-                                        @endif
+                                        <input type="radio" name="status" id="status-yes" value="1"
+                                               class="am-radio-inline"> 发布
+                                        <input type="radio" name="status" id="status-no" value="-1" checked
+                                               class="am-radio-inline"> 草稿
                                     </div>
                                 </div>
 
@@ -127,7 +114,6 @@
 <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 <script>
     $(function () {
-
         var simplemde = new SimpleMDE({element: $("#content")[0]});
 
         $('.editor-toolbar').click(function () {
@@ -166,6 +152,7 @@
 
             let slug = $('#slug').val();
 
+
             let category = $('#category').val();
             if (category.length === 0) {
                 layer.msg('Category 为必填项！', {
@@ -190,18 +177,18 @@
 
             let status = $("input[name='status']:checked").val();
 
-            axios.put(
-                "{{ url('/admin/articles/save') . '/' . $id }}",
+            axios.post(
+                "{{ url('/admin/articles/store') }}",
                 {
                     'title': title,
                     'description': description,
                     'slug': slug,
                     'category_id': category,
                     'content': content,
-                    'status': status,
+                    'status': status
                 }
             ).then(function (response) {
-                layer.msg('修改成功！', {
+                layer.msg('创建成功！', {
                         icon: 1,
                         time: 1000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {

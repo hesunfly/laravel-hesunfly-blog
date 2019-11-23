@@ -1,4 +1,4 @@
-@component('admin.component.head')
+@component('admin.component.head', ['title' => '分类列表'])
 @endcomponent
 
 <body data-type="widgets">

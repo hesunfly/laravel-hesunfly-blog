@@ -1,4 +1,4 @@
-@component('admin.component.head')
+@component('admin.component.head', ['title' => '文章列表'])
 @endcomponent
 
 <body data-type="widgets">
@@ -53,7 +53,17 @@
                                         <tr class="gradeX">
                                             <td>{{ $item->title }}</td>
                                             <td>{{ $item->category->category_title }}</td>
-                                            <td>{{ $item->status }}</td>
+                                            <td>
+                                                @if ($item->status == 1)
+                                                    <button type="button" class="am-btn am-round am-btn-success">
+                                                         已发布
+                                                    </button>
+                                                @else
+                                                    <button type="button" class="am-btn am-round am-btn-warning">
+                                                        未发布
+                                                    </button>
+                                                @endif
+                                            </td>
                                             <td>
                                                 <div class="tpl-table-black-operation">
                                                     <a href="{{ url('/admin/articles/edit') . '/' . $item->id }}">
@@ -77,9 +87,11 @@
                                         @if ($articles->currentPage() != 1)
                                             <li class=""><a href="{{ $articles->previousPageUrl() }}">«</a></li>
                                         @endif
-                                        <li class="am-active"><a href="javascript:;">{{ $articles->currentPage() }}</a>  </li>
+                                        <li class="am-active"><a href="javascript:;">{{ $articles->currentPage() }}</a>
+                                        </li>
                                         @if ($articles->lastPage() != $articles->currentPage())
-                                            <li><a href="{{ $articles->nextPageUrl() }}" style="margin-left: 5px;">»</a></li>
+                                            <li><a href="{{ $articles->nextPageUrl() }}" style="margin-left: 5px;">»</a>
+                                            </li>
                                         @endif
                                         <li> 共 {{ $articles->lastPage() }} 页</li>
                                     </ul>

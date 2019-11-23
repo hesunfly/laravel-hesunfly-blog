@@ -1,4 +1,4 @@
-@component('admin.component.head')
+@component('admin.component.head', ['title' => '分类编辑'])
 @endcomponent
 
 <body data-type="widgets">

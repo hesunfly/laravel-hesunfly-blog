@@ -52,6 +52,11 @@ Route::group([
             'prefix' => 'pages',
         ], function () {
             Route::get('/', 'PageController@index');
+            Route::get('/create', 'PageController@create');
+            Route::post('/store', 'PageController@store');
+            Route::get('/edit/{id}', 'PageController@edit');
+            Route::put('/save/{id}', 'PageController@save');
+            Route::delete('/destroy/{id}', 'PageController@destroy');
         });
 
         Route::group([

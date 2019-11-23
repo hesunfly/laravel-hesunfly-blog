@@ -1,4 +1,4 @@
-@component('admin.component.head', ['title' => '文章编辑'])
+@component('admin.component.head', ['title' => '页面编辑'])
 @endcomponent
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
 <body data-type="widgets">

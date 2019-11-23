@@ -1,4 +1,4 @@
-@component('admin.component.head')
+@component('admin.component.head', ['title' => 'Hesunfly Blog'])
 @endcomponent
 
 <body data-type="index">

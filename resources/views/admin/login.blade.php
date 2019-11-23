@@ -1,4 +1,4 @@
-@component('admin.component.head')
+@component('admin.component.head', ['title' => '登录'])
 @endcomponent
 
 <body data-type="login">
