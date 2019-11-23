@@ -7,7 +7,9 @@ Route::group([
     'namespace' => 'Web',
 ], function () {
     Route::get('/', 'IndexController@index');
-    Route::get('/article/{slug}', 'ArticleController@index');
+    Route::get('/article/{slug}', 'IndexController@article');
+    Route::get('/pages/{slug}', 'IndexController@page');
+
     Route::get('/achieve', 'IndexController@achieve');
 });
 

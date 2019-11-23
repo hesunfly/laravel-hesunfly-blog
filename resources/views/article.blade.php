@@ -1,6 +1,6 @@
 @component('component.head', ['title' => $article->title])
 @endcomponent
-@component('component.header')
+@component('component.header', ['pages' => $pages])
 @endcomponent
 
 <div class="container mx-auto px-5 lg:max-w-screen-sm mt-20">
