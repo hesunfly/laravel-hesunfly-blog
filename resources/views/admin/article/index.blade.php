@@ -45,6 +45,7 @@
                                         <th>标题</th>
                                         <th>分类</th>
                                         <th>状态</th>
+                                        <th>创建时间</th>
                                         <th>操作</th>
                                     </tr>
                                     </thead>
@@ -64,6 +65,7 @@
                                                     </button>
                                                 @endif
                                             </td>
+                                            <td>{{ $item->created_at->toDateString() }}</td>
                                             <td>
                                                 <div class="tpl-table-black-operation">
                                                     <a href="{{ url('/admin/articles/edit') . '/' . $item->id }}">

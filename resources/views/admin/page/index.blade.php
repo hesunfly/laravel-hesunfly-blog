@@ -46,6 +46,7 @@
                                         <th>排序</th>
                                         <th>路由</th>
                                         <th>状态</th>
+                                        <th>时间</th>
                                         <th>操作</th>
                                     </tr>
                                     </thead>
@@ -55,7 +56,18 @@
                                             <td>{{ $item->title }}</td>
                                             <td>{{ $item->sort }}</td>
                                             <td>{{ $item->slug }}</td>
-                                            <td>{{ $item->status }}</td>
+                                            <td>
+                                                @if ($item->status == 1)
+                                                    <button type="button" class="am-btn am-round am-btn-success">
+                                                        已发布
+                                                    </button>
+                                                @else
+                                                    <button type="button" class="am-btn am-round am-btn-warning">
+                                                        未发布
+                                                    </button>
+                                                @endif
+                                            </td>
+                                            <td>{{ $item->created_at->toDateString() }}</td>
                                             <td>
                                                 <div class="tpl-table-black-operation">
                                                     <a href="{{ url('/admin/pages/edit') . '/' . $item->id }}">

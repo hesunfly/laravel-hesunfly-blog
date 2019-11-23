@@ -2,13 +2,9 @@
 
 namespace App\Http\Controllers\Web\Admin;
 
-use App\Http\Requests\Web\ArticleRequest;
-use App\Models\Article;
-use App\Models\Category;
+use App\Http\Requests\Web\PageRequest;
 use App\Models\Page;
 use App\Services\MarkdownService;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
 {
@@ -22,75 +18,54 @@ class PageController extends Controller
 
     public function create()
     {
-        $categories = Category::where(['status' => 1])->get();
-        return view('admin.article.create')->with([
-            'categories' => $categories
-        ]);
+        return view('admin.page.create');
     }
 
-    public function store(ArticleRequest $request)
+    public function store(PageRequest $request)
     {
         $requestData = $request->only([
             'title',
-            'category_id',
-            'description',
             'content',
+            'slug',
+            'sort',
+            'status',
         ]);
         $requestData['html_content'] = MarkdownService::toHtml($request->input('content'));
-        $requestData['slug'] = empty($request->input('slug')) ? uniqid('article_') : $request->input('slug');
-        DB::beginTransaction();
-        $article = Article::create($requestData);
-
-        if ($request->status == 1) {
-            $article->update(['status' => 1, 'publish_at' => Carbon::now()->toDateTimeString()]);
-        }
-        DB::commit();
+        Page::create($requestData);
 
         return response('success', 201);
     }
 
     public function edit($id)
     {
-        $categories = Category::where(['status' => 1])->get();
-        $article = $this->findOrFail($id, Article::class);
-        return view('admin.article.edit')->with([
-            'article' => $article,
-            'categories' => $categories,
+        $page = $this->findOrFail($id, Page::class);
+        return view('admin.page.edit')->with([
+            'page' => $page,
             'id' => $id
         ]);
     }
 
-    public function save($id, ArticleRequest $request)
+    public function save($id, PageRequest $request)
     {
-        $article = $this->findOrFail($id, Article::class);
+        $page = $this->findOrFail($id, Page::class);
+
         $requestData = $request->only([
             'title',
-            'category_id',
-            'description',
             'content',
+            'slug',
+            'sort',
+            'status',
         ]);
         $requestData['html_content'] = MarkdownService::toHtml($request->input('content'));
-        $requestData['slug'] = empty($request->input('slug')) ? uniqid('article_') : $request->input('slug');
-        DB::beginTransaction();
-        $article->update($requestData);
-
-        switch ((int) $request->status) {
-            case 1:
-                $article->update(['status' => 1, 'publish_at' => Carbon::now()->toDateTimeString()]);
-                break;
-            case -1:
-                $article->update(['status' => -1]);
-                break;
-        }
-        DB::commit();
+        $page->update($requestData);
 
         return response('success', 200);
     }
 
     public function destroy($id)
     {
-        $article = $this->findOrFail($id, Article::class);
-        $article->delete();
+        $page = $this->findOrFail($id, Page::class);
+        $page->delete();
 
         return response('success', 204);
     }

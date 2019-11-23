@@ -53,7 +53,7 @@
                                         <tr class="gradeX">
                                             <td>{{ $item->category_title }}</td>
                                             <td>{{ $item->articles_count }}</td>
-                                            <td>{{ $item->updated_at }}</td>
+                                            <td>{{ $item->created_at->toDateString()  }}</td>
                                             <td>
                                                 <div class="tpl-table-black-operation">
                                                     <a href="{{ url('/admin/categories/edit') . '/' . $item->id }}">

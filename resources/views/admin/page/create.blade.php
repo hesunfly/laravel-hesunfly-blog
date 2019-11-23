@@ -23,56 +23,43 @@
                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
                     <div class="widget am-cf">
                         <div class="widget-head am-cf">
-                            <div class="widget-title am-fl">创建文章</div>
+                            <div class="widget-title am-fl">创建页面</div>
                         </div>
                         <div class="widget-body am-fr">
 
                             <form class="am-form tpl-form-line-form">
                                 <div class="am-form-group">
-                                    <label for="title" class="am-u-sm-3 am-form-label">文章标题 <span
+                                    <label for="title" class="am-u-sm-3 am-form-label">页面标题 <span
                                                 style="color: red;">*</span> <span
                                                 class="tpl-form-line-small-title">Title</span></label>
                                     <div class="am-u-sm-9">
                                         <input type="text" class="tpl-form-input" name="title" id="title" autofocus
-                                               placeholder="请输入文章标题">
+                                               placeholder="请输入页面标题">
                                     </div>
                                 </div>
 
                                 <div class="am-form-group">
-                                    <label for="description" class="am-u-sm-3 am-form-label">文章描述 <span
+                                    <label for="slug" class="am-u-sm-3 am-form-label">页面路由 <span
                                                 style="color: red;">*</span> <span
-                                                class="tpl-form-line-small-title">Description</span></label>
-                                    <div class="am-u-sm-9">
-                                            <textarea class="" rows="3" id="description" name="description"
-                                                      placeholder="请输入文章描述"></textarea>
-                                    </div>
-                                </div>
-
-                                <div class="am-form-group">
-                                    <label for="slug" class="am-u-sm-3 am-form-label">文章路由 <span
                                                 class="tpl-form-line-small-title">Slug</span></label>
                                     <div class="am-u-sm-9">
                                         <input type="text" class="tpl-form-input" id="slug" name="slug"
-                                               placeholder="请输入文章路由">
+                                               placeholder="请输入页面路由">
                                     </div>
                                 </div>
 
                                 <div class="am-form-group">
-                                    <label for="category" class="am-u-sm-3 am-form-label">文章分类 <span
+                                    <label for="slug" class="am-u-sm-3 am-form-label">排序 <span
                                                 style="color: red;">*</span> <span
-                                                class="tpl-form-line-small-title">Category</span></label>
+                                                class="tpl-form-line-small-title">sort</span></label>
                                     <div class="am-u-sm-9">
-                                        <select class="am-form" name="category" id="category">
-                                            <option value="">选择分类</option>
-                                            @foreach ($categories as $item)
-                                                <option value="{{ $item['id'] }}">{{ $item['category_title'] }}</option>
-                                            @endforeach
-                                        </select>
+                                        <input type="text" class="tpl-form-input" id="sort" name="sort"
+                                               placeholder="请输入排序数字，数字越大越靠前">
                                     </div>
                                 </div>
 
                                 <div class="am-form-group">
-                                    <label for="content" class="am-u-sm-3 am-form-label">文章内容 <span style="color: red;">*</span>
+                                    <label for="content" class="am-u-sm-3 am-form-label">页面内容 <span style="color: red;">*</span>
                                         <span
                                                 class="tpl-form-line-small-title">Content</span></label>
                                     <div class="am-u-sm-9">
@@ -82,7 +69,7 @@
                                 </div>
 
                                 <div class="am-form-group">
-                                    <label for="status" class="am-u-sm-3 am-form-label">发布文章 <span
+                                    <label for="status" class="am-u-sm-3 am-form-label">发布 <span
                                                 class="tpl-form-line-small-title">Status</span></label>
                                     <div class="am-u-sm-9">
                                         <input type="radio" name="status" id="status-yes" value="1"
@@ -139,9 +126,9 @@
                 return;
             }
 
-            let description = $('#description').val();
-            if (description.description === 0) {
-                layer.msg('Description 为必填项！', {
+            let slug = $('#slug').val();
+            if (slug.length === 0) {
+                layer.msg('Slug 为必填项！', {
                         icon: 2,
                         time: 2000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
@@ -149,13 +136,9 @@
                 );
                 return;
             }
-
-            let slug = $('#slug').val();
-
-
-            let category = $('#category').val();
-            if (category.length === 0) {
-                layer.msg('Category 为必填项！', {
+            let sort = $('#sort').val();
+            if (sort.length === 0) {
+                layer.msg('Sort 为必填项！', {
                         icon: 2,
                         time: 2000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
@@ -178,12 +161,11 @@
             let status = $("input[name='status']:checked").val();
 
             axios.post(
-                "{{ url('/admin/articles/store') }}",
+                "{{ url('/admin/pages/store') }}",
                 {
                     'title': title,
-                    'description': description,
                     'slug': slug,
-                    'category_id': category,
+                    'sort': sort,
                     'content': content,
                     'status': status
                 }
@@ -192,7 +174,7 @@
                         icon: 1,
                         time: 1000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
-                        window.location = "{{ url('/admin/articles') }}";
+                        window.location = "{{ url('/admin/pages') }}";
                     }
                 );
             }).catch(function (error) {

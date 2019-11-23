@@ -21,7 +21,6 @@ class CreatePagesTable extends Migration
             $table->longText('html_content');
             $table->tinyInteger('sort')->default(0);
             $table->tinyInteger('status')->default(1);
-            $table->tinyInteger('comment_status')->default(1);
             $table->timestamps();
             $table->softDeletes();
         });
