@@ -91,7 +91,10 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         $article = $this->findOrFail($id, Article::class);
+        DB::beginTransaction();
         $article->delete();
+        Category::find($article->category_id)->decrement('articles_count');
+        DB::commit();
 
         return response('success', 204);
     }
