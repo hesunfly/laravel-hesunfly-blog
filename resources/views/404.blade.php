@@ -1,7 +1,7 @@
 @component('component.head', ['title' => env('APP_NAME')])
 @endcomponent
 
-@component('component.header', ['pages' => $pages])
+@component('component.header', ['pages' => \App\Services\CacheService::getPages()])
 @endcomponent
 
 <div style="text-align: center !important; margin-top: 100px;box-sizing: border-box;">

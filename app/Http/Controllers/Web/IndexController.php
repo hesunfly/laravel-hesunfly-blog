@@ -13,31 +13,28 @@ class IndexController extends Controller
             ->where(['status' => 1])
             ->orderBy('publish_at', 'desc')
             ->paginate(10);
-
-        $pages = Page::whereRaw('status = 1')->select(['slug', 'title'])->orderBy('sort')->get();
-        return view('index')->with(['articles' => $articles, 'pages' => $pages]);
+        return view('index')->with(['articles' => $articles]);
     }
 
     public function article($slug)
     {
         $article = Article::where(['slug' => $slug])->first();
-        $pages = Page::whereRaw('status = 1')->select(['slug', 'title'])->orderBy('sort')->get();
 
         if (empty($article)) {
-            return view('404')->with(['pages' => $pages]);
+            return view('404');
         }
 
-        return view('article')->with(['article' => $article, 'pages' => $pages]);
+        return view('article')->with(['article' => $article]);
     }
 
     public function page($slug)
     {
         $page = Page::where(['slug' => $slug])->first();
-        $pages = Page::whereRaw('status = 1')->select(['slug', 'title'])->orderBy('sort')->get();
 
         if (empty($page)) {
-            return view('404')->with(['pages' => $pages]);
+            return view('404');
         }
-        return view('page')->with(['page' => $page, 'pages' => $pages]);
+
+        return view('page')->with(['page' => $page]);
     }
 }
