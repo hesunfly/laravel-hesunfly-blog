@@ -43,6 +43,8 @@ class ArticleController extends Controller
         if ($request->status == 1) {
             $article->update(['status' => 1, 'publish_at' => Carbon::now()->toDateTimeString()]);
         }
+
+        Category::find($request->input('category_id'))->increment('articles_count');
         DB::commit();
 
         return response('success', 201);
