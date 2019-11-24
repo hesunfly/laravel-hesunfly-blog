@@ -1,17 +1,4 @@
-<div class="left-sidebar">
-    <!-- 用户信息 -->
-   {{-- <div class="tpl-sidebar-user-panel" style="padding-top: 80px;">
-        <div class="tpl-user-panel-slide-toggleable">
-            <div class="tpl-user-panel-profile-picture">
-                <img src="/assets/images/Hesunfly.svg" alt="">
-            </div>
-            <span class="user-panel-logged-in-text">
-              <i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>
-              Hesunfly
-          </span>
-            <a href="javascript:;" class="tpl-user-panel-action-link"> <span class="am-icon-pencil"></span> 账号设置</a>
-        </div>
-    </div>--}}
+<div class="left-sidebar" style="min-height: 82%;">
     <!-- 菜单 -->
     <ul class="sidebar-nav">
         <li class="sidebar-nav-heading">文章</li>
@@ -46,18 +33,6 @@
         <li class="sidebar-nav-link">
             <a href="{{ url('/admin/files') }}">
                 <i class="am-icon-file-o sidebar-nav-link-logo"></i> 文件
-            </a>
-        </li>
-
-        <li class="sidebar-nav-heading">应用</li>
-        <li class="sidebar-nav-link">
-            <a href="{{ url('/admin/setting') }}">
-                <i class="am-icon-key sidebar-nav-link-logo"></i> 配置
-            </a>
-        </li>
-        <li class="sidebar-nav-link">
-            <a href="{{ url('/admin/others') }}">
-                <i class="am-icon-tv sidebar-nav-link-logo"></i> 其他
             </a>
         </li>
 

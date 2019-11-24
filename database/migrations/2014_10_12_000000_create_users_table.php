@@ -18,15 +18,9 @@ class CreateUsersTable extends Migration
             $table->string('name')->unique();
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('phone')->default('');
-            $table->string('github')->default('');
-            $table->tinyInteger('status')->default(1)->comment('用户状态 @-1 禁用, @1 正常 ');
-            $table->string('login_ip')->default('');
+            $table->string('avatar');
             $table->rememberToken();
             $table->timestamps();
-            $table->softDeletes();
-            $table->index('name');
-            $table->index('email');
         });
     }
 

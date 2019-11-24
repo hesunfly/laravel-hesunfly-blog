@@ -20,7 +20,6 @@ Route::group([
     Route::get('/login', 'AuthController@showLogin');
     Route::post('/login', 'AuthController@login');
 
-
     Route::group([
         'middleware' => 'admin.pass',
     ], function () {

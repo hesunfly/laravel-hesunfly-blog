@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-class Comment extends Model
+class Setting extends Model
 {
     protected $guarded = [];
+    protected $table = 'setting';
 }

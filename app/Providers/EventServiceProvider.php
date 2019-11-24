@@ -13,18 +13,7 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\LoginLogEvent' => [
-            'App\Listeners\LoginLogListener',
-        ],
 
-        'App\Events\UpdateLoginIpEvent' => [
-            'App\Listeners\UpdateLoginIpListener',
-        ],
-
-        \SocialiteProviders\Manager\SocialiteWasCalled::class => [
-            // add your listeners (aka providers) here
-            'SocialiteProviders\\GitHub\\GitHubExtendSocialite@handle',
-        ]
     ];
 
     /**

@@ -18,7 +18,6 @@ class CreateCategoriesTable extends Migration
             $table->string('category_title')->unique();
             $table->unsignedTinyInteger('sort')->default(1);
             $table->unsignedSmallInteger('articles_count')->default(0);
-            $table->tinyInteger('status')->default(1)->comment('用户状态 @-1 禁用, @1 正常 ');
             $table->timestamps();
             $table->softDeletes();
         });

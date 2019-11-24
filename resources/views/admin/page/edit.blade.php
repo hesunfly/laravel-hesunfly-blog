@@ -53,7 +53,7 @@
                                                 style="color: red;">*</span> <span
                                                 class="tpl-form-line-small-title">sort</span></label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" class="tpl-form-input" id="sort" name="sort"
+                                        <input type="number" class="tpl-form-input" id="sort" name="sort"
                                                placeholder="请输入排序数字，数字越大越靠前" value="{{ $page->sort }}">
                                     </div>
                                 </div>
