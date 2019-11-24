@@ -18,7 +18,7 @@ class IndexController extends Controller
 
     public function article($slug)
     {
-        $article = Article::where(['slug' => $slug])->first();
+        $article = Article::with('category')->where(['slug' => $slug])->first();
 
         if (empty($article)) {
             return view('404');

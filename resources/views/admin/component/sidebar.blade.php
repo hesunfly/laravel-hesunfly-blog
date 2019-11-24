@@ -22,7 +22,7 @@
         </li>
         <li class="sidebar-nav-link">
             <a href="{{ url('/admin/articles') }}" @if ( $uri != '/admin/articles/write' && mb_strstr($uri, '/admin/articles')) class="active" @endif >
-                <i class="am-icon-files-o sidebar-nav-link-logo"></i> 文章
+                <i class="am-icon-file-text-o sidebar-nav-link-logo"></i> 文章
             </a>
         </li>
         <li class="sidebar-nav-link">

@@ -4,32 +4,32 @@
 @component('component.header', ['pages' => \App\Services\CacheService::getPages()])
 @endcomponent
 
-<div class="container mx-auto px-5 lg:max-w-screen-sm">
+<div class="container mx-auto px-5 lg:max-w-screen-sm" style="padding-bottom: 100px;">
     @foreach( $articles as $item)
         <a class="no-underline transition block border border-lighter w-full mb-10 p-5 rounded post-card"
-           href="{{ url('article/' . $item['slug'])}}">
+           href="{{ url('article/' . $item->slug)}}">
             <div class="flex flex-col justify-between flex-1">
                 <div>
                     <h2 class="font-sans leading-normal block mb-6">
-                        {{ $item['title'] }}
+                        {{ $item->title }}
                     </h2>
 
                     <p class="leading-normal mb-6 font-serif leading-loose">
-                        {{ $item['description'] }}
+                        {{ $item->description }}
                     </p>
                 </div>
 
                 <div class="flex items-center text-sm text-light">
                     <span style="margin-left: 5px;">{{ $item->category->category_title }}</span>
                     &nbsp;&nbsp;
-                    <span class="ml-2"> <i class="fas fa-eye"></i> {{ $item['view_count'] }} </span>
-                    <span class="ml-auto">{{ $item['publish_at'] }}</span>
+                    <span class="ml-2"> <i class="fas fa-eye"></i> {{ $item->view_count }} </span>
+                    <span class="ml-auto">{{ $item->publish_at->toDateString() }}</span>
                 </div>
             </div>
         </a>
     @endforeach
 
-    <div class="uppercase flex items-center justify-center flex-1 py-5 font-sans">
+    <div class="uppercase flex items-center justify-center flex-1 py-5 font-sans" style="margin-bottom: 27px;">
         @if ($articles->currentPage() != 1)
             <a href="{{ $articles->previousPageUrl() }}" rel="next"
                class="block no-underline text-light hover:text-black px-5">上一页</a>

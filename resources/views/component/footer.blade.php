@@ -1,5 +1,5 @@
-<footer>
-    <div class="border-t border-lighter mt-20">
+<footer style="height:100px;margin-top: -100px;">
+    <div class="border-t border-lighter mt-20" style="margin-top: 0px;">
         <div class="container mx-auto px-5 lg:max-w-screen">
             <div class="text-muted py-10 text-center">
                 Copyright © <a href="http://hesunfly.com" style="text-decoration: none">Hesunfly</a> |
