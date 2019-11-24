@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Web;
 
 use App\Models\Article;
 use App\Models\Page;
+use App\Services\ArticleViewCountService;
+use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
@@ -16,12 +18,16 @@ class IndexController extends Controller
         return view('index')->with(['articles' => $articles]);
     }
 
-    public function article($slug)
+    public function article($slug, Request $request)
     {
         $article = Article::with('category')->where(['slug' => $slug])->first();
 
         if (empty($article)) {
             return view('404');
+        }
+
+        if (ArticleViewCountService::view($article->id, $request->getClientIp())) {
+            $article->increment('view_count');
         }
 
         return view('article')->with(['article' => $article]);

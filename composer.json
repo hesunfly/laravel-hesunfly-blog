@@ -6,7 +6,6 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
-        "awssat/laravel-visits": "^2.0",
         "barryvdh/laravel-cors": "^0.11.4",
         "dingo/api": "2.0.0",
         "doctrine/dbal": "^2.9",
