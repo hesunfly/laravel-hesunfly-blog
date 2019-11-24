@@ -12,7 +12,7 @@ class IndexController extends Controller
         $articles = Article::with('category')
             ->where(['status' => 1])
             ->orderBy('publish_at', 'desc')
-            ->paginate(10);
+            ->paginate(config('blog.page_size'));
         return view('index')->with(['articles' => $articles]);
     }
 

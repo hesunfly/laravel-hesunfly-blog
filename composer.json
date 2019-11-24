@@ -14,7 +14,6 @@
         "laravel/framework": "5.5.*",
         "laravel/horizon": "v2.0.0",
         "laravel/tinker": "~1.0",
-        "laravolt/avatar": "2.2.1",
         "michelf/php-markdown": "^1.8",
         "michelf/php-smartypants": "^1.8",
         "overtrue/laravel-filesystem-qiniu": "^1.0",

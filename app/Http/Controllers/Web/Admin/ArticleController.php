@@ -13,7 +13,7 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        $articles = Article::with('category')->orderByRaw('id desc')->paginate(15);
+        $articles = Article::with('category')->orderByRaw('id desc')->paginate(config('blog.admin_page_size'));
         return view('admin.article.index')->with([
             'articles' => $articles,
         ]);
