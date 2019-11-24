@@ -13,4 +13,16 @@
     <link href="/assets/fontawesome-free-5.11.2/css/all.css" rel="stylesheet">
     <script defer src="/assets/fontawesome-free-5.11.2/js/all.js"></script>
 </head>
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .content {
+        min-height: 100%;
+        overflow: hidden;
+    }
+</style>
 <body>
+<div class="content">
