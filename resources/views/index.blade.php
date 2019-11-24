@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="flex items-center text-sm text-light">
-                    <span style="margin-left: 5px;">{{ $item->category->category_title }}</span>
+                    <span style="margin-left: 5px;"> <i class="fas fa-folder"></i> {{ $item->category->category_title }}</span>
                     &nbsp;&nbsp;
                     <span class="ml-2"> <i class="fas fa-eye"></i> {{ $item->view_count }} </span>
                     <span class="ml-auto">{{ $item->publish_at->toDateString() }}</span>
