@@ -22,11 +22,6 @@ class User extends Authenticatable implements JWTSubject
         $this->attributes['password'] = bcrypt($value);
     }
 
-    public function getPhoneAttribute($value)
-    {
-        return empty($value) ? '' : substr_replace($value, '****', 3, 4);
-    }
-
     public function getJWTIdentifier()
     {
         return $this->getKey();
@@ -35,11 +30,6 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
-    }
-
-    public function profile()
-    {
-        return $this->hasOne(Profile::class);
     }
 
 }

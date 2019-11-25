@@ -26,7 +26,7 @@
                     </div>
                 </li>
                 <li class="am-text-sm">
-                    <a href="javascript:;" onclick="" style="padding: 0 5px;">
+                    <a href="{{ url('/admin/user')}}" style="padding: 0 5px;">
                         <span style="color: #0C0C0C">{{ \Illuminate\Support\Facades\Auth::guard('web')->user()->name }}</span>
                     </a>
                 </li>

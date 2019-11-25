@@ -27,6 +27,9 @@ Route::group([
 
         Route::get('/', 'IndexController@index');
 
+        Route::get('/user', 'UserController@edit');
+        Route::put('/user', 'UserController@update');
+
         Route::group([
             'prefix' => 'articles',
         ], function () {
@@ -70,12 +73,6 @@ Route::group([
             'prefix' => 'files',
         ], function () {
             Route::get('/', 'FileController@index');
-        });
-
-        Route::group([
-            'prefix' => 'setting',
-        ], function () {
-            Route::get('/', 'SettingController@index');
         });
     });
 
