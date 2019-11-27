@@ -11,7 +11,7 @@ class ImageController extends Controller
 {
     public function index()
     {
-        $images = Image::paginate(20);
+        $images = Image::orderByRaw('id desc')->paginate(12);
 
         return view('admin.image.index')->with(['images' => $images]);
     }

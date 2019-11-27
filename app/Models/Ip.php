@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-class Setting extends Model
+class Ip extends Model
 {
     protected $guarded = [];
-    protected $table = 'setting';
+
+
 }

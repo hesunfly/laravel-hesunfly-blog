@@ -87,16 +87,16 @@
 
                                 <div class="am-cf">
                                     <ul class="am-pagination am-pagination-centered">
-                                        {{--@if ($articles->currentPage() != 1)
-                                            <li class=""><a href="{{ $articles->previousPageUrl() }}">«</a></li>
+                                        @if ($images->currentPage() != 1)
+                                            <li class=""><a href="{{ $images->previousPageUrl() }}">«</a></li>
                                         @endif
-                                        <li class="am-active"><a href="javascript:;">{{ $articles->currentPage() }}</a>
+                                        <li class="am-active"><a href="javascript:;">{{ $images->currentPage() }}</a>
                                         </li>
-                                        @if ($articles->lastPage() != $articles->currentPage())
-                                            <li><a href="{{ $articles->nextPageUrl() }}" style="margin-left: 5px;">»</a>
+                                        @if ($images->lastPage() != $images->currentPage())
+                                            <li><a href="{{ $images->nextPageUrl() }}" style="margin-left: 5px;">»</a>
                                             </li>
                                         @endif
-                                        <li> 共 {{ $articles->lastPage() }} 页</li>--}}
+                                        <li> 共 {{ $images->lastPage() }} 页</li>
                                     </ul>
                                 </div>
                             </div>
@@ -186,6 +186,8 @@
     // 文件上传成功，给item添加成功class, 用样式标记上传成功。
     uploader.on('uploadSuccess', function (file) {
         $('#' + file.id).addClass('upload-state-done');
+        layer.msg('上传成功！', {time: 1000});
+        window.location.reload();
     });
 
     // 文件上传失败，显示上传出错。
@@ -198,7 +200,7 @@
             $error = $('<div class="error"></div>').appendTo($li);
         }
 
-        $error.text('上传失败');
+        layer.msg('上传失败！', {time: 2000});
     });
 
     // 完成上传完了，成功或者失败，先删除进度条。
@@ -213,6 +215,7 @@
         }
 
         layer.confirm('确定删除吗？', {
+            title: '⚠️',
             btn: ['删除', '取消'] //按钮
         }, function () {
             axios.delete("{{ url('/admin/images/destroy') }}" + '/' + id)

@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\CheckAdminPass;
+use App\Http\Middleware\RecordVisitIp;
 use Barryvdh\Cors\HandleCors;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -61,5 +62,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'admin.pass' => CheckAdminPass::class,
         'cors' => HandleCors::class,
+        'ip' => RecordVisitIp::class,
     ];
 }

@@ -6,7 +6,7 @@ use App\Http\Controllers\Api\Controller;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Comment;
-use App\Models\File;
+use App\Models\Ip;
 use App\Models\Image;
 use App\Models\Page;
 use App\Models\Tag;
@@ -24,7 +24,7 @@ class AppController extends Controller
             'page' => Page::count(),
             'comment' => Comment::count(),
             'images' => Image::count(),
-            'file' => File::count(),
+            'file' => Ip::count(),
         ];
 
         return $this->response->array(['data' => $data]);

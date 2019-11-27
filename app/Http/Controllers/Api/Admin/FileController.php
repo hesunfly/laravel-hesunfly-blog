@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\Admin;
 
 use App\Http\Requests\FileRequest;
-use App\Models\File;
+use App\Models\Ip;
 use App\Services\UploadService;
 use App\Http\Controllers\Api\Controller;
 use App\Transformers\FileTransformer;
@@ -13,7 +13,7 @@ class FileController extends Controller
 {
     public function index()
     {
-        $files = File::paginate(20);
+        $files = Ip::paginate(20);
         return $this->response->paginator($files, new FileTransformer());
     }
 
@@ -21,14 +21,14 @@ class FileController extends Controller
     {
         $file = $request->file('file');
         $saveData = $service->file($file);
-        File::create($saveData);
+        Ip::create($saveData);
 
         return $this->response->created();
     }
 
     public function destroy($id)
     {
-        $file = $this->findOrFail($id, File::class);
+        $file = $this->findOrFail($id, Ip::class);
         switch ($file->disk) {
             case 'local':
                 unlink(public_path($file->path));

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group([
     'namespace' => 'Web',
+    'middleware' => 'ip',
 ], function () {
     Route::get('/', 'IndexController@index');
     Route::get('/article/{slug}', 'IndexController@article');
@@ -71,11 +72,7 @@ Route::group([
             Route::delete('/destroy/{id}', 'ImageController@destroy');
         });
 
-        Route::group([
-            'prefix' => 'files',
-        ], function () {
-            Route::get('/', 'FileController@index');
-        });
+        Route::get('ips', 'IndexController@ips');
     });
 
 });

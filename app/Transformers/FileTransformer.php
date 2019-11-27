@@ -2,12 +2,12 @@
 
 namespace App\Transformers;
 
-use App\Models\File;
+use App\Models\Ip;
 use League\Fractal\TransformerAbstract;
 
 class FileTransformer extends TransformerAbstract
 {
-    public function transform(File $model)
+    public function transform(Ip $model)
     {
         return [
             'id' => $model->id,
