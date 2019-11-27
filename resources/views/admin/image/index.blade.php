@@ -71,9 +71,9 @@
                                         <img src="{{ $item['path'] }}" class="images-item" alt="">
                                         <div class="button-div">
                                             <input type="text" style="display: block;position: fixed;top: -1000px;"
-                                                   name="" id="copy_path" value="{{ $item['path'] }}">
+                                                   name="" id="copy_path_{{$item['id']}}" value="{{ $item['path'] }}">
                                             <button type="button" class="am-btn am-btn-secondary am-round"
-                                                    style="margin-right: 30px;" onclick="copy()">
+                                                    style="margin-right: 30px;" onclick="copy({{$item['id']}})">
                                                 复制
                                             </button>
                                             <button type="button" class="am-btn am-btn-danger am-round"
@@ -240,8 +240,8 @@
         });
     }
 
-    function copy() {
-        let path = $("#copy_path");
+    function copy(id) {
+        let path = $("#copy_path_" + id);
         console.log(path.select()[0].defaultValue);
         if (document.execCommand('copy', false, null)) {
             layer.msg('复制成功');
