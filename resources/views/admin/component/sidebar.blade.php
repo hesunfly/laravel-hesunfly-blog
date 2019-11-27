@@ -31,7 +31,7 @@
         </li>
         <li class="sidebar-nav-link">
             <a href="{{ url('/admin/ips') }}" @if (mb_strstr($uri, '/admin/ips')) class="active" @endif>
-                <i class="am-icon-file-image-o sidebar-nav-link-logo"></i> IP
+                <i class="am-icon-list sidebar-nav-link-logo"></i> 记录
             </a>
         </li>
 
