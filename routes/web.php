@@ -66,9 +66,9 @@ Route::group([
         Route::group([
             'prefix' => 'images',
         ], function () {
-            Route::get('/', 'imageController@index');
-            Route::post('/upload', 'imageController@upload');
-            Route::delete('/destroy/{id}', 'imageController@destroy');
+            Route::get('/', 'ImageController@index');
+            Route::post('/upload', 'ImageController@upload');
+            Route::delete('/destroy/{id}', 'ImageController@destroy');
         });
 
         Route::group([
