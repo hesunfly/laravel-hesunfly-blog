@@ -80,3 +80,7 @@ Route::group([
 Horizon::auth(function ($request) {
     return true;
 });
+
+Route::get('/init', function () {
+    
+});
