@@ -64,7 +64,6 @@
             let category_title = $('#category_title').val();
             if (category_title.length === 0) {
                 layer.msg('Category Title 为必填项！', {
-                        icon: 2,
                         time: 2000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
                     }
@@ -79,7 +78,6 @@
                 }
             ).then(function (response) {
                 layer.msg('创建成功！', {
-                        icon: 1,
                         time: 1000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
                         window.location = "{{ url('/admin/categories') }}";
@@ -87,7 +85,6 @@
                 );
             }).catch(function (error) {
                 layer.msg('error！', {
-                        icon: 2,
                         time: 1000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
                         return false;

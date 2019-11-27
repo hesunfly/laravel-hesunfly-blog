@@ -88,7 +88,6 @@
             let name = $('#name').val();
             if (name.length === 0) {
                 layer.msg('Name 为必填项！', {
-                        icon: 2,
                         time: 2000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
                     }
@@ -99,7 +98,6 @@
             let email = $('#email').val();
             if (email.length === 0) {
                 layer.msg('Email 为必填项！', {
-                        icon: 2,
                         time: 2000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
                     }
@@ -110,7 +108,6 @@
             let password = $('#password').val();
             if (name.length < 6) {
                 layer.msg('Password 格式错误！', {
-                        icon: 2,
                         time: 2000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
                     }
@@ -127,7 +124,6 @@
                 }
             ).then(function (response) {
                 layer.msg('修改成功！', {
-                        icon: 1,
                         time: 1000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
                         window.location = "{{ url('/admin') }}";
@@ -135,7 +131,6 @@
                 );
             }).catch(function (error) {
                 layer.msg('error！', {
-                        icon: 2,
                         time: 1000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
                         return false;

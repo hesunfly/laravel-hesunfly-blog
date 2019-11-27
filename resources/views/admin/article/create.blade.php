@@ -131,7 +131,6 @@
             let title = $('#title').val();
             if (title.length === 0) {
                 layer.msg('Title 为必填项！', {
-                        icon: 2,
                         time: 2000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
                     }
@@ -142,7 +141,6 @@
             let description = $('#description').val();
             if (description.description === 0) {
                 layer.msg('Description 为必填项！', {
-                        icon: 2,
                         time: 2000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
                     }
@@ -156,7 +154,6 @@
             let category = $('#category').val();
             if (category.length === 0) {
                 layer.msg('Category 为必填项！', {
-                        icon: 2,
                         time: 2000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
                     }
@@ -167,7 +164,6 @@
             let content = simplemde.value();
             if (content.length === 0) {
                 layer.msg('Content 为必填项！', {
-                        icon: 2,
                         time: 2000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
                     }
@@ -189,7 +185,6 @@
                 }
             ).then(function (response) {
                 layer.msg('创建成功！', {
-                        icon: 1,
                         time: 1000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
                         window.location = "{{ url('/admin/articles') }}";
@@ -197,7 +192,6 @@
                 );
             }).catch(function (error) {
                 layer.msg('error！', {
-                        icon: 2,
                         time: 1000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
                         return false;

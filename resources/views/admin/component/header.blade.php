@@ -46,16 +46,13 @@
     function logout() {
         axios.delete("{{ url('/admin/logout') }}").then(function (response) {
             layer.msg('注销成功', {
-                    icon: 1,
-                    time: 1000 //2秒关闭（如果不配置，默认是3秒）
                 }, function () {
                     window.location = "{{ url('/admin/login') }}";
                 }
             );
         }).catch(function (error) {
             layer.msg('error！', {
-                    icon: 2,
-                    time: 1000 //2秒关闭（如果不配置，默认是3秒）
+                    time: 2000 //2秒关闭（如果不配置，默认是3秒）
                 }
             );
         });

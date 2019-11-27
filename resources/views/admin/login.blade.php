@@ -45,7 +45,6 @@
             let password = $('#password').val();
             if (name.length === 0) {
                 layer.msg('账号 为必填项！', {
-                        icon: 2,
                         time: 2000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
                     }
@@ -55,7 +54,6 @@
 
             if (password.length < 6) {
                 layer.msg('密码 格式错误！', {
-                        icon: 2,
                         time: 2000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
                     }
@@ -71,7 +69,6 @@
                 }
             ).then(function (response) {
                 layer.msg('登录成功！', {
-                        icon: 1,
                         time: 1000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
                         window.location = "{{ url('/admin/') }}";
@@ -79,8 +76,7 @@
                 );
             }).catch(function (error) {
                 layer.msg('error！', {
-                        icon: 2,
-                        time: 1000 //2秒关闭（如果不配置，默认是3秒）
+                        time: 2000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
                         return false;
                     }
