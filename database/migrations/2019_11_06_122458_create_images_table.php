@@ -19,7 +19,6 @@ class CreateImagesTable extends Migration
             $table->unsignedMediumInteger('size', false);
             $table->string('disk',20);
             $table->string('path');
-            $table->string('type')->comment('article, avatar, normal');
             $table->timestamps();
             $table->softDeletes();
         });

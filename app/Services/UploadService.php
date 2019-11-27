@@ -8,23 +8,22 @@ use Illuminate\Support\Str;
 class UploadService
 {
 
-    public function image($image, $type)
+    public function image($image)
     {
         $disk = env('FILESYSTEM_DRIVER');
 
         $res = '';
         switch ($disk) {
             case 'local':
-                $res = $this->localDriverUpload($image, $type, 'image');
+                $res = $this->localDriverUpload($image, 'image');
                 break;
             case 'qiniu':
-                $res = $this->qiniuDriverUpload($image, $type);
+                $res = $this->qiniuDriverUpload($image);
                 break;
         }
         return array_merge([
             'size' => $image->getClientSize(),
             'disk' => $disk,
-            'type' => $type
         ], $res);
     }
 
@@ -35,7 +34,7 @@ class UploadService
         $res = '';
         switch ($disk) {
             case 'local':
-                $res = $this->localDriverUpload($file, 'file', 'file');
+                $res = $this->localDriverUpload($file, 'file');
                 break;
             case 'qiniu':
                 $res = $this->qiniuDriverUpload($file);
@@ -48,21 +47,17 @@ class UploadService
         ], $res);
     }
 
-    private function localDriverUpload($resource, $type, $dir)
+    private function localDriverUpload($resource, $dir)
     {
         $extension = strtolower($resource->getClientOriginalExtension());
-        $filename = $type . '_' . time() . '_' . Str::random(10) . '.' . $extension;
-        if ($dir != 'file') {
-            $filePath = 'public/' . $dir . '/' . $type;
-        } else {
-            $filePath = 'public/' . $dir;
-        }
+        $filename = 'hesunfly-blog' . '-' . time() . '-' . Str::random(10) . '.' . $extension;
+        $filePath = 'public/' . $dir;
         $temp = Storage::disk('local')->putFileAs($filePath, $resource, $filename);
         $path = '/storage' . mb_substr($temp, 6);
 
         return [
             'path' => $path,
-            'name' => $filename
+            'name' => $filename,
         ];
     }
 

@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-class ImageRequest extends Request
+trait ImageRequestTrait
 {
 
     public function rules()
