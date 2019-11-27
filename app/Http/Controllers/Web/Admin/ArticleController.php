@@ -21,7 +21,7 @@ class ArticleController extends Controller
 
     public function create()
     {
-        $categories = Category::where(['status' => 1])->get();
+        $categories = Category::all();
         return view('admin.article.create')->with([
             'categories' => $categories
         ]);
