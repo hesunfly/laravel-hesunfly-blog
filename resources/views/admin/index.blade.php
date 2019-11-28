@@ -39,84 +39,40 @@
                                 {{ $article_count }}
                             </div>
 
-                            <span class="widget-statistic-icon am-icon-credit-card-alt"></span>
+                            <span class="widget-statistic-icon am-icon-file-text-o"></span>
                         </div>
                     </div>
                 </div>
                 <div class="am-u-sm-12 am-u-md-6 am-u-lg-4">
                     <div class="widget widget-primary am-cf">
                         <div class="widget-statistic-header" style="font-size: 27px;">
-                            浏览量
+                            图片数量
                         </div>
                         <div class="widget-statistic-body">
                             <div class="widget-statistic-value">
-                                {{ $article_count }}
+                                {{ \App\Models\Image::count() }}
                             </div>
 
-                            <span class="widget-statistic-icon am-icon-credit-card-alt"></span>
+                            <span class="widget-statistic-icon am-icon-file-image-o"></span>
                         </div>
                     </div>
                 </div>
                 <div class="am-u-sm-12 am-u-md-6 am-u-lg-4">
                     <div class="widget widget-primary am-cf">
                         <div class="widget-statistic-header" style="font-size: 27px;">
-                            用户数
+                            浏览次数
                         </div>
                         <div class="widget-statistic-body">
                             <div class="widget-statistic-value">
-                                {{ $article_count }}
+                                {{ \App\Models\Ip::count() }}
                             </div>
 
-                            <span class="widget-statistic-icon am-icon-credit-card-alt"></span>
+                            <span class="widget-statistic-icon am-icon-eye"></span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="row am-cf">
-                <div class="am-u-sm-12 am-u-md-8">
-                    <div class="widget am-cf">
-                        <div class="widget-head am-cf">
-                            <div class="widget-title am-fl">月度财务收支计划</div>
-                            <div class="widget-function am-fr">
-                                <a href="javascript:;" class="am-icon-cog"></a>
-                            </div>
-                        </div>
-                        <div class="widget-body-md widget-body tpl-amendment-echarts am-fr" id="tpl-echarts">
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="am-u-sm-12 am-u-md-4">
-                    <div class="widget am-cf">
-                        <div class="widget-head am-cf">
-                            <div class="widget-title am-fl">专用服务器负载</div>
-                            <div class="widget-function am-fr">
-                                <a href="javascript:;" class="am-icon-cog"></a>
-                            </div>
-                        </div>
-                        <div class="widget-body widget-body-md am-fr">
-
-                            <div class="am-progress-title">CPU Load <span class="am-fr am-progress-title-more">28% / 100%</span>
-                            </div>
-                            <div class="am-progress">
-                                <div class="am-progress-bar" style="width: 15%"></div>
-                            </div>
-                            <div class="am-progress-title">CPU Load <span class="am-fr am-progress-title-more">28% / 100%</span>
-                            </div>
-                            <div class="am-progress">
-                                <div class="am-progress-bar  am-progress-bar-warning" style="width: 75%"></div>
-                            </div>
-                            <div class="am-progress-title">CPU Load <span class="am-fr am-progress-title-more">28% / 100%</span>
-                            </div>
-                            <div class="am-progress">
-                                <div class="am-progress-bar am-progress-bar-danger" style="width: 35%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
