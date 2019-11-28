@@ -73,12 +73,81 @@
                 </div>
             </div>
 
+            <div class="row am-cf">
+                <div class="am-u-sm-12 am-u-md-12">
+                    <div class="widget am-cf">
+                        <div class="widget-head am-cf">
+                            <div class="widget-title am-fl">{{ date('Y') . ' 年文章发布统计' }}</div>
+                            <div class="widget-function am-fr">
+                                <a href="javascript:;" class="am-icon-cog"></a>
+                            </div>
+                        </div>
+                        <div class="widget-body-md widget-body tpl-amendment-echarts am-fr" id="tpl-echarts">
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>
 @component('admin/component/foot')
 @endcomponent
+<script>
+    // ==========================
+    // 百度图表A http://echarts.baidu.com/
+    // ==========================
 
+
+
+
+    let eCharts = echarts.init(document.getElementById('tpl-echarts'));
+    option = {
+        tooltip: {
+            trigger: 'axis'
+        },
+        grid: {
+            top: '3%',
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: [{
+            type: 'category',
+            boundaryGap: false,
+            data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+        }],
+        yAxis: [{
+            type: 'value'
+        }],
+        textStyle: {
+            color: '#838FA1'
+        },
+        series: [{
+            name: '文章数',
+            type: 'line',
+            stack: '总量',
+            areaStyle: { normal: {} },
+            data: JSON.parse("{{ $count }}"),
+            itemStyle: {
+                normal: {
+                    color: '#1cabdb',
+                    borderColor: '#1cabdb',
+                    borderWidth: '2',
+                    borderType: 'solid',
+                    opacity: '1'
+                },
+                emphasis: {
+
+                }
+            }
+        }]
+    };
+
+    eCharts.setOption(option);
+</script>
 </body>
 
 </html>
