@@ -22,7 +22,11 @@ class ImageController extends Controller
         $saveData = $service->image($image);
         Image::create($saveData);
 
-        return response('success', 200);
+        return response()->json([
+            'success' => 1,
+            'message' => 'success!',
+            'url' => $saveData['path']
+        ]);
     }
 
 

@@ -76,8 +76,8 @@
                                         <span
                                                 class="tpl-form-line-small-title">Content</span></label>
                                     <div class="am-u-sm-9">
-                                            <textarea class="" id="content" name="content"
-                                            ></textarea>
+                                            <textarea class="" style="display: none;" id="content" name="content">
+                                            </textarea>
                                     </div>
                                 </div>
 
@@ -113,6 +113,7 @@
 @endcomponent
 <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 <script>
+    //todo 实现粘贴图片上传功能， 自定义 toolbar 的个数和种类
     $(function () {
         var simplemde = new SimpleMDE({element: $("#content")[0]});
 
