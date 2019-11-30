@@ -39,6 +39,7 @@ class IndexController extends Controller
         for ($i = 1; $i <= 12; $i++) {
             $data[$i] = isset($temp[$i]) ? $temp[$i] : 0;
         }
+        dd($data);
         return json_encode(array_values($data));
     }
 }
