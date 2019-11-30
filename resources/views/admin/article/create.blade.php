@@ -115,6 +115,7 @@
 <script src="/assets/admin/js/codemirror-4.inline-attachment.js"></script>
 <script src="/assets/admin/js/highlight.min.js"></script>
 <link rel="stylesheet" href="/assets/admin/css/github.min.css">
+<link rel="stylesheet" href="/assets/admin/css/font-awesome.min.css">
 <script>
     $(function () {
         let target = $('#content');
@@ -151,7 +152,6 @@
             if (simplemde.isFullscreenActive()) {
                 $('.left-sidebar').hide();
                 $('header').hide();
-
             } else {
                 $('.left-sidebar').show();
                 $('header').show();
