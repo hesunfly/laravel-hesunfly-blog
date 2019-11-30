@@ -14,7 +14,6 @@ class IndexController extends Controller
     {
         $article_count = Article::where(['status' => 1])->count();
         $count = $this->statistics();
-        dd($count);
         return view('admin.index')->with(['article_count' => $article_count, 'count' => $count]);
     }
 
@@ -37,9 +36,8 @@ class IndexController extends Controller
         }
         $data = [];
         for ($i = 1; $i <= 12; $i++) {
-            $data[$i] = isset($temp[$i]) ? $temp[$i] : 0;
+            $data[$i] = isset($temp[$i]) ? (int) $temp[$i] : 0;
         }
-        dd($data);
         return json_encode(array_values($data));
     }
 }
