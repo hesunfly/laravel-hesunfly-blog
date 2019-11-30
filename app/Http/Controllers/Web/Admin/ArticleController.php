@@ -77,7 +77,9 @@ class ArticleController extends Controller
 
         switch ((int) $request->status) {
             case 1:
-                $article->update(['status' => 1, 'publish_at' => Carbon::now()->toDateTimeString()]);
+                if ($article->status == -1) {
+                    $article->update(['status' => 1, 'publish_at' => Carbon::now()->toDateTimeString()]);
+                }
                 break;
             case -1:
                 $article->update(['status' => -1]);
