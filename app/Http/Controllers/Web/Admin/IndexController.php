@@ -14,6 +14,7 @@ class IndexController extends Controller
     {
         $article_count = Article::where(['status' => 1])->count();
         $count = $this->statistics();
+        dd($count);
         return view('admin.index')->with(['article_count' => $article_count, 'count' => $count]);
     }
 
