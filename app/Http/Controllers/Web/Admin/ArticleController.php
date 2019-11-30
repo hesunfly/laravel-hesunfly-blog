@@ -34,8 +34,8 @@ class ArticleController extends Controller
             'category_id',
             'description',
             'content',
+            'html_content',
         ]);
-        $requestData['html_content'] = MarkdownService::toHtml($request->input('content'));
         $requestData['slug'] = empty($request->input('slug')) ? uniqid('article_') : $request->input('slug');
         DB::beginTransaction();
         $article = Article::create($requestData);
@@ -69,8 +69,8 @@ class ArticleController extends Controller
             'category_id',
             'description',
             'content',
+            'html_content',
         ]);
-        $requestData['html_content'] = MarkdownService::toHtml($request->input('content'));
         $requestData['slug'] = empty($request->input('slug')) ? uniqid('article_') : $request->input('slug');
         DB::beginTransaction();
         $article->update($requestData);

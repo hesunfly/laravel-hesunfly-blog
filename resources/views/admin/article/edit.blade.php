@@ -215,6 +215,8 @@
                 return;
             }
 
+            let html_content = simplemde.markdown(content);
+
             let status = $("input[name='status']:checked").val();
 
             axios.put(
@@ -225,6 +227,7 @@
                     'slug': slug,
                     'category_id': category,
                     'content': content,
+                    'html_content': html_content,
                     'status': status,
                 }
             ).then(function (response) {

@@ -20,6 +20,7 @@ trait ArticleRequestTrait
                     'slug' => ['unique:articles'],
                     'status' => ['bail', 'required', Rule::in([-1, 1])],
                     'content' => ['bail', 'required', 'string'],
+                    'html_content' => ['bail', 'required', 'string'],
                 ];
 
             case 'PUT':
@@ -30,6 +31,7 @@ trait ArticleRequestTrait
                     'slug' => [Rule::unique('articles')->ignore($this->id)],
                     'status' => ['bail', 'required', Rule::in([-1, 1])],
                     'content' => ['bail', 'required', 'string'],
+                    'html_content' => ['bail', 'required', 'string'],
                 ];
             case 'PATCH':
                 return [

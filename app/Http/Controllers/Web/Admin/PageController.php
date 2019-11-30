@@ -30,8 +30,8 @@ class PageController extends Controller
             'slug',
             'sort',
             'status',
+            'html_content'
         ]);
-        $requestData['html_content'] = MarkdownService::toHtml($request->input('content'));
         Page::create($requestData);
 
         CacheService::deletePagesCache();
@@ -58,8 +58,8 @@ class PageController extends Controller
             'slug',
             'sort',
             'status',
+            'html_content'
         ]);
-        $requestData['html_content'] = MarkdownService::toHtml($request->input('content'));
         $page->update($requestData);
         CacheService::deletePagesCache();
 

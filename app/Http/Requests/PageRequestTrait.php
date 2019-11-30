@@ -16,6 +16,7 @@ trait PageRequestTrait
                     'sort' => ['bail', 'required', 'numeric'],
                     'status' => ['bail', 'required', Rule::in([-1, 1])],
                     'content' => ['bail', 'required', 'string'],
+                    'html_content' => ['bail', 'required', 'string'],
                 ];
 
             case 'PUT':
@@ -25,6 +26,7 @@ trait PageRequestTrait
                     'sort' => ['bail', 'required', 'numeric'],
                     'status' => ['bail', 'required', Rule::in([-1, 1])],
                     'content' => ['bail', 'required', 'string'],
+                    'html_content' => ['bail', 'required', 'string'],
                 ];
         }
     }
