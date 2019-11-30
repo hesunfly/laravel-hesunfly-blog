@@ -12,8 +12,6 @@
     <link rel="icon" type="image/png" href="/favicon.ico">
     <link rel="apple-touch-icon-precomposed" href="/assets/admin/i/app-icon72x72@2x.png">
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-{{--    <script src="/assets/validate.js"></script>--}}
-    <script src="/assets/admin/js/echarts.min.js"></script>
     <link rel="stylesheet" href="/assets/admin/css/amazeui.min.css" />
     <link rel="stylesheet" href="/assets/admin/css/amazeui.datatables.min.css" />
     <link rel="stylesheet" href="/assets/admin/css/app.css">

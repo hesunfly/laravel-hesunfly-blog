@@ -1,6 +1,6 @@
 @component('admin.component.head', ['title' => 'Hesunfly Blog'])
 @endcomponent
-
+<script src="/assets/admin/js/echarts.min.js"></script>
 <body data-type="index">
 <script src="/assets/admin/js/theme.js"></script>
 <div class="am-g tpl-g">
@@ -95,13 +95,6 @@
 @component('admin/component/foot')
 @endcomponent
 <script>
-    // ==========================
-    // 百度图表A http://echarts.baidu.com/
-    // ==========================
-
-
-
-
     let eCharts = echarts.init(document.getElementById('tpl-echarts'));
     option = {
         tooltip: {

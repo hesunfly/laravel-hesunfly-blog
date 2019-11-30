@@ -2,7 +2,6 @@
 @endcomponent
 @component('component.header', ['pages' => \App\Services\CacheService::getPages()])
 @endcomponent
-
 <div class="container mx-auto px-5 lg:max-w-screen-sm" style="padding-bottom: 100px;margin-bottom: 27px;">
     <h1 class="mb-5 font-sans">{{ $article->title }}</h1>
 

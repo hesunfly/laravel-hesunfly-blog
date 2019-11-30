@@ -1,6 +1,6 @@
 @component('admin.component.head', ['title' => '文章编辑'])
 @endcomponent
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<link rel="stylesheet" href="/assets/admin/css/simplemde.min.css">
 <body data-type="widgets">
 <script src="/assets/admin/js/theme.js"></script>
 <div class="am-g tpl-g">
@@ -81,7 +81,7 @@
                                                 class="tpl-form-line-small-title">Content</span></label>
                                     <div class="am-u-sm-9">
                                         <textarea class="" id="content"
-                                                  name="content">{{ $article->content }}</textarea>
+                                                  name="content" data-save-id="{{ $article->slug }}">{{ $article->content }}</textarea>
                                     </div>
                                 </div>
 
@@ -124,11 +124,42 @@
 </div>
 @component('admin/component/foot')
 @endcomponent
-<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+<script src="/assets/admin/js/simplemde.min.js"></script>
+<script src="/assets/admin/js/codemirror-4.inline-attachment.js"></script>
+<script src="/assets/admin/js/highlight.min.js"></script>
+<link rel="stylesheet" href="/assets/admin/css/github.min.css">
 <script>
     $(function () {
 
-        var simplemde = new SimpleMDE({element: $("#content")[0]});
+        let target = $('#content');
+
+        let simplemde = new SimpleMDE({
+            autoDownloadFontAwesome: undefined,
+            autosave: {
+                enabled: true,
+                uniqueId: target.data('save-id'),
+                delay: 1000,
+            },
+            element: document.getElementById('content'),
+            insertTexts: {
+                image: ["![](", ")"],
+                link: ["[", "]()"],
+            },
+            renderingConfig: {
+                codeSyntaxHighlighting: true,
+            },
+            spellChecker: true,
+            toolbar: ["bold", "italic", "strikethrough", "heading", "|", "quote", 'code', 'ordered-list',
+                'unordered-list', 'horizontal-rule', 'link',
+                'image',
+                'table',
+                '|', 'preview', 'side-by-side', 'fullscreen'],
+        });
+        inlineAttachment.editors.codemirror4.attach(simplemde.codemirror, {
+            uploadUrl: "{{ url('/admin/images/upload') }}",
+            uploadFieldName: 'image',
+            extraParams: {},
+        });
 
         $('.editor-toolbar').click(function () {
             if (simplemde.isFullscreenActive()) {
