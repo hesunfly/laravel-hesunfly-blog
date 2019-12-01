@@ -23,7 +23,7 @@
                     <span style="margin-left: 5px;"> <i class="fas fa-folder"></i> {{ $item->category->category_title }}</span>
                     &nbsp;&nbsp;
                     <span class="ml-2"> <i class="fas fa-eye"></i> {{ $item->view_count }} </span>
-                    <span class="ml-auto">{{ $item->publish_at->toDateString() }}</span>
+                    <span class="ml-auto">{{ $item->publish_at}}</span>
                 </div>
             </div>
         </a>

@@ -65,7 +65,7 @@
                                                     </button>
                                                 @endif
                                             </td>
-                                            <td>{{ $item->created_at->toDateString() }}</td>
+                                            <td>{{ $item->created_at }}</td>
                                             <td>
                                                 <div class="tpl-table-black-operation">
                                                     <a href="{{ url('/admin/articles/edit') . '/' . $item->id }}">
