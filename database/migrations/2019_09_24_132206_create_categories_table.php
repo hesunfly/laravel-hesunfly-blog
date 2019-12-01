@@ -16,7 +16,6 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('category_title')->unique();
-            $table->unsignedTinyInteger('sort')->default(1);
             $table->unsignedSmallInteger('articles_count')->default(0);
             $table->timestamps();
             $table->softDeletes();
