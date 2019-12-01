@@ -52,7 +52,7 @@ class ArticlesController extends Controller
 
     public function edit($id)
     {
-        $categories = Category::where(['status' => 1])->get();
+        $categories = Category::all();
         $article = $this->findOrFail($id, Article::class);
         return view('admin.article.edit')->with([
             'article' => $article,
