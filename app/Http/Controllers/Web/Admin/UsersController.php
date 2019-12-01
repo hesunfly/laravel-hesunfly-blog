@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Web\Admin;
 use App\Http\Requests\Web\UserRequest;
 use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+class UsersController extends Controller
 {
     public function edit()
     {

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Web\Admin;
 use App\Http\Requests\Web\CategoryRequest;
 use App\Models\Category;
 
-class CategoryController extends Controller
+class CategoriesController extends Controller
 {
     public function index()
     {

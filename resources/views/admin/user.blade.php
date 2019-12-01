@@ -116,7 +116,7 @@
             }
 
             axios.put(
-                "{{ url('/admin/user')}}",
+                "{{ url('/admin/users')}}",
                 {
                     'name': name,
                     'email': email,

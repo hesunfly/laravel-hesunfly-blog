@@ -7,7 +7,7 @@ use App\Models\Image;
 use App\Services\UploadService;
 use Illuminate\Support\Facades\Storage;
 
-class ImageController extends Controller
+class ImagesController extends Controller
 {
     public function index()
     {

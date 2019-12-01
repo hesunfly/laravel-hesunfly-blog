@@ -7,7 +7,7 @@ use App\Models\Page;
 use App\Services\CacheService;
 use App\Services\MarkdownService;
 
-class PageController extends Controller
+class PagesController extends Controller
 {
     public function index()
     {

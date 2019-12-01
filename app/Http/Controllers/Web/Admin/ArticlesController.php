@@ -9,7 +9,7 @@ use App\Services\MarkdownService;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
-class ArticleController extends Controller
+class ArticlesController extends Controller
 {
     public function index()
     {
