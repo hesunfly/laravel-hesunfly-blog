@@ -10,7 +10,7 @@ class PagesController extends Controller
 {
     public function index()
     {
-        $pages = Page::orderByRaw('id desc')->get();
+        $pages = Page::orderByRaw('sort')->get();
         return view('admin.page.index')->with([
             'pages' => $pages,
         ]);
