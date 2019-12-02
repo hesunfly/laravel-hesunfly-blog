@@ -68,7 +68,7 @@
                                             <td>{{ $item->created_at }}</td>
                                             <td>
                                                 <div class="tpl-table-black-operation">
-                                                    <a href="{{ url('/articles/') . '/' . $item->slug}}"
+                                                    <a href="{{ url('/articles/') . '/' . $item->slug}}" target="_blank"
                                                     style="border: 1px solid orange;color: orange;">
                                                         <i class="am-icon-eye"></i> 查看
                                                     </a>
