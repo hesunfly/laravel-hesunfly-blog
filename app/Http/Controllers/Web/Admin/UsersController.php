@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Web\Admin;
+
 use App\Http\Requests\Web\UserRequest;
 use Illuminate\Support\Facades\Auth;
 

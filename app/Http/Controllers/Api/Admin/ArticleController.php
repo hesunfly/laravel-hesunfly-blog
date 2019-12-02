@@ -31,12 +31,10 @@ class ArticleController extends Controller
             'category_id',
             'description',
             'slug',
-            'cover_img',
             'sort',
             'comment_status',
             'content',
         ]);
-        $requestPage['html_content'] = MarkdownService::toHtml($request->input('content'));
         DB::beginTransaction();
         $article = Article::create($requestPage);
 
