@@ -39,7 +39,7 @@
                                         <tr class="gradeX">
                                             <td>{{ $item->ip }}</td>
                                             <td>{{ $item->address }}</td>
-                                            <td>{{ $item->created_at->toDateString() }}</td>
+                                            <td>{{ $item->created_at->toDatetimeString() }}</td>
                                         </tr>
                                     @endforeach
                                     </tbody>
