@@ -6,6 +6,7 @@ use App\Models\Article;
 use App\Models\Page;
 use App\Services\ArticleViewCountService;
 use Illuminate\Http\Request;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class IndexController extends Controller
 {
@@ -26,6 +27,7 @@ class IndexController extends Controller
             return view('404');
         }
 
+        //更新阅读次数
         if (ArticleViewCountService::view($article->id, $request->getClientIp())) {
             $article->increment('view_count');
         }

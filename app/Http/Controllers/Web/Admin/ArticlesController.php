@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Web\Admin;
 use App\Http\Requests\Web\ArticleRequest;
 use App\Models\Article;
 use App\Models\Category;
+use App\Services\QrCodeService;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class ArticlesController extends Controller
 {
@@ -40,10 +42,14 @@ class ArticlesController extends Controller
         $article = Article::create($requestData);
 
         if ($request->status == 1) {
-            $article->update(['status' => 1, 'publish_at' => Carbon::now()->toDateTimeString()]);
+            //生成二维码
+            $qrPath = QrCodeService::generate($article->slug);
+
+            $article->update(['status' => 1, 'publish_at' => Carbon::now()->toDateTimeString(), 'qr_path' => $qrPath]);
         }
 
         Category::find($request->input('category_id'))->increment('articles_count');
+
         DB::commit();
 
         return response('success', 201);
@@ -79,6 +85,9 @@ class ArticlesController extends Controller
                 if ($article->status == -1) {
                     $article->update(['status' => 1, 'publish_at' => Carbon::now()->toDateTimeString()]);
                 }
+                //重新生成二维码
+                $qrPath = QrCodeService::generate($article->slug);
+                $article->update(['qr_path' => $qrPath]);
                 break;
             case -1:
                 $article->update(['status' => -1]);
@@ -99,4 +108,5 @@ class ArticlesController extends Controller
 
         return response('success', 204);
     }
+
 }
