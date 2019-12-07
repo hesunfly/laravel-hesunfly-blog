@@ -24,11 +24,12 @@
     <div class="mt-5 leading-loose flex flex-col justify-center items-center post-body font-serif">
         {!! $article->html_content !!}
     </div>
-    
-    <div STYLE="text-align: center;">
-        <img src="{{ $article->qr_path }}" alt="手机扫码浏览" title="手机扫码浏览" style="margin-left: auto;margin-right: auto;display: block;">
-        <span style="">手机扫码查看</span>
-    </div>
+    @if (\Jenssegers\Agent\Facades\Agent::isDesktop())
+        <div STYLE="text-align: center;">
+            <img src="{{ $article->qr_path }}" alt="手机扫码浏览" title="手机扫码浏览" style="margin-left: auto;margin-right: auto;display: block;">
+            <span style="">手机扫码查看</span>
+        </div>
+    @endif
 </div>
 
 @component('component.footer')
