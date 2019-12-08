@@ -37,6 +37,26 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="am-u-sm-12 am-u-md-6 am-u-lg-3">
+                                <div class="am-form-group tpl-table-list-select">
+                                    <select data-am-selected="{btnSize: 'sm'}" id="category_select">
+                                        <option value=" " @if ($category_id === ' ') selected @endif>所有类别</option>
+                                        @foreach($categories as $item)
+
+                                            <option value=" " @if ($category_id === $item->id) selected @endif>{{ $item->category_title }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="am-u-sm-12 am-u-md-12 am-u-lg-3">
+                                <div class="am-input-group am-input-group-sm tpl-form-border-form cl-p">
+                                    <input type="text" class="am-form-field " id="keyword" value="{{ $keyword }}">
+                                    <span class="am-input-group-btn">
+            <button class="am-btn  am-btn-default am-btn-success tpl-table-list-field am-icon-search"
+                    type="button" id="search"></button>
+          </span>
+                                </div>
+                            </div>
                             <div class="am-u-sm-12">
                                 <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black "
                                        id="example-r">
@@ -57,7 +77,7 @@
                                             <td>
                                                 @if ($item->status == 1)
                                                     <button type="button" class="am-btn am-round am-btn-success">
-                                                         已发布
+                                                        已发布
                                                     </button>
                                                 @else
                                                     <button type="button" class="am-btn am-round am-btn-warning">
@@ -69,7 +89,7 @@
                                             <td>
                                                 <div class="tpl-table-black-operation">
                                                     <a href="{{ url('/articles/') . '/' . $item->slug}}" target="_blank"
-                                                    style="border: 1px solid orange;color: orange;">
+                                                       style="border: 1px solid orange;color: orange;">
                                                         <i class="am-icon-eye"></i> 查看
                                                     </a>
                                                     <a href="{{ url('/admin/articles/edit') . '/' . $item->id }}">
@@ -114,6 +134,22 @@
 @endcomponent
 
 <script>
+    $(function () {
+        $('#search').click(function () {
+            search();
+        });
+
+        $('#category_select').change(function () {
+            search();
+        });
+    });
+    function search() {
+        let category = $('.am-selected-status').text();
+        let keyword = $('#keyword').val();
+        let url = "{{ url('admin/articles/') }}" + '/' + category + '/' + keyword;
+        window.location.href = url;
+    }
+    
     function destroy(id) {
         if (!id) {
             return false;

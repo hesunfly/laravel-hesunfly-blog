@@ -8,15 +8,32 @@ use App\Models\Category;
 use App\Services\QrCodeService;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
-use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class ArticlesController extends Controller
 {
-    public function index()
+    public function index($category = '', $keyword = '')
     {
-        $articles = Article::with('category')->orderByRaw('created_at desc')->paginate(config('blog.admin_page_size'));
+        $where = ' 1 = 1 ';
+        $category_id = ' ';
+        if (!empty($category) && $category !== '所有类别') {
+            $category_res = Category::select(['id'])->where(['category_title' => $category])->first();
+            $category_id = $category_res->id;
+            if (!empty($category_id)) {
+                $where .= ' and category_id = ' . $category_id;
+            }
+        }
+
+        if (!empty($keyword)) {
+            $where .= ' and title like ' . "'" . '%' . $keyword . '%' . "'";
+        }
+
+        $articles = Article::whereRaw($where)->with('category')->orderByRaw('created_at desc')->paginate(config('blog.admin_page_size'));
+        $categories = Category::orderByRaw('articles_count desc')->get();
         return view('admin.article.index')->with([
             'articles' => $articles,
+            'categories' => $categories,
+            'category_id' => $category_id,
+            'keyword' => $keyword,
         ]);
     }
 
