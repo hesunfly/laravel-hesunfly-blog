@@ -34,12 +34,13 @@ Route::group([
         Route::group([
             'prefix' => 'articles',
         ], function () {
-            Route::get('/{category?}/{keyword?}', 'ArticlesController@index');
+            Route::get('/', 'ArticlesController@index');
             Route::get('/write', 'ArticlesController@create');
             Route::post('/store', 'ArticlesController@store');
             Route::get('/edit/{id}', 'ArticlesController@edit');
             Route::put('/save/{id}', 'ArticlesController@save');
             Route::delete('/destroy/{id}', 'ArticlesController@destroy');
+            Route::get('/search/{category?}/{keyword?}', 'ArticlesController@index');
         });
 
         Route::group([

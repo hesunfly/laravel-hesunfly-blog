@@ -146,7 +146,7 @@
     function search() {
         let category = $('.am-selected-status').text();
         let keyword = $('#keyword').val();
-        let url = "{{ url('admin/articles/') }}" + '/' + category + '/' + keyword;
+        let url = "{{ url('admin/articles/search') }}" + '/' + category + '/' + keyword;
         window.location.href = url;
     }
     
