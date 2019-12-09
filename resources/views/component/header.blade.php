@@ -1,3 +1,24 @@
+<style>
+    .divCss{
+        display: inline-block;
+        margin-left: 1.8rem;
+    }
+    .pl-8{
+        padding: 0;
+    }
+
+    @media screen and (max-width: 787px) {
+        .divCss{
+            display: block;
+            margin-top: 30px;
+            margin-left: 0;
+            width: 90%;
+        }
+        .pl-8{
+            padding: 0;
+        }
+    }
+</style>
 <header class="py-5 mb-10">
     <div class="container mx-auto px-5 lg:max-w-screen">
         <div class="flex items-center flex-col lg:flex-row">
@@ -11,9 +32,9 @@
                         <a href="{{ url('/pages') . '/' . $item->slug }}"
                            class="ml-5 no-underline hover:underline uppercase">{{ $item->title }}</a>
                     @endforeach
-                    <div style="display: inline-block;margin-left: 1.8rem;">
+                    <div class="divCss" style="">
                         <div class="border-t-2 md:border-t-0 md:border-l-2 border-off-white bg-white flex items-center md:justify-end w-full md:w-auto"
-                               style="border-color: #f5f5f5;">
+                               style="border-bottom: 1px solid #f5f5f5; border-left: 0;border-top: 0; height: 2rem;padding: 20px 6px;">
                             <input id="keyword" type="text" placeholder="搜索" value="{{ $keyword }}"
                                    class="placeholder-red flex-1 py-8 pl-8 md:py-6 focus:outline-none" >
                             <button type="button" id="search" class="block py-8 pr-8 md:py-6 lg:pr-0 focus:outline-none">
@@ -37,8 +58,18 @@
 </header>
 
 <script>
-    $('#search').click(function () {
+    let search = function () {
         let keyword = $('#keyword').val();
         window.location.href = "{{ url('/search/') }}" + '/' + keyword;
+    };
+
+    $('#search').click(function () {
+        search();
+    });
+
+    $('#keyword').keyup(function (event) {
+        if (event.which === 13) {
+            search();
+        }
     });
 </script>
