@@ -8,7 +8,10 @@ Route::group([
     'middleware' => 'ip',
 ], function () {
     Route::get('/', 'IndexController@index');
+    Route::get('/search/{keyword?}', 'IndexController@index');
+
     Route::get('/articles/{slug}', 'IndexController@article');
+
     Route::get('/pages/{slug}', 'IndexController@page');
 
     Route::get('/achieves', 'IndexController@achieve');

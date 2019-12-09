@@ -1,6 +1,6 @@
 @component('component.head', ['title' => $article->title])
 @endcomponent
-@component('component.header', ['pages' => \App\Services\CacheService::getPages()])
+@component('component.header', ['pages' => \App\Services\CacheService::getPages(), 'keyword' => ''])
 @endcomponent
 <script src="/assets/admin/js/highlight.min.js"></script>
 <link rel="stylesheet" href="/assets/admin/css/github.min.css">

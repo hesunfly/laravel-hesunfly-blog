@@ -1,7 +1,7 @@
 @component('component.head', ['title' => env('APP_NAME')])
 @endcomponent
 
-@component('component.header', ['pages' => \App\Services\CacheService::getPages()])
+@component('component.header', ['pages' => \App\Services\CacheService::getPages(), 'keyword' => $keyword])
 @endcomponent
 
 <div class="container mx-auto px-5 lg:max-w-screen-sm" style="padding-bottom: 100px;">

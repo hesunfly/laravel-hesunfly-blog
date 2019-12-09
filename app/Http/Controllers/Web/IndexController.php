@@ -6,17 +6,17 @@ use App\Models\Article;
 use App\Models\Page;
 use App\Services\ArticleViewCountService;
 use Illuminate\Http\Request;
-use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class IndexController extends Controller
 {
-    public function index()
+    public function index($keyword = '')
     {
         $articles = Article::with('category')
             ->where(['status' => 1])
+            ->whereRaw("title like '%{$keyword}%'")
             ->orderBy('publish_at', 'desc')
             ->paginate(config('blog.page_size'));
-        return view('index')->with(['articles' => $articles]);
+        return view('index')->with(['articles' => $articles, 'keyword' => $keyword]);
     }
 
     public function article($slug, Request $request)
