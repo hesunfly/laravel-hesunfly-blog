@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api\Admin;
 
-use App\Http\Requests\FileRequest;
+use App\Http\Requests\Web\FileRequest;
 use App\Models\Ip;
 use App\Services\UploadService;
 use App\Http\Controllers\Api\Controller;

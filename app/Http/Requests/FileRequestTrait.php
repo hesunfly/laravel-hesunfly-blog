@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-class FileRequest extends Request
+trait FileRequestTrait
 {
 
     public function rules()
