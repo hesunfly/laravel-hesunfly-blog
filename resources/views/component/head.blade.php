@@ -24,5 +24,5 @@
         overflow: hidden;
     }
 </style>
-<body>
+<body style="background-color: #FFFFF5;">
 <div class="content">

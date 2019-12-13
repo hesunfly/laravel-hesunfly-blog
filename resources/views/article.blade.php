@@ -13,7 +13,8 @@
         <span style="margin-left: 1rem"><i class="fas fa-eye"></i> {{ $article->view_count }}</span>
         @if (\Illuminate\Support\Facades\Auth::guard('web')->id() == 1)
             <span style="margin-left: 2rem">
-                <a href="{{ url('/admin/articles/edit/') . '/' . $article->id }}" target="_blank" style="text-decoration: none;">
+                <a href="{{ url('/admin/articles/edit/') . '/' . $article->id }}" target="_blank"
+                   style="text-decoration: none;">
                 编辑文章
                 </a>
             </span>
@@ -25,10 +26,13 @@
         {!! $article->html_content !!}
     </div>
     @if (\Jenssegers\Agent\Facades\Agent::isDesktop())
-        <div STYLE="text-align: center;">
-            <img src="{{ $article->qr_path }}" alt="手机扫码浏览" title="手机扫码浏览" style="margin-left: auto;margin-right: auto;display: block;">
-            <span style="">手机扫码查看</span>
-        </div>
+        @if (!empty($article->qr_path))
+            <div STYLE="text-align: center;">
+                <img src="{{ $article->qr_path }}" alt="手机扫码浏览" title="手机扫码浏览"
+                     style="margin-left: auto;margin-right: auto;display: block;">
+                <span style="">手机扫码查看</span>
+            </div>
+        @endif
     @endif
 </div>
 
