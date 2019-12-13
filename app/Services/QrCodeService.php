@@ -11,6 +11,7 @@ class QrCodeService
         $qrPath = 'storage/qrImage/' . $imageName . '.png';
         QrCode::format('png')
             ->size(200)
+            ->backgroundColor(255, 255, 245)
             ->encoding('UTF-8')
             ->merge('/public/assets/images/hesunfly-qr.png', .15)
             ->generate(url('/articles/' . $imageName), public_path($qrPath));
