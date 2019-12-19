@@ -2,6 +2,7 @@
 
 use Laravel\Horizon\Horizon;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 Route::group([
     'namespace' => 'Web',
@@ -82,5 +83,9 @@ Route::group([
 });
 
 Horizon::auth(function ($request) {
-    return true;
+    if (isset(Auth::guard('web')->user()->id) &&  Auth::guard('web')->user()->id== 1) {
+        return true;
+    }
+
+    abort(404);
 });

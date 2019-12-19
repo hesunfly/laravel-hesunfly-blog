@@ -45,4 +45,9 @@ class IndexController extends Controller
 
         return view('page')->with(['page' => $page]);
     }
+
+    public function fellow()
+    {
+        
+    }
 }
