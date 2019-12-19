@@ -12,6 +12,9 @@
     <link href="/assets/fontawesome-free-5.11.2/css/all.css" rel="stylesheet">
     <script defer src="/assets/fontawesome-free-5.11.2/js/all.js"></script>
     <script src="/assets/jquery.min.js"></script>
+    <script src="/assets/axios.min.js"></script>
+    <script src="/assets/layer/layer.js"></script>
+
 </head>
 <style>
     html, body {

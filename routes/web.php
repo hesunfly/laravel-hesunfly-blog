@@ -16,6 +16,8 @@ Route::group([
     Route::get('/pages/{slug}', 'IndexController@page');
 
     Route::get('/achieves', 'IndexController@achieve');
+
+    Route::post('/fellow', 'IndexController@fellow');
 });
 
 Route::group([
@@ -88,4 +90,10 @@ Horizon::auth(function ($request) {
     }
 
     abort(404);
+});
+
+Route::get('mail', function () {
+    $invoice = \App\Models\Article::find(1);
+
+    return new \App\Mail\FellowUpdate($invoice);
 });

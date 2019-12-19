@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Http\Requests\Web\FellowRequest;
 use App\Models\Article;
+use App\Models\Fellow;
 use App\Models\Page;
 use App\Services\ArticleViewCountService;
 use Illuminate\Http\Request;
@@ -46,8 +48,13 @@ class IndexController extends Controller
         return view('page')->with(['page' => $page]);
     }
 
-    public function fellow()
+    public function fellow(FellowRequest $request)
     {
-        
+        Fellow::create([
+            'email' => $request->input('email'),
+            'times' => 0
+        ]);
+
+        return response('success');
     }
 }
