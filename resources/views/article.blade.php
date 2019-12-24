@@ -28,9 +28,17 @@
     @if (\Jenssegers\Agent\Facades\Agent::isDesktop())
         @if (!empty($article->qr_path))
             <div STYLE="text-align: center;">
-                <img src="{{ $article->qr_path }}" alt="手机扫码浏览" title="手机扫码浏览"
-                     style="margin-left: auto;margin-right: auto;display: block;">
+                <div style="margin-left: auto;margin-right: auto;display: inline-block;">
+                <img src="{{ $article->qr_path }}" alt="手机扫码浏览" title="手机扫码浏览" style="display: block;"
+                     >
                 <span style="">手机扫码查看</span>
+                </div>
+                <div style="margin-left: auto;margin-right: auto;display: inline-block;">
+
+                <img src="{{ config('blog.reward_code_img') }}" alt="赞赏码" title="微信扫码赞赏"
+                     style="display: block;width: 160px;height: 160px;margin-bottom: 20px;">
+                <span style="">赞赏一下！</span>
+                </div>
             </div>
         @endif
     @endif
