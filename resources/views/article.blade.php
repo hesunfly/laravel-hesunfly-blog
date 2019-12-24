@@ -36,7 +36,7 @@
                 <div style="margin-left: auto;margin-right: auto;display: inline-block;">
 
                 <img src="{{ config('blog.reward_code_img') }}" alt="赞赏码" title="微信扫码赞赏"
-                     style="display: block;width: 160px;height: 160px;margin-bottom: 20px;">
+                     style="display: block;width: 140px;height: 140px;margin-bottom: 32px;">
                 <span style="">赞赏一下！</span>
                 </div>
             </div>
