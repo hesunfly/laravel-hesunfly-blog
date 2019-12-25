@@ -25,23 +25,25 @@
     <div class="mt-5 leading-loose flex flex-col justify-center items-center post-body font-serif">
         {!! $article->html_content !!}
     </div>
-    @if (\Jenssegers\Agent\Facades\Agent::isDesktop())
-        @if (!empty($article->qr_path))
-            <div STYLE="text-align: center;">
-                <div style="margin-left: auto;margin-right: auto;display: inline-block;">
-                <img src="{{ $article->qr_path }}" alt="手机扫码浏览" title="手机扫码浏览" style="display: block;"
-                     >
-                <span style="">手机扫码查看</span>
+    <div style="text-align: center;">
+        @if (\Jenssegers\Agent\Facades\Agent::isDesktop())
+            @if (!empty($article->qr_path))
+                <div STYLE="text-align: center;display: inline-block;">
+                    <div style="margin-left: auto;margin-right: auto;display: inline-block;">
+                    <img src="{{ $article->qr_path }}" alt="手机扫码浏览" title="手机扫码浏览" style="display: block;">
+                    <span style="">手机扫码查看</span>
+                    </div>
                 </div>
-                <div style="margin-left: auto;margin-right: auto;display: inline-block;">
-
-                <img src="{{ config('blog.reward_code_img') }}" alt="赞赏码" title="微信扫码赞赏"
-                     style="display: block;width: 140px;height: 140px;margin-bottom: 32px;">
-                <span style="">赞赏一下！</span>
-                </div>
-            </div>
+            @endif
         @endif
-    @endif
+        <div STYLE="text-align: center;display: inline-block;">
+            <div style="margin-left: auto;margin-right: auto;display: inline-block;">
+                <img src="{{ config('blog.reward_code_img') }}" alt="赞赏码" title="微信扫码赞赏"
+                     style="display: block;width: 170px;height: 170px;margin-bottom: 15px;">
+                <span style="">赞赏一下！</span>
+            </div>
+        </div>
+    </div>
 </div>
 
 @component('component.footer')
