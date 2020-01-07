@@ -34,6 +34,15 @@
         }
         .aCssParent{
             display: inline-block;
+            min-width: 410px;
+            text-align: right;
+
+        }
+        .aCss{
+            width: 16%;
+            text-align: center;
+            margin-top: 10px;
+            display: inline-block;
 
         }
     }
