@@ -109,11 +109,6 @@
 
         let simplemde = new SimpleMDE({
             autoDownloadFontAwesome: undefined,
-            autosave: {
-                enabled: true,
-                uniqueId: target.data('save-id'),
-                delay: 1000,
-            },
             element: document.getElementById('content'),
             insertTexts: {
                 image: ["![](", ")"],
