@@ -8,19 +8,17 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class FellowUpdate extends Mailable implements ShouldQueue
+class SubscribeSuccessEmail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
-    protected $article;
-
-    public function __construct(Article $article)
+    public function __construct()
     {
-        $this->article = $article;
+
     }
 
     public function build()
     {
-        return $this->view('emails.fellow')->with(['article' => $this->article]);
+        return $this->view('emails.subscribe_success');
     }
 }

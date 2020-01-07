@@ -13,7 +13,18 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-
+        //文章更新
+        'App\Events\ArticleUpdate' => [
+            'App\Listeners\SendArticleUpdateEmail',
+        ],
+        //订阅成功
+        'App\Events\EmailSubscribeSuccess' => [
+            'App\Listeners\SendEmailSubscribeSuccessEmail',
+        ],
+        //订阅确认
+        'App\Events\EmailSubscribeConfirm' => [
+            'App\Listeners\SendEmailSubscribeConfirmEmail',
+        ],
     ];
 
     /**

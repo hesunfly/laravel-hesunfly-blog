@@ -6,16 +6,35 @@
     .pl-8{
         padding: 0;
     }
+    .aCssParent{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    .aCss{
+        width: 25%;
+        text-align: center;
+        margin-top: 10px;
+    }
 
-    @media screen and (max-width: 787px) {
         .divCss{
             display: block;
             margin-top: 30px;
-            margin-left: 0;
-            width: 90%;
+            margin-left: 0 ;
+
         }
         .pl-8{
             padding: 0;
+        }
+
+    @media screen and (min-width: 787px) {
+        .divCss{
+            display: inline-block;
+            margin-left: 1.8rem;
+        }
+        .aCssParent{
+            display: inline-block;
+
         }
     }
 </style>
@@ -27,11 +46,16 @@
             </a>
             <div class="lg:ml-auto mt-10 lg:mt-0 flex items-center" style="font-size: 1.3rem;">
                 <div style="">
-                    <a href="{{ url('/') }}" class="no-underline hover:underline uppercase">文章</a>
+                    <div class="aCssParent">
+
+
+
+                    <a href="{{ url('/') }}" class="no-underline hover:underline uppercase aCss">文章</a>
                     @foreach($pages as $item)
-                        <a href="{{ url('/pages') . '/' . $item->slug }}"
-                           class="ml-5 no-underline hover:underline uppercase">{{ $item->title }}</a>
+                        <a  href="{{ url('/pages') . '/' . $item->slug }}"
+                           class=" no-underline hover:underline uppercase aCss">{{ $item->title }}</a>
                     @endforeach
+                    </div>
                     <div class="divCss" style="">
                         <div class="border-t-2 md:border-t-0 md:border-l-2 border-off-white bg-white flex items-center md:justify-end w-full md:w-auto"
                                style="border-bottom: 1px solid #f5f5f5; border-left: 0;border-top: 0; height: 2rem;padding: 20px 6px;background-color: #F5FFFA;">
@@ -48,7 +72,7 @@
                             </button>
                         </div>
                     </div>
-                </div>
+
 
             </div>
 

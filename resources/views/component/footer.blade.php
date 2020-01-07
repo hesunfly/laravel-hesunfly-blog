@@ -5,7 +5,7 @@
             <div class="text-muted py-6 text-center">
                 <div>
                     <input type="email" id="email-value" name="email" value="" placeholder="输入您的邮箱订阅我吧！" style="background-color: #F5FFFA;">
-                    <button type="button" id="fellow" style="margin-left:1rem;border: 1px solid #ececec;border-radius:1000px;background-color: #F5FFFA;padding: .1em .4em;">订阅</button>
+                    <button type="button" id="subscribe" style="margin-left:1rem;border: 1px solid #ececec;border-radius:1000px;background-color: #F5FFFA;padding: .1em .4em;">订阅</button>
                 </div>
                 <p style="margin-top: 1.5rem;">
                     Copyright © <a href="http://hesunfly.com" style="text-decoration: none">Hesunfly</a> |
@@ -18,7 +18,7 @@
 
 <script>
     $(function () {
-        $('#fellow').click(function () {
+        $('#subscribe').click(function () {
             let email = $('#email-value').val();
 
             if (email.length === 0) {
@@ -33,12 +33,12 @@
             }
 
             axios.post(
-                "{{ url('/fellow') }}",
+                "{{ url('/subscribes') }}",
                 {
                     'email': email,
                 }
             ).then(function (response) {
-                layer.msg('订阅成功，感谢您的订阅！', {
+                layer.msg('已向您的邮箱发送了确认邮件，请确认后订阅生效！', {
                         time: 2000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
                     }

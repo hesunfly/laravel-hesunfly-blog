@@ -17,7 +17,9 @@ Route::group([
 
     Route::get('/achieves', 'IndexController@achieve');
 
-    Route::post('/fellow', 'IndexController@fellow');
+    Route::post('/subscribes', 'IndexController@subscribe');
+
+    Route::get('/subscribes/confirm/{email}/{key}/{code}', 'IndexController@confirm');
 });
 
 Route::group([
@@ -80,6 +82,9 @@ Route::group([
         });
 
         Route::get('ips', 'IndexController@ips');
+
+        Route::get('subscribes', 'SubscribesController@index');
+
     });
 
 });
@@ -88,12 +93,17 @@ Horizon::auth(function ($request) {
     if (isset(Auth::guard('web')->user()->id) &&  Auth::guard('web')->user()->id== 1) {
         return true;
     }
-
     abort(404);
 });
 
 Route::get('mail', function () {
-    $invoice = \App\Models\Article::find(1);
-
-    return new \App\Mail\FellowUpdate($invoice);
+    $email = 'hesunfly@163.com';
+    $key = 'email_subscribe_confirm_' . $email;
+    $code = mt_rand(111111, 999999);
+    $data = [
+        'email' => $email,
+        'code' => $code,
+        'key' => $key,
+    ];
+    return new \App\Mail\SubscribeConfirmEmail($data);
 });

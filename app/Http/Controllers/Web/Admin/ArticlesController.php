@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers\Web\Admin;
 
+use App\Events\ArticleUpdate;
 use App\Http\Requests\Web\ArticleRequest;
-use App\Mail\FellowUpdate;
 use App\Models\Article;
 use App\Models\Category;
-use App\Models\Fellow;
 use App\Services\QrCodeService;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
 
 class ArticlesController extends Controller
 {
@@ -68,7 +66,7 @@ class ArticlesController extends Controller
             $article->update(['status' => 1, 'publish_at' => Carbon::now()->toDateTimeString(), 'qr_path' => $qrPath]);
 
             //发送订阅
-            Mail::cc(Fellow::all())->send(new FellowUpdate($article));
+            event(new ArticleUpdate($article));
         }
 
         Category::find($request->input('category_id'))->increment('articles_count');
@@ -112,7 +110,7 @@ class ArticlesController extends Controller
                 $qrPath = QrCodeService::generate($article->slug);
                 $article->update(['qr_path' => $qrPath]);
                 //发送订阅
-                Mail::to(Fellow::all())->send(new FellowUpdate($article));
+                event(new ArticleUpdate($article));
                 break;
             case -1:
                 $article->update(['status' => -1]);

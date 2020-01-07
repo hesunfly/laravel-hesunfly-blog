@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFellowsTable extends Migration
+class CreateEmailConfirmCodesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreateFellowsTable extends Migration
      */
     public function up()
     {
-        Schema::create('fellows', function (Blueprint $table) {
+        Schema::create('email_confirm_codes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('email');
-            $table->unsignedInteger('times')->default(0);
+            $table->string('key');
+            $table->string('code');
+            $table->tinyInteger('status', false)->default(-1)->comment('是否已激活 @-1：未激活 @2：已激活');
             $table->timestamps();
             $table->softDeletes();
+            $table->index('email');
         });
     }
 
@@ -29,6 +32,6 @@ class CreateFellowsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fellows');
+        Schema::dropIfExists('email_confirm_codes');
     }
 }

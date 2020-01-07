@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-trait FellowRequestTrait
+trait SubscribeRequestTrait
 {
     public function rules()
     {
@@ -11,7 +11,7 @@ trait FellowRequestTrait
                 'bail',
                 'required',
                 'email',
-                'unique:fellows,email'
+                'unique:subscribes,email'
             ]
         ];
     }

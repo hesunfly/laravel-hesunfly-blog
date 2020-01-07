@@ -25,6 +25,7 @@
     .content {
         min-height: 100%;
         overflow: hidden;
+
     }
 </style>
 <body style="background-color: #FFFFF5;">

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Web;
 
-use App\Http\Requests\Web\FellowRequest;
+use App\Events\EmailSubscribeConfirm;
+use App\Events\EmailSubscribeSuccess;
+use App\Http\Requests\Web\SubscribeRequest;
 use App\Models\Article;
-use App\Models\Fellow;
+use App\Models\EmailConfirmCode;
+use App\Models\Subscribe;
 use App\Models\Page;
 use App\Services\ArticleViewCountService;
 use Illuminate\Http\Request;
@@ -48,13 +51,41 @@ class IndexController extends Controller
         return view('page')->with(['page' => $page]);
     }
 
-    public function fellow(FellowRequest $request)
+    public function subscribe(SubscribeRequest $request)
     {
-        Fellow::create([
+        Subscribe::create([
             'email' => $request->input('email'),
-            'times' => 0
+            'times' => 0,
+            'status' => -1,
         ]);
+
+        event(new EmailSubscribeConfirm($request->input('email')));
 
         return response('success');
     }
+
+    public function confirm(Request $request)
+    {
+        $email = decrypt($request->email);
+        $confirm = EmailConfirmCode::where([
+            'email' => $email,
+            'key' => decrypt($request->key),
+            'code' => decrypt($request->code),
+        ])->first();
+
+        $msg = 'Error!';
+        if (!empty($confirm)) {
+            if ($confirm->status == 1) {
+                $msg = '您已确认订阅，请勿重复确认！';
+            } elseif ($confirm->status == -1) {
+                $confirm->update(['status' => 1]);
+                Subscribe::where(['email' => $email])->update(['status' => 1]);
+                event(new EmailSubscribeSuccess($email));
+                $msg = '确认订阅成功，您可以收到我的文章更新通知了！';
+            }
+        }
+
+        return view('confirm')->with(['msg' => $msg]);
+    }
+
 }

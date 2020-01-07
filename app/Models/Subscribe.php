@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class Fellow extends Model
+class Subscribe extends Model
 {
     protected $guarded = [];
 }
