@@ -37,7 +37,7 @@
 
         <li class="sidebar-nav-link">
             <a href="{{ url('/admin/subscribes') }}" @if (mb_strstr($uri, '/admin/subscribes')) class="active" @endif>
-                <i class="am-icon-list sidebar-nav-link-logo"></i> 订阅
+                <i class="am-icon-feed sidebar-nav-link-logo"></i> 订阅
             </a>
         </li>
 
