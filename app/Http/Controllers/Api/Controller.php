@@ -10,7 +10,7 @@ class Controller extends BaseController
 {
     use Helpers;
 
-    protected function userId()
+   /* protected function userId()
     {
         $this->middleware('api.auth');
 
@@ -26,5 +26,5 @@ class Controller extends BaseController
         } catch (\Exception $exception) {
             $this->response->errorNotFound();
         }
-    }
+    }*/
 }

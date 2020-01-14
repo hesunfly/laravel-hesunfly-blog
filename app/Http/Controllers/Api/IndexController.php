@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Web;
+namespace App\Http\Controllers\Api;
 
 use App\Events\EmailSubscribeConfirm;
 use App\Events\EmailSubscribeSuccess;
@@ -23,7 +23,9 @@ class IndexController extends Controller
             ->whereRaw("title like '%{$keyword}%'")
             ->orderBy('publish_at', 'desc')
             ->paginate(config('blog.page_size'));
-        return view('index')->with(['articles' => $articles, 'keyword' => $keyword]);
+        $data = ['articles' => $articles, 'keyword' => $keyword];
+
+        return $this->response->array($data);
     }
 
     public function article($slug, Request $request)
