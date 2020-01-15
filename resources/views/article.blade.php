@@ -9,8 +9,8 @@
 
     <div class="flex items-center text-sm text-light">
         <span>{{ $article->publish_at }}</span>
-        <span style="margin-left: 1rem"><i class="fas fa-folder"></i> {{ $article->category->category_title }}</span>
-        <span style="margin-left: 1rem"><i class="fas fa-eye"></i> {{ $article->view_count }}</span>
+        <span style="margin-left: 1rem"><i class="fa fa-folder"></i> {{ $article->category->category_title }}</span>
+        <span style="margin-left: 1rem"><i class="fa fa-eye"></i> {{ $article->view_count }}</span>
         @if (\Illuminate\Support\Facades\Auth::guard('web')->id() == 1)
             <span style="margin-left: 2rem">
                 <a href="{{ url('/admin/articles/edit/') . '/' . $article->id }}" target="_blank"

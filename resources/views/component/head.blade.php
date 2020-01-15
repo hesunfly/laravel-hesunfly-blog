@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="font-sans antialiased">
+<html lang="zh-CN">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="/assets/css/css.css">
     <link href="/assets/css/theme.css" rel="stylesheet">
     <link href="/assets/css/search.css" rel="stylesheet">
-    <link href="/assets/fontawesome-free-5.11.2/css/all.css" rel="stylesheet">
-    <script defer src="/assets/fontawesome-free-5.11.2/js/all.js"></script>
+    <link href="/assets/admin/css/font-awesome.min.css" rel="stylesheet">
     <script src="/assets/jquery.min.js"></script>
     <script src="/assets/axios.min.js"></script>
     <script src="/assets/layer/layer.js"></script>

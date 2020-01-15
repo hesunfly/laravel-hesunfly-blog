@@ -7,6 +7,13 @@
                     <input type="email" id="email-value" name="email" value="" placeholder="输入您的邮箱订阅我吧！" style="background-color: #F5FFFA;">
                     <button type="button" id="subscribe" style="margin-left:1rem;border: 1px solid #ececec;border-radius:1000px;background-color: #F5FFFA;padding: .1em .4em;">订阅</button>
                 </div>
+            <div style="margin-top:1.5rem; ">
+                <span><a href="mailto:{{ config('blog.email') }}"><i class="fa fa-envelope"></i></a></span>
+                <span style="display: inline-block; width: 0.5rem;"></span>
+                <a href="{{ config('blog.github') }}">
+                    <span><i class="fa fa-github"></i></span>
+                </a>
+            </div>
                 <p style="margin-top: 1.5rem;">
                     Copyright © <a href="http://hesunfly.com" style="text-decoration: none">Hesunfly</a> |
                     <a href="http://www.beian.miit.gov.cn" style="text-decoration: none">{{ config('blog.icp_record') }}</a>
