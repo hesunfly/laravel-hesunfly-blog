@@ -1,22 +1,27 @@
 </div>
 <footer style="height:100px;margin-top: -100px;">
     <div class="border-t border-lighter mt-20" style="margin-top: 0px;">
-        <div class="container mx-auto px-5 lg:max-w-screen">
-            <div class="text-muted py-6 text-center">
+        <div class="container mx-auto px-4 lg:max-w-screen">
+            <div class="text-muted py-4 text-center">
                 <div>
-                    <input type="email" id="email-value" name="email" value="" placeholder="输入您的邮箱订阅我吧！" style="background-color: #F5FFFA;">
-                    <button type="button" id="subscribe" style="margin-left:1rem;border: 1px solid #ececec;border-radius:1000px;background-color: #F5FFFA;padding: .1em .4em;">订阅</button>
+                    <input type="email" id="email-value" name="email" value="" placeholder="输入您的邮箱订阅我吧！"
+                           style="background-color: #F5FFFA;">
+                    <button type="button" id="subscribe"
+                            style="margin-left:1rem;border: 1px solid #ececec;border-radius:1000px;background-color: #F5FFFA;padding: .1em .4em;">
+                        订阅
+                    </button>
                 </div>
-            <div style="margin-top:1.5rem; ">
-                <span><a href="mailto:{{ config('blog.email') }}"><i class="fa fa-envelope"></i></a></span>
-                <span style="display: inline-block; width: 0.5rem;"></span>
-                <a href="{{ config('blog.github') }}">
-                    <span><i class="fa fa-github"></i></span>
-                </a>
-            </div>
-                <p style="margin-top: 1.5rem;">
+                <div class="py-2">
+                    <span><a href="mailto:{{ config('blog.email') }}"><i class="fa fa-envelope"></i></a></span>
+                    <span style="display: inline-block; width: 0.5rem;"></span>
+                    <a href="{{ config('blog.github') }}">
+                        <span><i class="fa fa-github"></i></span>
+                    </a>
+                </div>
+                <p class="py-2">
                     Copyright © <a href="http://hesunfly.com" style="text-decoration: none">Hesunfly</a> |
-                    <a href="http://www.beian.miit.gov.cn" style="text-decoration: none">{{ config('blog.icp_record') }}</a>
+                    <a href="http://www.beian.miit.gov.cn"
+                       style="text-decoration: none">{{ config('blog.icp_record') }}</a>
                 </p>
             </div>
         </div>
@@ -35,7 +40,7 @@
 
             let reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$"); //正则表达式
 
-            if (! reg.test(email)) {
+            if (!reg.test(email)) {
                 layer.msg('请输入正确的邮箱地址');
             }
 
