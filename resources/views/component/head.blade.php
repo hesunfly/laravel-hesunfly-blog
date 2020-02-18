@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="/assets/css/css.css">
     <link href="/assets/css/theme.css" rel="stylesheet">
     <link href="/assets/css/search.css" rel="stylesheet">
+    <link href="/assets/admin/css/github.min.css" rel="stylesheet">
+    <link href="/assets/css/github-markdown-css.css" rel="stylesheet">
     <link href="/assets/admin/css/font-awesome.min.css" rel="stylesheet">
     <script src="/assets/jquery.min.js"></script>
     <script src="/assets/axios.min.js"></script>

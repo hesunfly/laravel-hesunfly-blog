@@ -955,3 +955,17 @@
 .markdown-body .pl-12 {
     padding-left: 128px!important;
 }
+
+
+table th {
+    padding: 8px;
+    border: 1px solid #d9d9d9;
+    line-height: 20px;
+    vertical-align: middle;
+}
+table td {
+    padding: 8px;
+    border: 1px solid #d9d9d9;
+    line-height: 20px;
+    vertical-align: middle;
+}
