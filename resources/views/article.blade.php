@@ -22,7 +22,7 @@
     </div>
 
 
-    <div class="mt-5 leading-loose flex flex-col justify-center items-center post-body font-serif">
+    <div class="mt-5 leading-loose flex flex-col justify-center post-body font-serif">
         {!! $article->html_content !!}
     </div>
     <div style="text-align: center;">
