@@ -10,11 +10,11 @@
            href="{{ url('articles/' . $item->slug)}}" style="background-color: #F5FFFA;">
             <div class="flex flex-col justify-between flex-1">
                 <div>
-                    <h2 class="font-sans block mb-2" style="font-size: 1.25rem;">
+                    <h2 class="font-sans block leading-normal mb-2" style="font-size: 1.25rem;">
                         {{ $item->title }}
                     </h2>
 
-                    <p class="mb-2 font-serif leading-loose" style="font-size: 1rem;">
+                    <p class="mb-2 leading-normal font-serif leading-loose" style="font-size: 1rem;">
                         {{ $item->description }}
                     </p>
                 </div>
