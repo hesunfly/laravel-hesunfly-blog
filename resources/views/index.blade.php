@@ -10,11 +10,11 @@
            href="{{ url('articles/' . $item->slug)}}" style="background-color: #F5FFFA;">
             <div class="flex flex-col justify-between flex-1">
                 <div>
-                    <h2 class="font-sans leading-normal block mb-6">
+                    <h2 class="font-sans block mb-2" style="font-size: 1.25rem;">
                         {{ $item->title }}
                     </h2>
 
-                    <p class="leading-normal mb-6 font-serif leading-loose">
+                    <p class="mb-2 font-serif leading-loose" style="font-size: 1rem;">
                         {{ $item->description }}
                     </p>
                 </div>
@@ -29,7 +29,7 @@
         </a>
     @endforeach
 
-    <div class="uppercase flex items-center justify-center flex-1 py-5 font-sans" style="margin-bottom: 27px;">
+    <div class="uppercase flex items-center justify-center flex-1 font-sans" style="padding-bottom: 1rem;">
         @if ($articles->currentPage() != 1)
             <a href="{{ $articles->previousPageUrl() }}" rel="next"
                class="block no-underline text-light hover:text-black px-5">上一页</a>

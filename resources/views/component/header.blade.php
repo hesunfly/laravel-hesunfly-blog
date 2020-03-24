@@ -59,7 +59,6 @@
                 <div style="">
                     <div class="aCssParent">
 
-
                         <a href="{{ url('/') }}" class="no-underline hover:underline uppercase aCss">文章</a>
                         @foreach($pages as $item)
                             <a href="{{ url('/pages') . '/' . $item->slug }}"

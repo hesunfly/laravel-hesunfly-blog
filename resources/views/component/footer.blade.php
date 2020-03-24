@@ -3,7 +3,7 @@
     <div class="border-t border-lighter mt-20" style="margin-top: 0px;">
         <div class="container mx-auto px-4 lg:max-w-screen">
             <div class="text-muted py-4 text-center">
-                <div>
+                <div style="font-size: 0.8rem;">
                     <input type="email" id="email-value" name="email" value="" placeholder="输入您的邮箱订阅我吧！"
                            style="background-color: #F5FFFA;">
                     <button type="button" id="subscribe"
@@ -18,7 +18,7 @@
                         <span><i class="fa fa-github"></i></span>
                     </a>
                 </div>
-                <p class="py-2">
+                <p class="py-2" style="font-size: 0.7rem;">
                     Copyright © <a href="http://hesunfly.com" style="text-decoration: none">Hesunfly</a> |
                     <a href="http://www.beian.miit.gov.cn"
                        style="text-decoration: none">{{ config('blog.icp_record') }}</a>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" class="html">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,6 +22,9 @@
         height: 100%;
         margin: 0;
         padding: 0;
+    }
+    .html {
+        font-size: 15px;
     }
     .content {
         min-height: 100%;
