@@ -6,15 +6,15 @@
 
 <div class="container mx-auto px-5 lg:max-w-screen-sm" style="padding-bottom: 100px;">
     @foreach( $articles as $item)
-        <a class="no-underline transition block border border-lighter w-full mb-10 p-5 rounded post-card"
+        <a class="no-underline transition block border border-lighter w-full mb-4 p-3 rounded post-card"
            href="{{ url('articles/' . $item->slug)}}" style="background-color: #F5FFFA;">
             <div class="flex flex-col justify-between flex-1">
                 <div>
-                    <h2 class="font-sans block leading-normal mb-2" style="font-size: 1.25rem;">
+                    <h2 class="font-sans block leading-normal mb-1" style="font-size: 1.25rem;">
                         {{ $item->title }}
                     </h2>
 
-                    <p class="mb-2 leading-normal font-serif leading-loose" style="font-size: 1rem;">
+                    <p class="mb-1 leading-normal font-serif leading-loose" style="font-size: 1rem;">
                         {{ $item->description }}
                     </p>
                 </div>
