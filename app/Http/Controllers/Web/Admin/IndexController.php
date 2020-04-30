@@ -27,7 +27,9 @@ class IndexController extends Controller
     //文章数按月统计
     private function statistics()
     {
-        $res = DB::select("select count(id) count,MONTH (publish_at) publish_at FROM articles GROUP BY MONTH (publish_at) ORDER BY MONTH (publish_at) DESC");
+        $year = date('Y');
+        $sql = "select count(id) count,MONTH (publish_at) publish_at FROM articles where YEAR (publish_at) = '{$year}' GROUP BY MONTH (publish_at) ORDER BY MONTH (publish_at) DESC";
+        $res = DB::select($sql);
         $temp = [];
         foreach ($res as $item) {
             if (!empty($item->publish_at)) {
