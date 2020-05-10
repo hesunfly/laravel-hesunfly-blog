@@ -68,8 +68,8 @@
                     <div class="divCss" style="">
                         <div class="border-t-2 md:border-t-0 md:border-l-2 border-off-white bg-white flex items-center md:justify-end w-full md:w-auto"
                              style="border-bottom: 1px solid #f5f5f5; border-left: 0;border-top: 0; height: 2rem;padding: 20px 6px;background-color: #F5FFFA;">
-                            <input id="keyword" type="text" placeholder="搜索" value="{{ $keyword }}"
-                                   style="background-color: #F5FFFA;font-size: 1rem;"
+                            <input id="keyword" type="search" placeholder="搜索" value="{{ $keyword }}"
+                                   style="background-color: #F5FFFA;font-size: 1rem;margin-right: 10px;"
                                    class="placeholder-red flex-1 py-8 pl-8 md:py-6 focus:outline-none">
                             <button type="button" id="search"
                                     class="block py-8 pr-8 md:py-6 lg:pr-0 focus:outline-none">
