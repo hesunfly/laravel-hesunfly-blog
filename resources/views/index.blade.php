@@ -5,6 +5,7 @@
 @endcomponent
 
 <div class="container mx-auto px-5 lg:max-w-screen-sm" style="padding-bottom: 100px;">
+    @if (count($articles) !== 0)
     @foreach( $articles as $item)
         <a class="no-underline transition block border border-lighter w-full mb-4 p-3 rounded post-card"
            href="{{ url('articles/' . $item->slug)}}" style="background-color: #F5FFFA;">
@@ -28,7 +29,6 @@
             </div>
         </a>
     @endforeach
-
     <div class="uppercase flex items-center justify-center flex-1 font-sans" style="padding-bottom: 1rem;">
         @if ($articles->currentPage() != 1)
             <a href="{{ $articles->previousPageUrl() }}" rel="next"
@@ -46,6 +46,11 @@
                class="block no-underline text-light hover:text-black px-5"></a>
         @endif
     </div>
+    @else
+        <div style="font-size:2.5rem;width: 50%;text-align:center;position: absolute;top: 50%;margin-top: -50px;height: 100px;">
+            抱歉，暂时没有相关文章！
+        </div>
+    @endif
 
 </div>
 
