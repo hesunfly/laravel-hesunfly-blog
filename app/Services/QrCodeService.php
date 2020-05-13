@@ -13,7 +13,7 @@ class QrCodeService
             ->size(200)
             ->backgroundColor(255, 255, 245)
             ->encoding('UTF-8')
-            ->merge('/public/assets/images/hesunfly-qr.png', .15)
+            ->merge('/public' . CacheService::getConfig('qr_img'), .15)
             ->generate(url('/articles/' . $imageName), public_path($qrPath));
 
         return '/' . $qrPath;

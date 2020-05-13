@@ -12,16 +12,16 @@
                     </button>
                 </div>
                 <div class="py-2">
-                    <span><a href="mailto:{{ config('blog.email') }}"><i class="fa fa-envelope"></i></a></span>
+                    <span><a href="mailto:{{ \App\Services\CacheService::getConfig('email') }}"><i class="fa fa-envelope"></i></a></span>
                     <span style="display: inline-block; width: 0.5rem;"></span>
-                    <a href="{{ config('blog.github') }}">
+                    <a href="{{ \App\Services\CacheService::getConfig('github') }}">
                         <span><i class="fa fa-github"></i></span>
                     </a>
                 </div>
                 <p class="py-2" style="font-size: 0.7rem;">
                     Copyright © <a href="http://hesunfly.com" style="text-decoration: none">Hesunfly</a> |
                     <a href="http://www.beian.miit.gov.cn"
-                       style="text-decoration: none">{{ config('blog.icp_record') }}</a>
+                       style="text-decoration: none">{{ \App\Services\CacheService::getConfig('icp_record') }}</a>
                 </p>
             </div>
         </div>

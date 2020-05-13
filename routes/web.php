@@ -81,6 +81,13 @@ Route::group([
             Route::delete('/destroy/{id}', 'ImagesController@destroy');
         });
 
+        Route::group([
+            'prefix' => 'settings',
+        ], function () {
+            Route::get('/', 'SettingController@index');
+            Route::post('/save', 'SettingController@save');
+        });
+
         Route::get('ips', 'IndexController@ips');
 
         Route::get('subscribes', 'SubscribesController@index');
@@ -94,16 +101,4 @@ Horizon::auth(function ($request) {
         return true;
     }
     abort(404);
-});
-
-Route::get('mail', function () {
-    $email = 'hesunfly@163.com';
-    $key = 'email_subscribe_confirm_' . $email;
-    $code = mt_rand(111111, 999999);
-    $data = [
-        'email' => $email,
-        'code' => $code,
-        'key' => $key,
-    ];
-    return new \App\Mail\SubscribeConfirmEmail($data);
 });

@@ -41,5 +41,13 @@
             </a>
         </li>
 
+        <li class="sidebar-nav-heading">应用</li>
+        <li class="sidebar-nav-link">
+            <a href="{{ url('/admin/settings') }}" @if (mb_strstr($uri, '/admin/settings')) class="active" @endif>
+                <i class="am-icon-cog sidebar-nav-link-logo"></i> 配置
+            </a>
+        </li>
+
+
     </ul>
 </div>

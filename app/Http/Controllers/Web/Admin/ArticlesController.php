@@ -6,6 +6,7 @@ use App\Events\ArticleUpdate;
 use App\Http\Requests\Web\ArticleRequest;
 use App\Models\Article;
 use App\Models\Category;
+use App\Services\CacheService;
 use App\Services\QrCodeService;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -28,7 +29,7 @@ class ArticlesController extends Controller
             $where .= ' and title like ' . "'" . '%' . $keyword . '%' . "'";
         }
 
-        $articles = Article::whereRaw($where)->with('category')->orderByRaw('created_at desc')->paginate(config('blog.admin_page_size'));
+        $articles = Article::whereRaw($where)->with('category')->orderByRaw('created_at desc')->paginate(CacheService::getConfig('admin_page_size'));
         $categories = Category::orderByRaw('articles_count desc')->get();
         return view('admin.article.index')->with([
             'articles' => $articles,

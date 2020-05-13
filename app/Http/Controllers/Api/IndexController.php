@@ -10,6 +10,7 @@ use App\Models\EmailConfirmCode;
 use App\Models\Subscribe;
 use App\Models\Page;
 use App\Services\ArticleViewCountService;
+use App\Services\CacheService;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -22,7 +23,7 @@ class IndexController extends Controller
             ->where(['status' => 1])
             ->whereRaw("title like '%{$keyword}%'")
             ->orderBy('publish_at', 'desc')
-            ->paginate(config('blog.page_size'));
+            ->paginate(CacheService::getConfig('page_size'));
         $data = ['articles' => $articles, 'keyword' => $keyword];
 
         return $this->response->array($data);

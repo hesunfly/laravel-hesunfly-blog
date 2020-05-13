@@ -5,13 +5,13 @@
 <script src="/assets/admin/js/theme.js"></script>
 <div class="am-g tpl-g">
     <!-- 头部 -->
-@component('admin.component.header')
+@component('admin/component/header')
 @endcomponent
 <!-- 风格切换 -->
-@component('admin.component.skin')
+@component('admin/component/skin')
 @endcomponent
 <!-- 侧边导航栏 -->
-@component('admin.component.sidebar')
+@component('admin/component/sidebar')
 @endcomponent
 
 <!-- 内容区域 -->
@@ -54,7 +54,7 @@
         </div>
     </div>
 </div>
-@component('admin.component.foot')
+@component('admin/component/foot')
 @endcomponent
 
 <script>

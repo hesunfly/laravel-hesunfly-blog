@@ -1,17 +1,17 @@
-@component('admin.component.head', ['title' => '分类编辑'])
+@component('admin.component.head', ['title' => '应用配置'])
 @endcomponent
 
 <body data-type="widgets">
 <script src="/assets/admin/js/theme.js"></script>
 <div class="am-g tpl-g">
     <!-- 头部 -->
-@component('admin/component/header')
+@component('admin.component.header')
 @endcomponent
 <!-- 风格切换 -->
-@component('admin/component/skin')
+@component('admin.component.skin')
 @endcomponent
 <!-- 侧边导航栏 -->
-@component('admin/component/sidebar')
+@component('admin.component.sidebar')
 @endcomponent
 
 <!-- 内容区域 -->
@@ -22,22 +22,24 @@
                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
                     <div class="widget am-cf">
                         <div class="widget-head am-cf">
-                            <div class="widget-title am-fl">编辑分类</div>
+                            <div class="widget-title am-fl">应用配置 <span style="color: #00b7ee;"> (图片类的配置可以在图片管理中上传，然后复制地址填写到对应的录入元素中即可) </span></div>
                         </div>
                         <div class="widget-body am-fr">
 
-                            <form class="am-form tpl-form-line-form">
+                            <form class="am-form tpl-form-line-form" id="setting_form">
+                                @foreach($settings as $item)
                                 <div class="am-form-group">
-                                    <label for="category_title" class="am-u-sm-3 am-form-label">分类名称 <small><span
+                                    <label for="{{ $item['name'] }}" class="am-u-sm-3 am-form-label">{{ $item['title'] }} <small><span
                                                     style="color: red;">*</span></small>
                                         <span
-                                                class="tpl-form-line-small-title">Category Title</span></label>
+                                                class="tpl-form-line-small-title">{{ $item['en_title'] }}</span></label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" class="tpl-form-input" id="category_title"
-                                               name="category_title" autofocus placeholder="请输入分类名称"
-                                               value="{{ $category_title }}">
+                                        <input type="text" class="tpl-form-input" id="{{ $item['name'] }}"
+                                               name="{{ $item['name'] }}" autofocus placeholder=""
+                                               value="{{ $item['value'] }}">
                                     </div>
                                 </div>
+                                @endforeach
 
                                 <div class="am-form-group">
                                     <div class="am-u-sm-9 am-u-sm-push-3">
@@ -54,33 +56,28 @@
         </div>
     </div>
 </div>
-@component('admin/component/foot')
+@component('admin.component.foot')
 @endcomponent
 
 <script>
 
     $(function () {
         $('#submit').click(function () {
-            let category_title = $('#category_title').val();
-            if (category_title.length === 0) {
-                layer.msg('Category Title 为必填项！', {
-                        time: 2000 //2秒关闭（如果不配置，默认是3秒）
-                    }, function () {
-                    }
-                );
-                return;
-            }
 
-            axios.put(
-                "{{ url('/admin/categories/save/') . '/' . $id }}",
-                {
-                    'title': category_title
-                }
+            let form_data = $('#setting_form').serializeArray();
+
+            let data = {};
+            $.each(form_data, function() {
+                data[this.name] = this.value;
+            });
+
+            axios.post(
+                "{{ url('/admin/settings/save')}}",
+                data
             ).then(function (response) {
-                layer.msg('编辑成功！', {
+                layer.msg('保存成功！', {
                         time: 1000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
-                        window.location = "{{ url('/admin/categories') }}";
                     }
                 );
             }).catch(function (error) {
