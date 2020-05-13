@@ -34,8 +34,8 @@
                                                 class="tpl-form-line-small-title">Name</span></label>
                                     <div class="am-u-sm-9">
                                         <input type="text" class="tpl-form-input" id="name"
-                                               name="name" autofocus placeholder="请输入用户名"
-                                               value="{{ \Illuminate\Support\Facades\Auth::guard('web')->user()->name }}">
+                                               name="name"  placeholder="请输入用户名"
+                                               value="{{ $user->name }}">
                                     </div>
                                 </div>
 
@@ -46,8 +46,8 @@
                                                 class="tpl-form-line-small-title">Email</span></label>
                                     <div class="am-u-sm-9">
                                         <input type="email" class="tpl-form-input" id="email"
-                                               name="email" autofocus placeholder="请输入邮箱"
-                                               value="{{ \Illuminate\Support\Facades\Auth::guard('web')->user()->email }}">
+                                               name="email"  placeholder="请输入邮箱"
+                                               value="{{ $user->email }}">
                                     </div>
                                 </div>
 
@@ -57,8 +57,19 @@
                                                 class="tpl-form-line-small-title">Password</span></label>
                                     <div class="am-u-sm-9">
                                         <input type="password" class="tpl-form-input" id="password"
-                                               name="password" autofocus placeholder="请输入密码"
-                                               value="{{ \Illuminate\Support\Facades\Auth::guard('web')->user()->password }}">
+                                               name="password"  placeholder="请输入密码"
+                                               value="{{ $user->password }}">
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label for="avatar" class="am-u-sm-3 am-form-label">头像 <small><span
+                                                    style="color: red;">*</span></small> <span
+                                                class="tpl-form-line-small-title">Avatar</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input" id="avatar"
+                                               name="avatar"  placeholder="将图片上传至图片管理，复制图片地址到这里即可"
+                                               value="{{ $user->avatar }}">
                                     </div>
                                 </div>
 
@@ -115,12 +126,15 @@
                 return;
             }
 
+            let avatar = $('#avatar').val();
+
             axios.put(
                 "{{ url('/admin/users')}}",
                 {
                     'name': name,
                     'email': email,
                     'password': password,
+                    'avatar': avatar,
                 }
             ).then(function (response) {
                 layer.msg('修改成功！', {
