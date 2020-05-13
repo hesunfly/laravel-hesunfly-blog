@@ -127,6 +127,14 @@
             }
 
             let avatar = $('#avatar').val();
+            if (avatar.length === 0) {
+                layer.msg('Avatar 为必填项！', {
+                        time: 2000 //2秒关闭（如果不配置，默认是3秒）
+                    }, function () {
+                    }
+                );
+                return;
+            }
 
             axios.put(
                 "{{ url('/admin/users')}}",

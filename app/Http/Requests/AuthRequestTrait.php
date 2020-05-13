@@ -14,7 +14,6 @@ Trait AuthRequestTrait
             'name' => [
                 'bail',
                 'required',
-                'email',
             ],
             'password' => [
                 'bail',

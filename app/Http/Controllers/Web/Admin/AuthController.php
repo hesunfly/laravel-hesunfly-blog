@@ -19,9 +19,16 @@ class AuthController extends Controller
     public function login(AuthRequest $request)
     {
         $authData = [
-            'email' => $request->input('name'),
             'password' => $request->input('password'),
         ];
+
+        $name = $request->input('name');
+        if (filter_var($name, FILTER_VALIDATE_EMAIL)) {
+            $authData['email'] = $name;
+        } else {
+            $authData['name'] = $name;
+        }
+
         if (! Auth::guard('web')->attempt($authData)) {
             return response('用户名或密码错误', 401);
         }

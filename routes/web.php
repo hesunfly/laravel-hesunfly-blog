@@ -102,3 +102,19 @@ Horizon::auth(function ($request) {
     }
     abort(404);
 });
+
+Route::get('/init', function () {
+    $user = \App\Models\User::first();
+
+    if (!empty($user)) {
+        return '已完成初始化！';
+    }
+
+    \App\Models\User::create([
+        'name' => 'admin',
+        'email' => '',
+        'password' => '123456',
+    ]);
+
+    return '初始化成功';
+});

@@ -37,8 +37,8 @@ cp .env.example .env
 ```
 APP_URL=http://hesunfly.test
 
-DB_HOST=localhost
-DB_DATABASE=hesunfly_blog
+DB_HOST=
+DB_DATABASE=
 DB_USERNAME=
 DB_PASSWORD=
 
@@ -59,13 +59,15 @@ php artisan key:generate
 
 ### 链接入口
 
-* 首页地址：http://hesunfly.test/
-* 管理后台：http://hesunfly.test/admin
+* 首页地址：https://blog.hesunfly.com/
+* 管理后台：https://blog.hesunfly.com/admin
 
+初始化管理账户:
+访问 APP_URL/init 初始化
 管理员账号密码如下:
 
 ```
-username: hesunfly@163.com
+username: admin
 password: 123456
 ```
 
