@@ -14,7 +14,7 @@ class SettingController extends Controller
         if (empty($setting)) {
             Setting::create(['id' => 1]);
         }
-        $setting = $setting->toArray();
+        $setting = Setting::first()->toArray();
 
         $setting_fmt = [];
         foreach ($setting as $k => $item) {
