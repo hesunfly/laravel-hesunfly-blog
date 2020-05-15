@@ -17,10 +17,21 @@ class UsersController extends Controller
     public function update(UserRequest $request)
     {
         $requestData = $request->only(['name', 'email', 'password', 'avatar']);
+        $temp = [];
+        foreach ($requestData as $k => $item) {
+            if (empty($item)) {
+                continue;
+            }
+            $temp[$k] = $item;
+        }
 
-        Auth::guard('web')->user()->update($requestData);
+        Auth::guard('web')->user()->update($temp);
 
         CacheService::setAvatar($requestData['avatar']);
+
+        if (array_key_exists('password', $temp)) {
+            return response('success', 201);
+        }
 
         return response('success', 200);
     }

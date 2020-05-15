@@ -34,7 +34,7 @@
                                                 class="tpl-form-line-small-title">Name</span></label>
                                     <div class="am-u-sm-9">
                                         <input type="text" class="tpl-form-input" id="name"
-                                               name="name"  placeholder="请输入用户名"
+                                               name="name" required  placeholder="请输入用户名"
                                                value="{{ $user->name }}">
                                     </div>
                                 </div>
@@ -46,25 +46,33 @@
                                                 class="tpl-form-line-small-title">Email</span></label>
                                     <div class="am-u-sm-9">
                                         <input type="email" class="tpl-form-input" id="email"
-                                               name="email"  placeholder="请输入邮箱"
+                                               name="email" required  placeholder="请输入邮箱"
                                                value="{{ $user->email }}">
                                     </div>
                                 </div>
 
                                 <div class="am-form-group">
-                                    <label for="password" class="am-u-sm-3 am-form-label">密码 <small><span
-                                                    style="color: red;">*</span></small> <span
+                                    <label for="password" class="am-u-sm-3 am-form-label">密码  <span
                                                 class="tpl-form-line-small-title">Password</span></label>
                                     <div class="am-u-sm-9">
                                         <input type="password" class="tpl-form-input" id="password"
                                                name="password"  placeholder="请输入密码"
-                                               value="{{ $user->password }}">
+                                               value="">
                                     </div>
                                 </div>
 
                                 <div class="am-form-group">
-                                    <label for="avatar" class="am-u-sm-3 am-form-label">头像 <small><span
-                                                    style="color: red;">*</span></small> <span
+                                    <label for="re_password" class="am-u-sm-3 am-form-label">再次输入密码 <span
+                                                class="tpl-form-line-small-title">Password</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="password" class="tpl-form-input" id="re_password"
+                                               name="re_password"   placeholder="请输入密码"
+                                               value="">
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label for="avatar" class="am-u-sm-3 am-form-label">头像 <span
                                                 class="tpl-form-line-small-title">Avatar</span></label>
                                     <div class="am-u-sm-9">
                                         <input type="text" class="tpl-form-input" id="avatar"
@@ -117,7 +125,8 @@
             }
 
             let password = $('#password').val();
-            if (name.length < 6) {
+            let pass_len = password.length;
+            if (pass_len !== 0 && pass_len < 6) {
                 layer.msg('Password 格式错误！', {
                         time: 2000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
@@ -126,15 +135,17 @@
                 return;
             }
 
-            let avatar = $('#avatar').val();
-            if (avatar.length === 0) {
-                layer.msg('Avatar 为必填项！', {
+            let re_password = $('#re_password').val();
+            if (pass_len !== 0 && re_password !== password) {
+                layer.msg('两次输入的密码不一致！', {
                         time: 2000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
                     }
                 );
                 return;
             }
+
+            let avatar = $('#avatar').val();
 
             axios.put(
                 "{{ url('/admin/users')}}",
@@ -148,14 +159,17 @@
                 layer.msg('修改成功！', {
                         time: 1000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
-                    axios.delete("{{ url('/admin/logout') }}").then(function (response) {
-                        layer.msg('请重新登录！', {
-                            }, function () {
-                                window.location = "{{ url('/admin/login') }}";
-                            }
-                        );
-                    });
+                        if (+response.status === 201) {
+                            axios.delete("{{ url('/admin/logout') }}").then(function (response) {
+                                layer.msg('请重新登录！', {
+                                    }, function () {
+                                        window.location = "{{ url('/admin/login') }}";
+                                    }
+                                );
+                            });
+                        }
                     }
+
                 );
             }).catch(function (error) {
                 layer.msg('error！', {

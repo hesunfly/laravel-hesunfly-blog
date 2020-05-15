@@ -10,7 +10,6 @@ class UserRequest extends Request
     {
         return [
             'name' => ['bail', 'required', 'string'],
-            'password' =>['bail', 'required', 'min:6', 'string'],
             'email' => ['bail', 'required', 'email'],
 //            ''
         ];
