@@ -40,7 +40,7 @@
             <div style="margin-left: auto;margin-right: auto;display: inline-block;">
                 <img src="{{ \App\Services\CacheService::getConfig('reward_code_img') }}" alt="赞赏码" title="微信扫码赞赏"
                      style="display: block;width: 170px;height: 170px;margin-bottom: 15px;">
-                <span style="">赞赏一下！</span>
+                <span style="">{{ \App\Services\CacheService::getConfig('reward_desc') }}</span>
             </div>
         </div>
     </div>

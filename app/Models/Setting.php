@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use App\Http\Controllers\Web\Admin\SettingController;
-
 class Setting extends \Illuminate\Database\Eloquent\Model
 {
 
@@ -36,6 +34,11 @@ class Setting extends \Illuminate\Database\Eloquent\Model
             'en_title' => 'Reward Code Img',
             'default' => '/assets/images/reward_code_img.png',
 
+        ],
+        'reward_desc' => [
+            'title' => '赞赏码描述语',
+            'en_title' => 'Reward Desc',
+            'default' => '赞赏一下👍',
         ],
         'email' => [
             'title' => '邮箱',
