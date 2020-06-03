@@ -12,7 +12,7 @@
     <link href="/assets/admin/css/github.min.css" rel="stylesheet">
     <link href="/assets/css/github-markdown-css.css" rel="stylesheet">
     <link href="/assets/admin/css/font-awesome.min.css" rel="stylesheet">
-    <script src="/assets/jquery.min.js"></script>
+    <script src="https://upyun.cdn.hesunfly.com/js/jquery.min.js"></script>
     <script src="/assets/axios.min.js"></script>
     <script src="/assets/layer/layer.js"></script>
 
