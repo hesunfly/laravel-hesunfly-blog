@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::group([
     'namespace' => 'Web',
-    'middleware' => 'ip',
+    'middleware' => ['ip', 'cors'],
 ], function () {
     Route::get('/', 'IndexController@index');
     Route::get('/search/{keyword?}', 'IndexController@index');
