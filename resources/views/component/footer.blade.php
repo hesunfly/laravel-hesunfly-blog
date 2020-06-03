@@ -4,7 +4,9 @@
         <div class="container mx-auto px-4 lg:max-w-screen">
             <div class="text-muted py-4 text-center">
                 <div style="margin-bottom: 50px;">
-                    <img src="/assets/images/ypy.png" style="width: 20%;" alt="">
+                    <a target="_blank" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">
+                        <img src="/assets/images/ypy.png" style="width: 20%;" alt="">
+                    </a>
                     <p style="font-size: 0.7rem;">又拍云提供 cdn 加速服务!</p>
                 </div>
 
