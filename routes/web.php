@@ -118,3 +118,7 @@ Route::get('/init', function () {
 
     return '初始化成功';
 });
+
+Route::get('/phpinfo', function (){
+    phpinfo();
+});
