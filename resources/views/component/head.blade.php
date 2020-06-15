@@ -14,7 +14,7 @@
     <link href="/assets/admin/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://upyun.cdn.hesunfly.com/assets/js/jquery.min.js"></script>
     <script src="/assets/axios.min.js"></script>
-    <script src="/assets/layer/layer.js"></script>
+    <script src="https://upyun.cdn.hesunfly.com/assets/layer/layer.js"></script>
 
 </head>
 <style>
