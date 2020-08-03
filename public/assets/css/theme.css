@@ -287,7 +287,7 @@ a:hover {
 }
 
 .post-body p {
-    margin-bottom: 2rem
+    margin-bottom: 1rem
 }
 
 .post-body pre {
@@ -314,7 +314,7 @@ a:hover {
 }
 
 .post-body h2 {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     font-size: 1.875rem
 }
 
@@ -323,7 +323,7 @@ a:hover {
 }
 
 .post-body h3, .post-body ol, .post-body ul {
-    margin-bottom: 2rem
+    margin-bottom: 1rem
 }
 
 .post-body ol li, .post-body ul li {
@@ -331,7 +331,7 @@ a:hover {
 }
 
 .post-body .embedded_image {
-    margin-bottom: 2rem
+    margin-bottom: 1rem
 }
 
 .post-body .embedded_image[data-layout=wide] img {
@@ -358,12 +358,12 @@ a:hover {
 }
 
 .post-body .inline_html {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     width: 100%
 }
 
 .post-body blockquote {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     padding-left: 1.25rem;
     font-style: italic;
     border-left: 3px solid rgba(0, 0, 0, .84)
