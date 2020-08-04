@@ -58,11 +58,11 @@
                                             <td>{{ $item->slug }}</td>
                                             <td>
                                                 @if ($item->status == 1)
-                                                    <button type="button" class="am-btn am-round am-btn-success">
+                                                    <button type="button" class="am-btn am-round am-btn-success is_publish">
                                                         已发布
                                                     </button>
                                                 @else
-                                                    <button type="button" class="am-btn am-round am-btn-warning">
+                                                    <button type="button" class="am-btn am-round am-btn-warning is_publish">
                                                         未发布
                                                     </button>
                                                 @endif
@@ -126,6 +126,7 @@
 
     $(function () {
 
+        $('.is_publish').attr('disabled', true);
 
     });
 </script>
