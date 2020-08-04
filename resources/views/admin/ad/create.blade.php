@@ -1,4 +1,4 @@
-@component('admin.component.head', ['title' => '页面添加'])
+@component('admin.component.head', ['title' => '推广添加'])
 @endcomponent
 <link rel="stylesheet" href="/assets/admin/css/simplemde.min.css">
 <body data-type="widgets">
@@ -23,28 +23,28 @@
                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
                     <div class="widget am-cf">
                         <div class="widget-head am-cf">
-                            <div class="widget-title am-fl">创建页面</div>
+                            <div class="widget-title am-fl">创建推广</div>
                         </div>
                         <div class="widget-body am-fr">
 
                             <form class="am-form tpl-form-line-form">
                                 <div class="am-form-group">
-                                    <label for="title" class="am-u-sm-3 am-form-label">页面标题 <span
+                                    <label for="desc" class="am-u-sm-3 am-form-label">描述 <span
                                                 style="color: red;">*</span> <span
-                                                class="tpl-form-line-small-title">Title</span></label>
+                                                class="tpl-form-line-small-title">Description</span></label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" class="tpl-form-input" name="title" id="title" autofocus
-                                               placeholder="请输入页面标题">
+                                        <input type="text" class="tpl-form-input" name="desc" id="desc" autofocus
+                                               placeholder="请输入推广描述">
                                     </div>
                                 </div>
 
                                 <div class="am-form-group">
-                                    <label for="slug" class="am-u-sm-3 am-form-label">页面路由 <span
+                                    <label for="url" class="am-u-sm-3 am-form-label">链接地址 <span
                                                 style="color: red;">*</span> <span
-                                                class="tpl-form-line-small-title">Slug</span></label>
+                                                class="tpl-form-line-small-title">Url</span></label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" class="tpl-form-input" id="slug" name="slug"
-                                               placeholder="请输入页面路由">
+                                        <input type="text" class="tpl-form-input" id="url" name="url"
+                                               placeholder="请输入链接地址">
                                     </div>
                                 </div>
 
@@ -59,23 +59,24 @@
                                 </div>
 
                                 <div class="am-form-group">
-                                    <label for="content" class="am-u-sm-3 am-form-label">页面内容 <span style="color: red;">*</span>
+                                    <label for="img_path" style="margin-top: 40px;" class="am-u-sm-3 am-form-label">图片地址 <span style="color: red;">*</span>
                                         <span
-                                                class="tpl-form-line-small-title">Content</span></label>
+                                                class="tpl-form-line-small-title">Image Path</span></label>
                                     <div class="am-u-sm-9">
-                                            <textarea class="" id="content" name="content" data-save-id="page.create"
-                                            ></textarea>
+                                        <input type="text" style="width: 79%;display: inline-block;margin-top: 40px;" class="tpl-form-input" id="img_path" name="img_path"
+                                               placeholder="可将图片由图片管理上传，复制地址粘贴即可">
+                                            <img src="" alt="" id="img_path_src" style="width: 20%;height: 70px;" />
                                     </div>
                                 </div>
 
                                 <div class="am-form-group">
-                                    <label for="status" class="am-u-sm-3 am-form-label">发布 <span
+                                    <label for="status" class="am-u-sm-3 am-form-label">状态 <span
                                                 class="tpl-form-line-small-title">Status</span></label>
                                     <div class="am-u-sm-9">
                                         <input type="radio" name="status" id="status-yes" value="1"
-                                               class="am-radio-inline"> 发布
+                                               class="am-radio-inline"> 显示
                                         <input type="radio" name="status" id="status-no" value="-1" checked
-                                               class="am-radio-inline"> 草稿
+                                               class="am-radio-inline"> 隐藏
                                     </div>
                                 </div>
 
@@ -105,46 +106,22 @@
 <link rel="stylesheet" href="/assets/admin/css/font-awesome.min.css">
 <script>
     $(function () {
-        let target = $('#content');
-
-        let simplemde = new SimpleMDE({
-            autoDownloadFontAwesome: undefined,
-            element: document.getElementById('content'),
-            insertTexts: {
-                image: ["![](", ")"],
-                link: ["[", "]()"],
-            },
-            renderingConfig: {
-                codeSyntaxHighlighting: true,
-            },
-            spellChecker: true,
-            toolbar: ["bold", "italic", "strikethrough", "heading", "|", "quote", 'code', 'ordered-list',
-                'unordered-list', 'horizontal-rule', 'link',
-                'image',
-                'table',
-                '|', 'preview', 'side-by-side', 'fullscreen'],
-        });
-        inlineAttachment.editors.codemirror4.attach(simplemde.codemirror, {
-            uploadUrl: "{{ url('/admin/images/upload') }}",
-            uploadFieldName: 'image',
-            extraParams: {},
-        });
-
-        $('.editor-toolbar').click(function () {
-            if (simplemde.isFullscreenActive()) {
-                $('.left-sidebar').hide();
-                $('header').hide();
-
+        $('#img_path').bind("input propertychange",function(event){
+            let src = $(this).val();
+            let src_el = $('#img_path_src');
+            if (src.length > 0) {
+                src_el.attr('src', src);
+                src_el.attr('alt', '图片预览');
             } else {
-                $('.left-sidebar').show();
-                $('header').show();
+                src_el.attr('src', '');
+                src_el.attr('alt', '');
             }
         });
 
         $('#submit').click(function () {
-            let title = $('#title').val();
-            if (title.length === 0) {
-                layer.msg('Title 为必填项！', {
+            let desc = $('#desc').val();
+            if (desc.length === 0) {
+                layer.msg('Description 为必填项！', {
                         time: 2000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
                     }
@@ -152,9 +129,9 @@
                 return;
             }
 
-            let slug = $('#slug').val();
-            if (slug.length === 0) {
-                layer.msg('Slug 为必填项！', {
+            let url = $('#url').val();
+            if (url.length === 0) {
+                layer.msg('Url 为必填项！', {
                         time: 2000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
                     }
@@ -171,9 +148,9 @@
                 return;
             }
 
-            let content = simplemde.value();
-            if (content.length === 0) {
-                layer.msg('Content 为必填项！', {
+            let img_path = $('#img_path').val();
+            if (img_path.length === 0) {
+                layer.msg('Image Path 为必填项！', {
                         time: 2000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
                     }
@@ -181,25 +158,18 @@
                 return;
             }
 
-            let html_content = simplemde.markdown(content);
-
             let status = $("input[name='status']:checked").val();
 
             axios.post(
-                "{{ url('/admin/pages/store') }}",
+                "{{ url('/admin/ads/store') }}",
                 {
-                    'title': title,
-                    'slug': slug,
-                    'sort': sort,
-                    'content': content,
-                    'html_content': html_content,
-                    'status': status
+                    desc,url,sort,img_path,status,
                 }
             ).then(function (response) {
                 layer.msg('创建成功！', {
                         time: 1000 //2秒关闭（如果不配置，默认是3秒）
                     }, function () {
-                        window.location = "{{ url('/admin/pages') }}";
+                        window.location = "{{ url('/admin/ads') }}";
                     }
                 );
             }).catch(function (error) {

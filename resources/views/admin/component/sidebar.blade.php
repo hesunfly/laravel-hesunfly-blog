@@ -47,7 +47,11 @@
                 <i class="am-icon-cog sidebar-nav-link-logo"></i> 配置
             </a>
         </li>
-
+        <li class="sidebar-nav-link">
+            <a href="{{ url('/admin/ads') }}" @if (mb_strstr($uri, '/admin/ads')) class="active" @endif>
+                <i class="am-icon-bullhorn sidebar-nav-link-logo"></i> 推广
+            </a>
+        </li>
 
     </ul>
 </div>

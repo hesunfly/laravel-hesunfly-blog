@@ -45,9 +45,9 @@ Route::group([
             Route::get('/', 'ArticlesController@index');
             Route::get('/write', 'ArticlesController@create');
             Route::post('/store', 'ArticlesController@store');
-            Route::get('/edit/{id}', 'ArticlesController@edit');
-            Route::put('/save/{id}', 'ArticlesController@save');
-            Route::delete('/destroy/{id}', 'ArticlesController@destroy');
+            Route::get('/edit/{id}', 'ArticlesController@edit')->where('id', '[0-9]+');
+            Route::put('/save/{id}', 'ArticlesController@save')->where('id', '[0-9]+');
+            Route::delete('/destroy/{id}', 'ArticlesController@destroy')->where('id', '[0-9]+');
             Route::get('/search/{category?}/{keyword?}', 'ArticlesController@index');
         });
 
@@ -57,9 +57,9 @@ Route::group([
             Route::get('/', 'CategoriesController@index');
             Route::get('/create', 'CategoriesController@create');
             Route::post('/store', 'CategoriesController@store');
-            Route::get('/edit/{id}', 'CategoriesController@edit');
-            Route::put('/save/{id}', 'CategoriesController@save');
-            Route::delete('/destroy/{id}', 'CategoriesController@destroy');
+            Route::get('/edit/{id}', 'CategoriesController@edit')->where('id', '[0-9]+');
+            Route::put('/save/{id}', 'CategoriesController@save')->where('id', '[0-9]+');
+            Route::delete('/destroy/{id}', 'CategoriesController@destroy')->where('id', '[0-9]+');
         });
 
         Route::group([
@@ -68,9 +68,9 @@ Route::group([
             Route::get('/', 'PagesController@index');
             Route::get('/create', 'PagesController@create');
             Route::post('/store', 'PagesController@store');
-            Route::get('/edit/{id}', 'PagesController@edit');
-            Route::put('/save/{id}', 'PagesController@save');
-            Route::delete('/destroy/{id}', 'PagesController@destroy');
+            Route::get('/edit/{id}', 'PagesController@edit')->where('id', '[0-9]+');
+            Route::put('/save/{id}', 'PagesController@save')->where('id', '[0-9]+');
+            Route::delete('/destroy/{id}', 'PagesController@destroy')->where('id', '[0-9]+');
         });
 
         Route::group([
@@ -78,7 +78,7 @@ Route::group([
         ], function () {
             Route::get('/', 'ImagesController@index');
             Route::post('/upload', 'ImagesController@upload');
-            Route::delete('/destroy/{id}', 'ImagesController@destroy');
+            Route::delete('/destroy/{id}', 'ImagesController@destroy')->where('id', '[0-9]+');
         });
 
         Route::group([
@@ -86,6 +86,17 @@ Route::group([
         ], function () {
             Route::get('/', 'SettingController@index');
             Route::post('/save', 'SettingController@save');
+        });
+
+        Route::group([
+            'prefix' => 'ads',
+        ], function () {
+            Route::get('/', 'AdController@index');
+            Route::get('/create', 'AdController@create');
+            Route::post('/store', 'AdController@store');
+            Route::get('/edit/{id}', 'AdController@edit')->where('id', '[0-9]+');
+            Route::put('/save/{id}', 'AdController@save')->where('id', '[0-9]+');
+            Route::delete('/destroy/{id}', 'AdController@destroy')->where('id', '[0-9]+');
         });
 
         Route::get('ips', 'IndexController@ips');

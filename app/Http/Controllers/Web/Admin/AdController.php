@@ -2,74 +2,72 @@
 
 namespace App\Http\Controllers\Web\Admin;
 
-use App\Http\Requests\Web\PageRequest;
-use App\Models\Page;
+use App\Http\Requests\Web\AdRequest;
+use App\Models\Ad;
 use App\Services\CacheService;
 
-class PagesController extends Controller
+class AdController extends Controller
 {
     public function index()
     {
-        $pages = Page::orderByRaw('sort')->get();
-        return view('admin.page.index')->with([
-            'pages' => $pages,
+        $ads = Ad::orderByRaw('sort')->get();
+        return view('admin.ad.index')->with([
+            'ads' => $ads,
         ]);
     }
 
     public function create()
     {
-        return view('admin.page.create');
+        return view('admin.ad.create');
     }
 
-    public function store(PageRequest $request)
+    public function store(AdRequest $request)
     {
         $requestData = $request->only([
-            'title',
-            'content',
-            'slug',
+            'desc',
+            'url',
+            'img_path',
             'sort',
             'status',
-            'html_content'
         ]);
-        Page::create($requestData);
+        Ad::create($requestData);
 
-        CacheService::deletePagesCache();
+        CacheService::deleteAds();
 
         return response('success', 201);
     }
 
     public function edit($id)
     {
-        $page = $this->findOrFail($id, Page::class);
-        return view('admin.page.edit')->with([
-            'page' => $page,
+        $ad = $this->findOrFail($id, Ad::class);
+        return view('admin.ad.edit')->with([
+            'ad' => $ad,
             'id' => $id
         ]);
     }
 
-    public function save($id, PageRequest $request)
+    public function save($id, AdRequest $request)
     {
-        $page = $this->findOrFail($id, Page::class);
+        $ad = $this->findOrFail($id, Ad::class);
 
         $requestData = $request->only([
-            'title',
-            'content',
-            'slug',
+            'desc',
+            'url',
+            'img_path',
             'sort',
             'status',
-            'html_content'
         ]);
-        $page->update($requestData);
-        CacheService::deletePagesCache();
+        $ad->update($requestData);
+        CacheService::deleteAds();
 
         return response('success', 200);
     }
 
     public function destroy($id)
     {
-        $page = $this->findOrFail($id, Page::class);
-        $page->delete();
-        CacheService::deletePagesCache();
+        $ad = $this->findOrFail($id, Ad::class);
+        $ad->delete();
+        CacheService::deleteAds();
 
         return response('success', 204);
     }

@@ -4,6 +4,7 @@
 namespace App\Services;
 
 
+use App\Models\Ad;
 use App\Models\Page;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Cache;
@@ -68,5 +69,23 @@ class CacheService
         }
 
         return $config;
+    }
+
+    public static function getAds()
+    {
+        $ads = Cache::get('index_ads');
+
+        if (empty($ads)) {
+            $ads = Ad::whereRaw('status = 1')->select(['desc', 'url', 'img_path'])->orderBy('sort')->get();
+        }
+
+        Cache::forever('index_ads', $ads);
+
+        return $ads;
+    }
+
+    public static function deleteAds()
+    {
+        Cache::forget('index_ads');
     }
 }

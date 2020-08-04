@@ -2,9 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Rules\UserIsRegister;
-use App\Rules\UserStatus;
-
 Trait AuthRequestTrait
 {
     public function rules()
