@@ -34,7 +34,7 @@ class IndexController extends Controller
         $article = Article::with('category')->where(['slug' => $slug])->first();
 
         if (empty($article)) {
-            return view('404');
+            return $this->response->noContent();
         }
 
         //更新阅读次数
@@ -42,7 +42,7 @@ class IndexController extends Controller
             $article->increment('view_count');
         }
 
-        return view('article')->with(['article' => $article]);
+        return $this->response->array($article);
     }
 
     public function page($slug)
