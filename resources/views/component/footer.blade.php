@@ -5,9 +5,13 @@
             <div class="text-muted py-4 text-center">
                 <div style="margin-bottom: 25px;">
                     <a target="_blank" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">
-                        <img src="/assets/images/ypy.png" style="width: 20%;" alt="">
+                        <img src="/assets/images/ypy.png" style="width: 150px;height: 70px;" alt="">
                     </a>
-                    <p style="font-size: 0.7rem;">又拍云提供 cdn 加速服务!</p>
+                    <p style="font-size: 0.7rem;margin-bottom: 0.5rem;">又拍云提供 cdn 加速服务!</p>
+                    <a target="_blank" href="https://www.aliyun.com/daily-act/ecs/activity_selection?userCode=by3ltofb">
+                        <img src="/assets/images/aly.jpg" style="width: 150px;height: 70px;" alt="">
+                    </a>
+                    <p style="font-size: 0.7rem;">云服务器爆款特惠!</p>
                 </div>
 
                 <div style="font-size: 0.8rem;">
