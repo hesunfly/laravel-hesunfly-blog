@@ -3,7 +3,7 @@
     <div class="border-t border-lighter mt-20" style="margin-top: 0px;">
         <div class="container mx-auto px-4 lg:max-w-screen">
             <div class="text-muted py-4 text-center">
-                <div style="margin-bottom: 50px;">
+                <div style="margin-bottom: 25px;">
                     <a target="_blank" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">
                         <img src="/assets/images/ypy.png" style="width: 20%;" alt="">
                     </a>
