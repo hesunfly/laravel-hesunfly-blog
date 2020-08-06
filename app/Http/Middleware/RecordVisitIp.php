@@ -19,6 +19,7 @@ class RecordVisitIp
             [
                 'ip' => $ip,
                 'address' => $address->country.' - '.$address->state_name.' - '.$address->city,
+                'uri' => $request->path(),
             ]
         );
 

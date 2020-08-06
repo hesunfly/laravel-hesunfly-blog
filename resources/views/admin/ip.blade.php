@@ -31,6 +31,7 @@
                                     <tr>
                                         <th>ip</th>
                                         <th>地址</th>
+                                        <th>uri</th>
                                         <th>时间</th>
                                     </tr>
                                     </thead>
@@ -39,6 +40,7 @@
                                         <tr class="gradeX">
                                             <td>{{ $item->ip }}</td>
                                             <td>{{ $item->address }}</td>
+                                            <td>{{ $item->uri }}</td>
                                             <td>{{ $item->created_at->toDatetimeString() }}</td>
                                         </tr>
                                     @endforeach
