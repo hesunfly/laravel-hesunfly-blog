@@ -56,7 +56,8 @@ class ArticlesController extends Controller
             'content',
             'html_content',
         ]);
-        $requestData['slug'] = empty($request->input('slug')) ? uniqid('article_') : $request->input('slug');
+        $slug = $request->input('slug');
+        $requestData['slug'] = empty($slug) ? uniqid('article_') : $slug;
         DB::beginTransaction();
         $article = Article::create($requestData);
 
