@@ -19,6 +19,8 @@ class SendArticleUpdateEmail implements ShouldQueue
 
     public function handle(ArticleUpdate $event)
     {
-        Mail::to(Subscribe::where(['status' => 1])->get())->send(new ArticleUpdateEmail($event->article));
+        $subscribe_user = Subscribe::where(['status' => 1])->get();
+        Mail::to($subscribe_user)->send(new ArticleUpdateEmail($event->article));
+        \Illuminate\Support\Facades\DB::table('subscribes')->where(['status' => 1])->increment('times');
     }
 }
