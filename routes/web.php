@@ -101,7 +101,13 @@ Route::group([
 
         Route::get('ips', 'IndexController@ips');
 
-        Route::get('subscribes', 'SubscribesController@index');
+        Route::group([
+            'prefix' => 'subscribes',
+        ], function () {
+            Route::get('/', 'SubscribesController@index');
+            Route::put('/setStatus/{id}', 'SubscribesController@setStatus')->where('id', '[0-9]+');
+            Route::delete('/destroy/{id}', 'SubscribesController@destroy')->where('id', '[0-9]+');
+        });
 
     });
 
