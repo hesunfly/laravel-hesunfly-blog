@@ -58,13 +58,9 @@
                                             <td>{{ $item->slug }}</td>
                                             <td>
                                                 @if ($item->status == 1)
-                                                    <button type="button" class="am-btn am-round am-btn-success is_publish">
-                                                        已发布
-                                                    </button>
+                                                    <span style="color: green;font-weight: bold;">显示</span>
                                                 @else
-                                                    <button type="button" class="am-btn am-round am-btn-warning is_publish">
-                                                        未发布
-                                                    </button>
+                                                    <span style="color: #8c8c8c;font-weight: bold;">隐藏</span>
                                                 @endif
                                             </td>
                                             <td>{{ $item->created_at->toDateString() }}</td>
@@ -123,12 +119,6 @@
                 });
         });
     }
-
-    $(function () {
-
-        $('.is_publish').attr('disabled', true);
-
-    });
 </script>
 </body>
 </html>

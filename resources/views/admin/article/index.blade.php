@@ -43,7 +43,8 @@
                                         <option value=" " @if ($category_id === ' ') selected @endif>所有类别</option>
                                         @foreach($categories as $item)
 
-                                            <option value=" " @if ($category_id === $item->id) selected @endif>{{ $item->category_title }}</option>
+                                            <option value=" "
+                                                    @if ($category_id === $item->id) selected @endif>{{ $item->category_title }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -76,13 +77,9 @@
                                             <td>{{ $item->category->category_title }}</td>
                                             <td>
                                                 @if ($item->status == 1)
-                                                    <button type="button" class="am-btn am-round am-btn-success is_publish">
-                                                        已发布
-                                                    </button>
+                                                    <span style="color: green;font-weight: bold;">已发布</span>
                                                 @else
-                                                    <button type="button" class="am-btn am-round am-btn-warning is_publish">
-                                                        未发布
-                                                    </button>
+                                                    <span style="color: #8c8c8c;font-weight: bold;">未发布</span>
                                                 @endif
                                             </td>
                                             <td>{{ $item->created_at }}</td>
@@ -135,8 +132,6 @@
 
 <script>
     $(function () {
-        $('.is_publish').attr('disabled', true);
-
         $('#search').click(function () {
             search();
         });
@@ -145,13 +140,14 @@
             search();
         });
     });
+
     function search() {
         let category = $('.am-selected-status').text();
         let keyword = $('#keyword').val();
         let url = "{{ url('admin/articles/search') }}" + '/' + category + '/' + keyword;
         window.location.href = url;
     }
-    
+
     function destroy(id) {
         if (!id) {
             return false;
