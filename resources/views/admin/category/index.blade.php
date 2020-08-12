@@ -56,6 +56,9 @@
                                             <td>{{ $item->created_at->toDateString()  }}</td>
                                             <td>
                                                 <div class="tpl-table-black-operation">
+                                                    <a href="{{ url('admin/articles/search') . '/' . $item->category_title }}" style="border: green 1px solid;color: green;">
+                                                        <i class="am-icon-eye"></i> 查看文章
+                                                    </a>
                                                     <a href="{{ url('/admin/categories/edit') . '/' . $item->id }}">
                                                         <i class="am-icon-pencil"></i> 编辑
                                                     </a>

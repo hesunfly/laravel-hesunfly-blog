@@ -30,7 +30,7 @@
         <div class="row-content am-cf">
             <div class="row  am-cf">
                 <div class="am-u-sm-12 am-u-md-6 am-u-lg-4">
-                    <div class="widget widget-primary am-cf">
+                    <div class="widget widget-primary am-cf" onclick="window.location.href='{{ url('/admin/articles/') }}'">
                         <div class="widget-statistic-header" style="font-size: 27px;">
                             文章数量
                         </div>
@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div class="am-u-sm-12 am-u-md-6 am-u-lg-4">
-                    <div class="widget widget-primary am-cf">
+                    <div class="widget widget-primary am-cf" onclick="window.location.href='{{ url('admin/images/') }}'">
                         <div class="widget-statistic-header" style="font-size: 27px;">
                             图片数量
                         </div>
@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <div class="am-u-sm-12 am-u-md-6 am-u-lg-4">
-                    <div class="widget widget-primary am-cf">
+                    <div class="widget widget-primary am-cf" onclick="window.location.href='{{ url('admin/ips/') }}'">
                         <div class="widget-statistic-header" style="font-size: 27px;">
                             浏览次数
                         </div>
