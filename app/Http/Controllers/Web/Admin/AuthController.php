@@ -18,10 +18,12 @@ class AuthController extends Controller
 
     public function login(AuthRequest $request)
     {
-        $authData = [
-            'password' => $request->input('password'),
-        ];
+        $password = $request->input('password');
 
+        $password = base64decode($password);
+        $authData = [
+            'password' => $password,
+        ];
         $name = $request->input('name');
         if (filter_var($name, FILTER_VALIDATE_EMAIL)) {
             $authData['email'] = $name;

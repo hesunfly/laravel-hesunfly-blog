@@ -37,7 +37,7 @@
 
 @component('admin.component.foot')
 @endcomponent
-
+<script src="/assets/base64-min.js"></script>
 <script>
     $(function () {
         $('#submit').click(function () {
@@ -61,11 +61,13 @@
                 return;
             }
 
+            password = encryptObj.base64encode(password);
+
             axios.post(
                 "{{ url('/admin/login') }}",
                 {
                     'name': name,
-                    'password': password
+                    'password': password,
                 }
             ).then(function (response) {
                 layer.msg('登录成功！', {

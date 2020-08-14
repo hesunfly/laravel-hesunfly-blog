@@ -114,7 +114,7 @@ Route::group([
 });
 
 Horizon::auth(function ($request) {
-    if (isset(Auth::guard('web')->user()->id) &&  Auth::guard('web')->user()->id== 1) {
+    if (Auth::check() && Auth::id() == 1) {
         return true;
     }
     abort(404);
