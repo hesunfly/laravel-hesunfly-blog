@@ -103,7 +103,7 @@ class ArticlesController extends Controller
         DB::beginTransaction();
         $article->update($requestData);
 
-        switch ((int) $request->status) {
+        switch ((int)$request->status) {
             case 1:
                 if ($article->status == -1) {
                     $article->update(['status' => 1, 'publish_at' => Carbon::now()->toDateTimeString()]);
@@ -125,9 +125,15 @@ class ArticlesController extends Controller
 
     public function destroy($id)
     {
-        $article = $this->findOrFail($id, Article::class);
+        try {
+            $id = hashIdDecode($id);
+            $article = Article::findOrFail($id);
+        } catch (\Exception $exception) {
+            return response('error', 404);
+        }
+
         DB::beginTransaction();
-        $article->delete();
+        DB::table('articles')->where(['id' => $id])->delete();
         Category::find($article->category_id)->decrement('articles_count');
         DB::commit();
 

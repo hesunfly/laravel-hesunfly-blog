@@ -45,9 +45,9 @@ Route::group([
             Route::get('/', 'ArticlesController@index');
             Route::get('/write', 'ArticlesController@create');
             Route::post('/store', 'ArticlesController@store');
-            Route::get('/edit/{id}', 'ArticlesController@edit')->where('id', '[0-9]+');
-            Route::put('/save/{id}', 'ArticlesController@save')->where('id', '[0-9]+');
-            Route::delete('/destroy/{id}', 'ArticlesController@destroy')->where('id', '[0-9]+');
+            Route::get('/edit/{id}', 'ArticlesController@edit');
+            Route::put('/save/{id}', 'ArticlesController@save');
+            Route::delete('/destroy/{id}', 'ArticlesController@destroy');
             Route::get('/search/{category?}/{keyword?}', 'ArticlesController@index');
         });
 
