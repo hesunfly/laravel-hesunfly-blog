@@ -25,7 +25,7 @@ function hashIdEncode($id, $connection = 'main')
  */
 function hashIdDecode($str, $connection = 'main')
 {
-    return \Vinkla\Hashids\Facades\Hashids::connection($connection)->decode($str);
+    return \Vinkla\Hashids\Facades\Hashids::connection($connection)->decode($str)[0];
 }
 
 function base64encode($str)

@@ -92,7 +92,7 @@
                                                     <a href="{{ url('/admin/articles/edit') . '/' . $item->id }}">
                                                         <i class="am-icon-pencil"></i> 编辑
                                                     </a>
-                                                    <a href="javascript:;" onclick="destroy({{ $item->id }})"
+                                                    <a href="javascript:;" onclick="destroy('{{ $item->id }}')"
                                                        class="tpl-table-black-operation-del">
                                                         <i class="am-icon-trash"></i> 删除
                                                     </a>
