@@ -109,15 +109,19 @@ Route::group([
             Route::delete('/destroy/{id}', 'SubscribesController@destroy')->where('id', '[0-9]+');
         });
 
+        Route::get('/phpinfo', function (){
+            phpinfo();
+        });
+
+        Horizon::auth(function ($request) {
+            if (Auth::check() && Auth::id() == 1) {
+                return true;
+            }
+            abort(404);
+        });
+
     });
 
-});
-
-Horizon::auth(function ($request) {
-    if (Auth::check() && Auth::id() == 1) {
-        return true;
-    }
-    abort(404);
 });
 
 Route::get('/init', function () {
@@ -136,6 +140,4 @@ Route::get('/init', function () {
     return '初始化成功';
 });
 
-Route::get('/phpinfo', function (){
-    phpinfo();
-});
+
