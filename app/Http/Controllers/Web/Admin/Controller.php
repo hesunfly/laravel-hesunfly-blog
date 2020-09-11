@@ -10,7 +10,6 @@ class Controller extends BaseController
     protected function findOrFail($id, $class)
     {
         try {
-            $id = hashIdDecode($id);
             return $class::findOrFail($id);
         } catch (\Exception $exception) {
             abort(404);

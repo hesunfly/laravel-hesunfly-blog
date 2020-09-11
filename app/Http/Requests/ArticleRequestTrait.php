@@ -24,12 +24,11 @@ trait ArticleRequestTrait
                 ];
 
             case 'PUT':
-                $id = hashIdDecode($this->id);
                 return [
-                    'title' => ['bail', 'required', 'string', Rule::unique('articles')->ignore($id)],
+                    'title' => ['bail', 'required', 'string', Rule::unique('articles')->ignore($this->id)],
                     'category_id' => ['bail', 'required', new CheckCategory()],
                     'description' => ['bail', 'required', 'string'],
-                    'slug' => [Rule::unique('articles')->ignore($id)],
+                    'slug' => [Rule::unique('articles')->ignore($this->id)],
                     'status' => ['bail', 'required', Rule::in([-1, 1])],
                     'content' => ['bail', 'required', 'string'],
                     'html_content' => ['bail', 'required', 'string'],

@@ -28,9 +28,4 @@ class Article extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function getIdAttribute($value)
-    {
-        return hashIdEncode($value);
-    }
-
 }
