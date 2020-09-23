@@ -92,6 +92,7 @@ class ArticlesController extends Controller
     public function save($id, ArticleRequest $request)
     {
         $article = $this->findOrFail($id, Article::class);
+        $old_article_category = $article->category_id;
         $requestData = $request->only([
             'title',
             'category_id',
@@ -118,6 +119,12 @@ class ArticlesController extends Controller
                 $article->update(['status' => -1]);
                 break;
         }
+        $category_id = $request->input('category_id');
+        if ($old_article_category != $category_id) {
+            Category::find($category_id)->increment('articles_count');
+            Category::find($old_article_category)->decrement('articles_count');
+        }
+
         DB::commit();
 
         return response('success', 200);
