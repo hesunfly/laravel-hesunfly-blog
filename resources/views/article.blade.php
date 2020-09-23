@@ -46,5 +46,16 @@
     </div>
 </div>
 
+
+<script>
+    //将文章的标题显示在url地址中
+    $(function () {
+        let current_url = window.location.href;
+        let article_title = '{{ str_replace(' ', '', $article->title) }}';
+        let url = current_url + '?title=' + article_title;
+        window.history.pushState(null, null, url)
+    });
+</script>
+
 @component('component.footer')
 @endcomponent
