@@ -2,7 +2,6 @@
 ## 项目概述
 Laravel-hesunfly-blog 是一个简洁的博客应用，使用 Laravel5.5 编写而成，具有博客的基本功能。
 
-
 ## 运行环境要求
 
 - Nginx 1.8+
