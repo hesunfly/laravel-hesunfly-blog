@@ -33,18 +33,23 @@
         @if ($articles->currentPage() != 1)
             <a href="{{ $articles->previousPageUrl() }}" rel="next"
                class="block no-underline text-light hover:text-black px-5">上一页</a>
+            <a href="{{ $articles->previousPageUrl() }}" rel="next"
+               class="block no-underline text-light hover:text-black px-5">{{ $articles->currentPage() - 1 }}</a>
         @else
             <a href="javascript:;" rel="next"
                class="block no-underline text-light hover:text-black px-5"></a>
         @endif
-        <span class="px-5">{{ $articles->currentPage() }}</span>
+            <span class="px-5">{{ $articles->currentPage() }}</span>
         @if ($articles->lastPage() != $articles->currentPage())
+                <a href="{{ $articles->nextPageUrl() }}" rel="next"
+                   class="block no-underline text-light hover:text-black px-5">{{ $articles->currentPage() + 1 }}</a>
             <a href="{{ $articles->nextPageUrl() }}" rel="next"
                class="block no-underline text-light hover:text-black px-5">下一页</a>
         @else
             <a href="javascript:;" rel="next"
                class="block no-underline text-light hover:text-black px-5"></a>
         @endif
+            <span class="px-5">共 {{ $articles->total() }} 篇文章</span>
     </div>
     @else
         <div style="font-size:2.5rem;width: 50%;text-align:center;position: absolute;top: 50%;margin-top: -50px;height: 100px;">
