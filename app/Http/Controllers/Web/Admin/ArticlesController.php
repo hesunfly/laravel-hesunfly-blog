@@ -133,7 +133,6 @@ class ArticlesController extends Controller
     public function destroy($id)
     {
         try {
-            $id = hashIdDecode($id);
             $article = Article::findOrFail($id);
         } catch (\Exception $exception) {
             return response('error', 404);
